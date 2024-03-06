@@ -1,11 +1,11 @@
 import React from "react";
-import { Brand } from ".";
+import { Brand, Carrito } from ".";
 
 export function Header() {
   return (
     <header>
       <Brand />
-      <h1>Header</h1>
+      <Carrito/>
     </header>
   );
 }

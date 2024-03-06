@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Header } from "./ui";
+import { Header, NavBar } from "./ui";
 import Footer from "./ui/Footer";
 
 export const metadata = {
@@ -12,6 +12,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="container m-auto bg-neutral-100">
         <Header/>
+        <NavBar/>
         {children}
         <Footer/>
       </body>
