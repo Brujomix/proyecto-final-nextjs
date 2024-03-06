@@ -1,11 +1,12 @@
 import React from "react";
-import { Brand, Carrito } from ".";
+import { Brand } from ".";
+import { User_Carrito } from "../Components/User_Carrito";
 
 export function Header() {
   return (
     <header>
       <Brand />
-      <Carrito/>
+      <User_Carrito/>
     </header>
   );
 }

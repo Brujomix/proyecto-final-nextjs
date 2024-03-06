@@ -1,0 +1,22 @@
+import React, { Suspense } from "react";
+import { getProductosbyCategoria } from "@/app/Api/ProductosApi/route";
+import { CardProducto } from "@/app/Components";
+import { CardProductoSkeleton } from "@/app/Components/Skeletons";
+
+async function filterProductos({ params }) {
+  const listaProductosFilter = await getProductosbyCategoria(params.cat_iden);
+  return (
+    <>
+      <h1 className="text-center text-2xl font-semibold italic mb-8">Pepe</h1>
+        <div className="flex flex-row justify-around items-center flex-wrap gap-3">
+          {listaProductosFilter.map((e) => (
+          <Suspense key={e.pro_iden} fallback={<CardProductoSkeleton />}>
+            <CardProducto producto={e} />
+          </Suspense>
+          ))}
+        </div>
+    </>
+  );
+}
+
+export default filterProductos;

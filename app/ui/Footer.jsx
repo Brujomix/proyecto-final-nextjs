@@ -16,7 +16,7 @@ export default function Footer() {
       </div>
       <div className="col-span-2 text-start mt-4 ">
         <span className="opacity-50 tracking-widest">
-          © Copyrigth - DewebDesarrollos 2024
+          © Copyright - DewebDesarrollos 2024
         </span>
       </div>
     </footer>
