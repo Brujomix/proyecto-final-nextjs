@@ -3,8 +3,9 @@ import React from "react";
 import ErrorDinamico from "@/app/Components/ErrorDinamico";
 
 function error({ error, reset }) {
+  console.log(error);
   return (
-    <ErrorDinamico/>
+    <ErrorDinamico onClick={()=> reset()}/>
   );
 }
 
