@@ -6,16 +6,16 @@ export const getProductos = async () => {
         return rows
         
     } catch (error) {
-        return []
+        return error
     }
 }
 
 export const getProductosbyCategoria = async (cat_iden) => {
     try {
-        const [rows] = await promisePool.query(`SELECT * FROM producto WHERE pro_cat_iden = ${cat_iden}`)
+        const [rows] = await promisePool.query(`SELECT * FROM producto WHERE pro_cat_idens = ${cat_iden}`)
         return rows
         
     } catch (error) {
-        return []
+        return error
     }
 }
