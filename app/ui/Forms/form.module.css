@@ -1,0 +1,24 @@
+.inputData{
+    padding: 5px;
+}
+
+.formBody{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerBotones{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.errorsForm{
+    color: brown;
+    font-style: italic;
+}
