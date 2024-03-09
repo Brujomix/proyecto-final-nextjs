@@ -4,26 +4,30 @@ import { Formik } from "formik";
 import { BotonDinamico } from "@/app/Components";
 import style from "./form.module.css";
 
-export function FormEditUser({ ObjUser }) {
+export function FormAddUser() {
   return (
     <div>
       <Formik
         initialValues={{
-          us_email: ObjUser.us_email,
-          us_pass: ObjUser.us_pass,
-          confimPass: "",
-          us_name: ObjUser.us_name,
-          us_dire: ObjUser.us_dire,
-          us_tel: ObjUser.us_tel,
+          us_email: "",
+          us_pass: "",
+          confirmPass: "",
+          us_name: "",
+          us_ro_iden: 1,
+          us_dire: "",
+          us_tel: "",
         }}
         validate={(values) => {
           const errors = {};
           if (!values.us_email) {
-            errors.us_email = "Required";
+            errors.us_email = "Requerido";
           } else if (
             !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.us_email)
           ) {
-            errors.us_email = "Revisa Email Ej: nombre@gmail.com";
+            errors.us_email = "Revisa email Ej: nombre@gmail.com";
+          }
+          if (values.us_pass !== values.confirmPass) {
+            errors.confirmPass = "Contraseñas deben coincidir";
           }
           return errors;
         }}
@@ -43,7 +47,7 @@ export function FormEditUser({ ObjUser }) {
             <input
               className={style.inputData}
               type="email"
-              placeholder={ObjUser.us_email}
+              placeholder="Direccion Email"
               name="us_email"
               onChange={handleChange}
               onBlur={handleBlur}
@@ -52,7 +56,7 @@ export function FormEditUser({ ObjUser }) {
             <input
               className={style.inputData}
               type="text"
-              placeholder={ObjUser.us_name}
+              placeholder="Nombre"
               name="us_name"
               onChange={handleChange}
               onBlur={handleBlur}
@@ -61,7 +65,7 @@ export function FormEditUser({ ObjUser }) {
             <input
               className={style.inputData}
               type="text"
-              placeholder={ObjUser.us_dire}
+              placeholder="Dirección"
               name="us_dire"
               onChange={handleChange}
               onBlur={handleBlur}
@@ -70,36 +74,37 @@ export function FormEditUser({ ObjUser }) {
             <input
               className={style.inputData}
               type="text"
-              placeholder={ObjUser.us_tel}
+              placeholder="Telefono"
               name="us_tel"
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            <div className={style.errosForm}></div>
-            {errors.us_tel}
+            <div className={style.errosForm}>{errors.us_tel}</div>
 
             <input
               className={style.inputData}
               type="password"
-              placeholder="*************"
+              placeholder="Contraseña"
               name="us_pass"
               onChange={handleChange}
               onBlur={handleBlur}
             />
             <div className={style.errosForm}>{errors.us_pass}</div>
 
-            <input
-              className={style.inputData}
-              type="password"
-              placeholder="confirmar Contraseña"
-              name="confirmPass"
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-            <div className={style.errosForm}>{errors.confimPass}</div>
+            {values.us_pass && (
+              <input
+                className={style.inputData}
+                type="password"
+                placeholder="Repite Contraseña"
+                name="confirmPass"
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+            )}
+            <div className={style.errosForm}>{errors.confirmPass}</div>
 
             <div className={style.containerBotones}>
-              <BotonDinamico type="submit">Editar Usuario</BotonDinamico>
+              <BotonDinamico type="submit">Agregar Usuario</BotonDinamico>
               <BotonDinamico type="reset">Reset Form</BotonDinamico>
             </div>
           </form>

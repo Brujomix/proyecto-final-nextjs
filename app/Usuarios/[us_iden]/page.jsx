@@ -6,7 +6,7 @@ import React, { Suspense } from "react";
 async function usuarioFilter({ params }) {
   const currentUser = await getUsuarioFilter(params.us_iden);
   return (
-    <div className="flex flex-col justify-center items-center gap-4 max-w-fit border border-neutral-700 p-4 rounded-md">
+    <div className="flex flex-col justify-center items-center gap-4">
       <Suspense fallback={<FormEditUserSkeleton/>}>
         <FormEditUser ObjUser={currentUser} />
       </Suspense>

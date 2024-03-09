@@ -1,10 +1,11 @@
 import React from "react";
+import { FormContacto } from "./Forms";
 
 export default function Footer() {
   return (
     <footer className="flex flex-col items-center gap-4 md:grid md:grid-cols-2 mt-4 bg-neutral-900 text-white italic p-4">
       <div>
-        <span>Formulario contacto</span>
+        <FormContacto/>
       </div>
       <div>
         <ul className="space-y-2">
