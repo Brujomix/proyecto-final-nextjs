@@ -6,7 +6,7 @@ export const getProductos = async () => {
         return rows
         
     } catch (error) {
-        return []
+        return error
     }
 }
 
@@ -16,6 +16,6 @@ export const getProductosbyCategoria = async (cat_iden) => {
         return rows
         
     } catch (error) {
-        return []
+        return error
     }
 }

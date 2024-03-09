@@ -5,8 +5,8 @@ export const getUsuarioFilter = async (us_iden) => {
     const [row] = await promisePool.query(
       `SELECT * FROM usuario WHERE us_iden = ${us_iden}`
     );
-    return row[0]
+    return row[0];
   } catch (error) {
-    return {};
+    return error
   }
 };

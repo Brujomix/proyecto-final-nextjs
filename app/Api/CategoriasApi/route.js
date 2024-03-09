@@ -6,6 +6,6 @@ export const getCategorias = async () => {
         return rows
         
     } catch (error) {
-        return []
+        return error
     }
 }
