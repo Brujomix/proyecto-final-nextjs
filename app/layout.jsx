@@ -1,3 +1,4 @@
+import React from "react";
 import "./globals.css";
 import { Header, NavBar } from "./ui";
 import Footer from "./ui/Footer";
@@ -11,10 +12,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="container mx-auto bg-neutral-100">
-        <Header/>
-        <NavBar/>
-        {children}
-        <Footer/>
+        <Header />
+        <NavBar />
+        <div>{children}</div>
+        <Footer />
       </body>
     </html>
   );

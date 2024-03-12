@@ -1,22 +1,23 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import NavBarSkeleton from "../Components/Skeletons/NavBarSkeleton";
 import { AiOutlineMenuFold, AiOutlineMenuUnfold } from "react-icons/ai";
 
 export function NavBar() {
   const [isView, setIsView] = useState(false);
-  const [listaCategorias, setListaCategorias] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      setListaCategorias();
-    };
-    fetchData();
-  }, []);
+  const listaCategorias = [
+    { cat_iden: 1, cat_desc: "Empanadas" },
+    { cat_iden: 2, cat_desc: "Sandwicheria Fria" },
+    { cat_iden: 3, cat_desc: "Pizzas" },
+    { cat_iden: 5, cat_desc: "Promos" },
+    { cat_iden: 6, cat_desc: "Hamburguesas" },
+    { cat_iden: 7, cat_desc: "Menus" },
+    { cat_iden: 8, cat_desc: "Sandwicheria Caliente" },
+    { cat_iden: 9, cat_desc: "Tartas" },
+  ];
 
   return (
-    <div className="p-2">
+    <div className="w-full p-2 flex flex-col gap-4">
       <button className="md:hidden" onClick={() => setIsView(!isView)}>
         {isView ? (
           <AiOutlineMenuFold size={35} />
@@ -25,23 +26,10 @@ export function NavBar() {
         )}
       </button>
 
-      <div
-        className={`${
-          isView ? "block" : "hidden"
-        } p-4 flex flex-col flex-wrap justify-around items-center gap-3 md:flex md:flex-row md:w-fill`}
-      >
-        {[
-          { cat_iden: 1, cat_desc: "Empanadas" },
-          { cat_iden: 2, cat_desc: "Sandwicheria Fria" },
-          { cat_iden: 3, cat_desc: "Pizzas" },
-          { cat_iden: 5, cat_desc: "Promos" },
-          { cat_iden: 6, cat_desc: "Hamburguesas" },
-          { cat_iden: 7, cat_desc: "Menus" },
-          { cat_iden: 8, cat_desc: "Sandwicheria Caliente" },
-          { cat_iden: 9, cat_desc: "Tartas" }
-        ].map((e) => (
+      <div className={`${isView ? "flex flex-row flex-wrap gap-2" : "hidden"}`}>
+        {listaCategorias.map((e) => (
           <Link
-            className="md:w-auto w-full italic font-2xl border border-neutral-500 rounded-md p-2 bg-neutral-300"
+            className="border text-lg text-semibold italic tracking-wider border-neutral-400 p-2 rounded-md bg-white"
             key={e.cat_iden}
             href={`/Productos/${e.cat_iden}`}
           >
