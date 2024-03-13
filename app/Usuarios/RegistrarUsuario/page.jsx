@@ -7,7 +7,7 @@ function AgregarUsuario() {
       <span className="text-3xl font-semibold italic tracking-widest">
         Registro Usuario
       </span>
-      <hr />
+      <span>Ingresa tus datos</span>
       <FormAddUser/>
     </div>
   )

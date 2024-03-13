@@ -19,3 +19,12 @@ export const getProductosbyCategoria = async (cat_iden) => {
         return error
     }
 }
+export const getProductosbyPuntos = async () => {
+    try {
+        const [rows] = await promisePool.query(`SELECT * FROM producto WHERE pro_puntos > 50`)
+        return rows
+        
+    } catch (error) {
+        return error
+    }
+}

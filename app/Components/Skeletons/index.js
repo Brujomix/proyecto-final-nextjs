@@ -1,3 +1,2 @@
-export * from "./NavBarSkeleton"
 export * from "./CardProductoSkeleton"
-export * from "./FormEditUserSkeleton"
+export * from "./CardComandaSkeleton"

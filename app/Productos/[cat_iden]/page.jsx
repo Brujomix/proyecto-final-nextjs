@@ -8,7 +8,7 @@ async function filterProductos({ params }) {
   return (
     <>
       <h1 className="text-center text-2xl font-semibold italic mb-8">Pepe</h1>
-        <div className="flex flex-row justify-around items-center flex-wrap gap-3">
+        <div className="flex flex-row justify-center items-center flex-wrap gap-3">
           {listaProductosFilter.map((e) => (
           <Suspense key={e.pro_iden} fallback={<CardProductoSkeleton />}>
             <CardProducto producto={e} />

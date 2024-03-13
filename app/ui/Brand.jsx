@@ -5,12 +5,12 @@ import { IoHomeOutline } from "react-icons/io5";
 
 export function Brand() {
   return (
-    <div className="flex justify-between items-center p-4 bg-neutral-50">
+    <div className="flex justify-between items-center p-2 bg-neutral-50">
       <Link className="hidden md:block" href={"/"}>
         <Image
           src={"/LogoWW.png"}
-          width={90}
-          height={90}
+          width={40}
+          height={40}
           alt="Brand Image"
           priority
         />

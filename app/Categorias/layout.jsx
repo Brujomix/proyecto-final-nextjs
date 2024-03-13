@@ -1,9 +1,10 @@
 import React from "react";
+import { SubMenuCategorias } from "../Components/SubMenus";
 
 function layoutCategorias({ children }) {
   return (
     <div>
-      <div>Mnu Categorias</div>
+      <SubMenuCategorias/>
       <div>{children}</div>
     </div>
   );

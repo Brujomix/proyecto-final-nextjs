@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { BotonDinamico } from "./BotonDinamico";
 import { TfiAngleUp, TfiAngleDown } from "react-icons/tfi";
+import { RankingProductos } from ".";
 export function CardProducto({ producto }) {
   return (
     <div className="w-[160px] flex flex-col justify-center items-center border gap-3 border-neutral-500 rounded-md p-2 bg-white">
@@ -15,6 +16,7 @@ export function CardProducto({ producto }) {
       <figcaption className="font-semibold">{producto.pro_name}</figcaption>
       <p>{producto.pro_desc}</p>
       <span>{producto.cat_iden}</span>
+      <RankingProductos pro_puntos={producto.pro_puntos}/>
       <span className="font-bold">$ {producto.pro_precio}</span>
       <div className=" border-t-2 w-full flex flex-row justify-around items-center p-1">
         <BotonDinamico onClick={()=>console.log(`agregar al carrito producto iden ${producto.pro_iden}`)}><TfiAngleUp size={20}/></BotonDinamico>

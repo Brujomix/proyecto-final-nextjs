@@ -1,6 +1,6 @@
 import React from "react";
 import "./globals.css";
-import { Header, NavBar } from "./ui";
+import { Header, NavBar, NavBarAdmin } from "./ui";
 import Footer from "./ui/Footer";
 
 export const metadata = {
@@ -13,6 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="container mx-auto bg-neutral-100">
         <Header />
+        <NavBarAdmin/>
         <NavBar />
         <div>{children}</div>
         <Footer />

@@ -8,7 +8,7 @@ export function Usuario() {
       <Link href={`/Usuarios/${2}`}>
         <FaUserCircle size={30} />
       </Link>
-      <Link href={"/Usuarios/AgregarUsuario"}>
+      <Link href={"/Usuarios/RegistrarUsuario"}>
         <span className="tracking-widest italic text-blue-700">Registrate</span>
       </Link>
     </div>
