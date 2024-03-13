@@ -1,16 +1,18 @@
 import React from "react";
-import SubMenuReportes from "../Components/SubMenus/SubMenuReportes";
+import { SubMenuProductos } from "../Components/SubMenus";
 
-function layoutReportes({ children }) {
+function layoutProductos({ children }) {
   return (
     <div className="flex flex-col justify-center items-center gap-7">
       <span className="text-3xl font-semibold italic tracking-widest">
-        Reportes
+        Gestión Productos
       </span>
-      <SubMenuReportes />
+      <div>
+        <SubMenuProductos />
+      </div>
       <div>{children}</div>
     </div>
   );
 }
 
-export default layoutReportes;
+export default layoutProductos;

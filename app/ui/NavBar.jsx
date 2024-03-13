@@ -26,7 +26,7 @@ export function NavBar() {
         )}
       </button>
 
-      <div className={`${isView ? "block" : "hidden"}`}>
+      <div className={`${isView ? "block" : "hidden md:block"}`}>
         <div className="flex flex-row flex-wrap justify-center items-center gap-4">
           {listaCategorias.map((e) => (
             <Link
