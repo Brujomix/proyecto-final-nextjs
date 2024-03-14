@@ -1,9 +1,10 @@
-import { promisePool } from "@/app/Database/config_db";
+import axios from "axios";
+import { UrlServer_nube } from "@/app/Utilidades/UrlServer";
 
 export const getProductos = async () => {
     try {
-        const [rows] = await promisePool.query("SELECT * FROM producto")
-        return rows
+        const res = await axios.get(`${UrlServer_nube}/Api/Productos`)
+        return res.data
         
     } catch (error) {
         return error
@@ -12,8 +13,8 @@ export const getProductos = async () => {
 
 export const getProductosbyCategoria = async (cat_iden) => {
     try {
-        const [rows] = await promisePool.query(`SELECT * FROM producto WHERE pro_cat_iden = ${cat_iden}`)
-        return rows
+        const res = await axios.get(`${UrlServer_nube}/Api/Productos/${cat_iden}`)
+        return res.data
         
     } catch (error) {
         return error
@@ -21,8 +22,8 @@ export const getProductosbyCategoria = async (cat_iden) => {
 }
 export const getProductosbyPuntos = async () => {
     try {
-        const [rows] = await promisePool.query(`SELECT * FROM producto WHERE pro_puntos > 50`)
-        return rows
+        const res = await axios.get(`${UrlServer_nube}/Api/ProductosRanking`)
+        return res.data
         
     } catch (error) {
         return error

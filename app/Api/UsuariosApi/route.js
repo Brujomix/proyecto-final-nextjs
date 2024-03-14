@@ -1,11 +1,10 @@
-import { promisePool } from "@/app/Database/config_db";
+import axios from "axios";
+import { UrlServer_nube } from "@/app/Utilidades/UrlServer";
 
-export const getUsuarioFilter = async (us_iden) => {
+export const getUsuarioFilter = async (us_email) => {
   try {
-    const [row] = await promisePool.query(
-      `SELECT * FROM usuario WHERE us_iden = ${us_iden}`
-    );
-    return row[0];
+    const res = axios.get(`${UrlServer_nube}/Api/Usuarios/${us_email}`)
+    return res.data[0];
   } catch (error) {
     return error
   }

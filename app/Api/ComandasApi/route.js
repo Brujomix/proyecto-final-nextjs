@@ -1,11 +1,11 @@
-import { promisePool } from "@/app/Database/config_db";
+import axios from "axios";
+import { UrlServer_nube } from "@/app/Utilidades/UrlServer";
 
 export const getComandas = async () => {
-    try {
-        const [rows] = await promisePool.query("SELECT * FROM comanda ORDER BY com_date DESC")
-        return rows
-        
-    } catch (error) {
-        return error
-    }
-}
+  try {
+    const res = axios.get(`${UrlServer_nube}/Api/Comandas`);
+    return res.data;
+  } catch (error) {
+    return error;
+  }
+};

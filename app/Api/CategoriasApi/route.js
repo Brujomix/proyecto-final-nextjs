@@ -1,11 +1,11 @@
-import { promisePool } from "@/app/Database/config_db";
+import axios from "axios";
+import { UrlServer_nube } from "@/app/Utilidades/UrlServer";
 
 export const getCategorias = async () => {
-    try {
-        const [rows] = await promisePool.query("SELECT * FROM categoria")
-        return rows
-        
-    } catch (error) {
-        return error
-    }
-}
+  try {
+    const res = await axios.get(`${UrlServer_nube}/Api/Categorias`);
+    return res.data;
+  } catch (error) {
+    return error;
+  }
+};
