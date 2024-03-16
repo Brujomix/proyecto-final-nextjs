@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { AiOutlineMenuFold, AiOutlineMenuUnfold } from "react-icons/ai";
+import { BotonDinamico } from "../Components";
 
 export function NavBar() {
   const [isView, setIsView] = useState(false);
@@ -17,14 +18,14 @@ export function NavBar() {
   ];
 
   return (
-    <div className="w-full p-2 flex flex-col gap-4">
-      <button className="md:hidden" onClick={() => setIsView(!isView)}>
+    <div className="w-full fixed top-24 p-2 flex flex-col gap-4 bg-neutral-50">
+      <BotonDinamico className="w-fit md:hidden" onClick={() => setIsView(!isView)}>
         {isView ? (
           <AiOutlineMenuFold size={35} />
         ) : (
           <AiOutlineMenuUnfold size={35} />
         )}
-      </button>
+      </BotonDinamico>
 
       <div className={`${isView ? "block" : "hidden md:block"}`}>
         <div className="flex flex-row flex-wrap justify-center items-center gap-4">

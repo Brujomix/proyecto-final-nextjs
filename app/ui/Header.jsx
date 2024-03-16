@@ -1,12 +1,10 @@
 import React from "react";
 import { Brand } from ".";
-import { User_Carrito } from "../Components/User_Carrito";
 
 export function Header() {
   return (
-    <header>
+    <header className="mt-40">
       <Brand />
-      <User_Carrito/>
     </header>
   );
 }
