@@ -17,7 +17,6 @@ export function RankingProductos({ pro_puntos }) {
         <FaRegStar size={20} />
         <FaRegStar size={20} />
       </div>
-      <figcaption className="text-sm">Ranking</figcaption>
     </div>
   );
 }
