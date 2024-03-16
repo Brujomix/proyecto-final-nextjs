@@ -1,4 +1,3 @@
-"use client"
 import { FormAddProducto } from '@/app/Components/Forms'
 import React from 'react'
 
