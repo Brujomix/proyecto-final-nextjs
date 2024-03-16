@@ -2,6 +2,7 @@ import React from "react";
 import "./globals.css";
 import { Header, NavBar, NavBarAdmin } from "./ui";
 import Footer from "./ui/Footer";
+import { ProviderRedux } from "@/Redux/Provider";
 
 export const metadata = {
   title: "Create Next App",
@@ -12,11 +13,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="container mx-auto bg-neutral-100">
-        <Header />
-        <NavBarAdmin/>
-        <NavBar />
-        <div>{children}</div>
-        <Footer />
+        <ProviderRedux>
+          <Header />
+          <NavBarAdmin />
+          <NavBar />
+          <div>{children}</div>
+          <Footer />
+        </ProviderRedux>
       </body>
     </html>
   );

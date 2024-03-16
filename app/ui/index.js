@@ -1,6 +1,6 @@
 export * from "./Header";
 export * from "./Brand";
 export * from "./NavBar";
-export * from "./Carrito";
+export * from "./CarritoIcon";
 export * from "./Usuario";
 export * from "./NavBarAdmin";
