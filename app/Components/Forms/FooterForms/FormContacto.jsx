@@ -2,7 +2,7 @@
 import React from "react";
 import { Formik } from "formik";
 import { BotonDinamico } from "@/app/Components";
-import style from "./form.module.css";
+import style from "@/app/Components/Forms/form.module.css";
 
 export function FormContacto() {
   return (

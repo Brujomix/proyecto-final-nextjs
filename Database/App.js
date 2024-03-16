@@ -15,7 +15,8 @@ import MetodoPago from "./Routes/MetodoPago.js";
 import PrecioEnvio from "./Routes/Envio.js";
 import Productos from "./Routes/Productos.js";
 import Comandas from "./Routes/Comanda.js";
-import Mercadopago from "./Routes/Payment_MP.js"
+import Mercadopago from "./Routes/Payment_MP.js";
+import Deliverys from "./Routes/Deliverys.js";
 
 const PORT = 4000;
 
@@ -25,28 +26,26 @@ App.use(express.json());
 
 const server = http.createServer(App);
 const io = new Server(server, {
-    cors:{
-        origin: '*',
-        methods: ["GET","POST"]
-    }
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+  },
 });
 
-io.on('connection', (socket) => {
-    console.log(socket.id);
-    socket.on('mensaje', (ObjetoMensaje) => {
-        socket.broadcast.emit('nuevoMensaje', ObjetoMensaje);
-    });
+io.on("connection", (socket) => {
+  console.log(socket.id);
+  socket.on("mensaje", (ObjetoMensaje) => {
+    socket.broadcast.emit("nuevoMensaje", ObjetoMensaje);
+  });
 
-    socket.on('cambiarEstado', (nuevoEstado) => {
-        // Cambia el estado de la app de encendido a apagado
-        socket.broadcast.emit('estadoActualizado', nuevoEstado);
-    });
-
+  socket.on("cambiarEstado", (nuevoEstado) => {
+    // Cambia el estado de la app de encendido a apagado
+    socket.broadcast.emit("estadoActualizado", nuevoEstado);
+  });
 });
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 App.use(express.static(path.join(__dirname, "build")));
-
 
 App.use(StartServer);
 App.use(Encender);
@@ -58,5 +57,6 @@ App.use(PrecioEnvio);
 App.use(Productos);
 App.use(Comandas);
 App.use(Mercadopago);
+App.use(Deliverys);
 
-server.listen(PORT,()=>console.log("MySql Server Ready"));
+server.listen(PORT, () => console.log("MySql Server Ready"));

@@ -2,32 +2,28 @@
 import React from "react";
 import { Formik } from "formik";
 import { BotonDinamico } from "@/app/Components";
-import style from "./form.module.css";
+import style from "@/app/Components/Forms/form.module.css";
 
-export function FormAddUser() {
+export function FormEditUser({ ObjUser }) {
   return (
     <div>
       <Formik
         initialValues={{
-          us_email: "",
-          us_pass: "",
-          confirmPass: "",
-          us_name: "",
-          us_ro_iden: 1,
-          us_dire: "",
-          us_tel: "",
+          us_email: ObjUser.us_email,
+          us_pass: ObjUser.us_pass,
+          confimPass: "",
+          us_name: ObjUser.us_name,
+          us_dire: ObjUser.us_dire,
+          us_tel: ObjUser.us_tel,
         }}
         validate={(values) => {
           const errors = {};
           if (!values.us_email) {
-            errors.us_email = "Requerido";
+            errors.us_email = "Required";
           } else if (
             !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.us_email)
           ) {
-            errors.us_email = "Revisa email Ej: nombre@gmail.com";
-          }
-          if (values.us_pass !== values.confirmPass) {
-            errors.confirmPass = "Contraseñas deben coincidir";
+            errors.us_email = "Revisa Email Ej: nombre@gmail.com";
           }
           return errors;
         }}
@@ -44,10 +40,11 @@ export function FormAddUser() {
           handleSubmit,
         }) => (
           <form className={style.formBody} onSubmit={handleSubmit}>
+            <label>Editar Usuario</label>
             <input
               className={style.inputData}
               type="email"
-              placeholder="Direccion Email"
+              placeholder={ObjUser.us_email}
               name="us_email"
               onChange={handleChange}
               onBlur={handleBlur}
@@ -56,7 +53,7 @@ export function FormAddUser() {
             <input
               className={style.inputData}
               type="text"
-              placeholder="Nombre"
+              placeholder={ObjUser.us_name}
               name="us_name"
               onChange={handleChange}
               onBlur={handleBlur}
@@ -65,7 +62,7 @@ export function FormAddUser() {
             <input
               className={style.inputData}
               type="text"
-              placeholder="Dirección"
+              placeholder={ObjUser.us_dire}
               name="us_dire"
               onChange={handleChange}
               onBlur={handleBlur}
@@ -74,37 +71,36 @@ export function FormAddUser() {
             <input
               className={style.inputData}
               type="text"
-              placeholder="Telefono"
+              placeholder={ObjUser.us_tel}
               name="us_tel"
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            <div className={style.errosForm}>{errors.us_tel}</div>
+            <div className={style.errosForm}></div>
+            {errors.us_tel}
 
             <input
               className={style.inputData}
               type="password"
-              placeholder="Contraseña"
+              placeholder="*************"
               name="us_pass"
               onChange={handleChange}
               onBlur={handleBlur}
             />
             <div className={style.errosForm}>{errors.us_pass}</div>
 
-            {values.us_pass && (
-              <input
-                className={style.inputData}
-                type="password"
-                placeholder="Repite Contraseña"
-                name="confirmPass"
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-            )}
-            <div className={style.errosForm}>{errors.confirmPass}</div>
+            <input
+              className={style.inputData}
+              type="password"
+              placeholder="confirmar Contraseña"
+              name="confirmPass"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            <div className={style.errosForm}>{errors.confimPass}</div>
 
             <div className={style.containerBotones}>
-              <BotonDinamico type="submit">Agregar Usuario</BotonDinamico>
+              <BotonDinamico type="submit">Editar Usuario</BotonDinamico>
               <BotonDinamico type="reset">Reset Form</BotonDinamico>
             </div>
           </form>

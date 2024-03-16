@@ -1,11 +1,11 @@
-"use client"
-import React from 'react'
-import { FormLogin } from '../ui/Forms'
+"use client";
+import React from "react";
+import { FormLogin } from "@/app/Components/Forms/LoginForms";
 
 export function Login() {
   return (
     <div>
-      <FormLogin/>
+      <FormLogin />
     </div>
-  )
+  );
 }

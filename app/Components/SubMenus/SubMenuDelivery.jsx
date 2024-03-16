@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import React from 'react'
 
-export function SubMenuDelyvery() {
+export function SubMenuDelivery() {
   return (
     <div className="flex flex-row flex-wrap justify-center items-center gap-4">
-      <Link className='Link' href={"/AgregarDelivery"}>Agregar Delibery</Link>
+      <Link className='Link' href={"/Deliverys/AgregarDelivery"}>Agregar Delivery</Link>
     </div>
   );
 }

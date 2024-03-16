@@ -1,5 +1,6 @@
-import { FormAddUser } from '@/app/ui/Forms'
-import React from 'react'
+"use client"
+import { FormAddUser } from "@/app/Components/Forms";
+import React from "react";
 
 function AgregarUsuario() {
   return (
@@ -8,9 +9,9 @@ function AgregarUsuario() {
         Registro Usuario
       </span>
       <span>Ingresa tus datos</span>
-      <FormAddUser/>
+      <FormAddUser />
     </div>
-  )
+  );
 }
 
-export default AgregarUsuario
+export default AgregarUsuario;

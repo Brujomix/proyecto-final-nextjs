@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { Suspense } from "react";
+import { TablaDeliverys } from "../Components/Tablas";
+import { TablaGenericaSkeleton } from "../Components/Skeletons";
+import { getDeliverys } from "../Api/DeliverysApi/route";
 
-function Deliverys() {
+async function Deliverys() {
+  const listaDeliverys = await getDeliverys();
   return (
-    <div>
-      Delivaris
+    <div className="flex flex-col justify-center items-center">
+      <Suspense fallback={<TablaGenericaSkeleton />}>
+        <TablaDeliverys deliverys={listaDeliverys} />
+      </Suspense>
     </div>
-  )
+  );
 }
 
-export default Deliverys
+export default Deliverys;
