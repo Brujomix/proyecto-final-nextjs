@@ -38,41 +38,46 @@ export function FormContacto() {
           handleBlur,
           handleSubmit,
         }) => (
-          <form className={style.formAlign}  onSubmit={handleSubmit}>
-            <input
-              className={style.inputFormFooter}
-              type="text"
-              placeholder="Tu Email"
-              name="contacto_email"
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-            <div >{errors.contacto_email}</div>
-            <input
-              className={style.inputFormFooter}
-              type="text"
-              placeholder="Tu Nombre"
-              name="contacto_nombre"
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-            <div >{errors.contacto_nombre}</div>
-           
-            <textarea
-              name="contacto_mensaje"
-              id=""
-              cols="26"
-              rows="8"
-              className={style.areaMensaje}
-              placeholder="Dejanos un mensaje"
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-            <div >{errors.contacto_mensaje}</div>
+          <form className={style.formAlign} onSubmit={handleSubmit}>
+            <div className={style.formDatos}>
+              <input
+                className={style.inputFormFooter}
+                type="text"
+                placeholder="Tu Email"
+                name="contacto_email"
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              <div>{errors.contacto_email}</div>
+              <input
+                className={style.inputFormFooter}
+                type="text"
+                placeholder="Tu Nombre"
+                name="contacto_nombre"
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              <div>{errors.contacto_nombre}</div>
+              <textarea
+                name="contacto_mensaje"
+                id=""
+                cols="26"
+                rows="8"
+                className={style.areaMensaje}
+                placeholder="Dejanos un mensaje"
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              <div>{errors.contacto_mensaje}</div>
+            </div>
 
             <div className={style.containerBotones}>
-              <BotonDinamico className="text-black text-sm" type="submit">Enviar Mensaje</BotonDinamico>
-              <BotonDinamico className="text-black text-sm" type="reset">Reset Form</BotonDinamico>
+              <BotonDinamico className="text-black text-sm" type="submit">
+                Enviar Mensaje
+              </BotonDinamico>
+              <BotonDinamico className="text-black text-sm" type="reset">
+                Reset Form
+              </BotonDinamico>
             </div>
           </form>
         )}

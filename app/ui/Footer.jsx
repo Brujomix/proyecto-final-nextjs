@@ -3,7 +3,7 @@ import { FormContacto } from "@/app/Components/Forms";
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col items-center gap-4 md:grid md:grid-cols-2 mt-4 bg-neutral-300 italic p-4">
+    <footer className="flex flex-col items-center gap-4 bg-white md:grid md:grid-cols-2 mt-4 italic p-4">
       <div>
         <ul className="space-y-2">
           <li>dewebdesarrollos@gmail.com</li>
