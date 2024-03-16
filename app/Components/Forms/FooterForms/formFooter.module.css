@@ -1,0 +1,39 @@
+.containerForm{
+    width: 220px;
+    height: fit-content;
+    border: 1px solid #FFF;
+    border-radius: 10px;
+    padding: 10px;    
+}
+
+.formAlign{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.inputFormFooter{
+    border-radius: 10px;
+    padding: 7px;
+    font-style: italic;
+    font-size: small;
+}
+
+.areaMensaje{
+    border-radius: 5px;
+    width: 200px;
+    height: 120px;
+    padding: 7px;
+    font-style: italic;
+    font-size: small;
+    resize: none;
+    overflow-y: auto;
+}
+
+.containerBotones{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}

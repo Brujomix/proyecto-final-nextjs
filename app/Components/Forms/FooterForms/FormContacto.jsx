@@ -2,11 +2,11 @@
 import React from "react";
 import { Formik } from "formik";
 import { BotonDinamico } from "@/app/Components";
-import style from "@/app/Components/Forms/form.module.css";
+import style from "./formFooter.module.css";
 
 export function FormContacto() {
   return (
-    <div>
+    <div className={style.containerForm}>
       <Formik
         initialValues={{
           contacto_email: "",
@@ -38,41 +38,41 @@ export function FormContacto() {
           handleBlur,
           handleSubmit,
         }) => (
-          <form className={style.formBodyFooter}  onSubmit={handleSubmit}>
+          <form className={style.formAlign}  onSubmit={handleSubmit}>
             <input
-              className={style.inputData}
+              className={style.inputFormFooter}
               type="text"
               placeholder="Tu Email"
               name="contacto_email"
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            <div className={style.errosForm}>{errors.contacto_email}</div>
+            <div >{errors.contacto_email}</div>
             <input
-              className={style.inputData}
+              className={style.inputFormFooter}
               type="text"
               placeholder="Tu Nombre"
               name="contacto_nombre"
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            <div className={style.errosForm}>{errors.contacto_nombre}</div>
+            <div >{errors.contacto_nombre}</div>
            
             <textarea
               name="contacto_mensaje"
               id=""
               cols="26"
               rows="8"
-              className={style.areaTexto}
+              className={style.areaMensaje}
               placeholder="Dejanos un mensaje"
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            <div className={style.errosForm}>{errors.contacto_mensaje}</div>
+            <div >{errors.contacto_mensaje}</div>
 
             <div className={style.containerBotones}>
-              <BotonDinamico type="submit">Enviar Mensaje</BotonDinamico>
-              <BotonDinamico type="reset">Reset Form</BotonDinamico>
+              <BotonDinamico className="text-black text-sm" type="submit">Enviar Mensaje</BotonDinamico>
+              <BotonDinamico className="text-black text-sm" type="reset">Reset Form</BotonDinamico>
             </div>
           </form>
         )}
