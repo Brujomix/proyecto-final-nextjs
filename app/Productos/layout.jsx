@@ -1,12 +1,11 @@
-import React from "react";
-import { SubMenuProductos } from "../Components/SubMenus";
+import React from 'react'
 
-function layoutProductos({ children }) {
+function layoutProductos({children}) {
   return (
-    <div className="flex flex-col justify-center items-center gap-7">
-      <div>{children}</div>
+    <div>
+      {children}
     </div>
-  );
+  )
 }
 
-export default layoutProductos;
+export default layoutProductos

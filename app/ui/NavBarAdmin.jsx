@@ -16,7 +16,7 @@ export function NavBarAdmin() {
       <Link className="Link" href="/Deliverys">
         Deliverys
       </Link>
-      <Link className="Link" href="/Productos">
+      <Link className="Link" href="/ProductosAdmin">
         Productos
       </Link>
       <Link className="Link" href="/Chat">

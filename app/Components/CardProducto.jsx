@@ -2,10 +2,10 @@
 import React from "react";
 import Image from "next/image";
 import { BotonDinamico } from ".";
-import { TfiAngleUp, TfiAngleDown } from "react-icons/tfi";
 import { RankingProductos } from ".";
 import { useDispatch } from "react-redux";
 import { addItemCarrito, removeItemCarrito } from "@/Redux/Slices/CarritoSlice";
+import { BsCartDash, BsCartPlus } from "react-icons/bs";
 
 export function CardProducto({ producto }) {
   const dispatch = useDispatch()
@@ -33,14 +33,14 @@ export function CardProducto({ producto }) {
           <BotonDinamico
             onClick={() => dispatch(addItemCarrito(producto))   }
           >
-            <TfiAngleUp size={20} />
+            <BsCartPlus size={20} />
           </BotonDinamico>
           <BotonDinamico
             onClick={() =>
               dispatch(removeItemCarrito(producto.pro_iden))
             }
           >
-            <TfiAngleDown size={20} />
+            <BsCartDash size={20} />
           </BotonDinamico>
         </div>
       </div>
