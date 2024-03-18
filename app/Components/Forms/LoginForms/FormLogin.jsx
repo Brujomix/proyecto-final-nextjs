@@ -11,7 +11,7 @@ export function FormLogin() {
         initialValues={{
           us_email: "",
           us_pass: "",
-          confimPass: "",
+          confirmPass: "",
         }}
         validate={(values) => {
           const errors = {};
@@ -23,8 +23,8 @@ export function FormLogin() {
           ) {
             errors.us_email = "Revisa Email Ej: nombre@gmail.com";
           }
-          if (values.confimPass !== values.us_pass) {
-            errors.confimPass = "Contraseñas no Coinciden";
+          if (values.us_pass !== values.confirmPass) {
+            errors.confirmPass = "Contraseñas no Coinciden";
           }
           return errors;
         }}
@@ -69,7 +69,7 @@ export function FormLogin() {
                 onBlur={handleBlur}
               />
             )}
-            <div className={style.errosForm}>{errors.confimPass}</div>
+            <div className={style.errosForm}>{errors.confirmPass}</div>
 
             <div className={style.containerBotones}>
               <BotonDinamico type="submit">Iniciar</BotonDinamico>
