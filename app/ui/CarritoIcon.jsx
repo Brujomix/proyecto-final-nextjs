@@ -8,11 +8,11 @@ import { SumaItemsCarrito } from "@/app/Utilidades/SumaItemsCarrito";
 export function CarritoIcon() {
   const itemsCarrito = useSelector(state => state.Carrito.itemsCarrito)
   return (
-    <div>
-      <Link href={"/Carrito"} className="p-4">
+    <div className="absolute right-7 top-[-5px] ">
+      <Link href={"/Carrito"}>
         <FiShoppingCart size={35} />
       </Link>
-      <span className="border-2 border-neutral-400 py-1 px-2 rounded-full bg-white">
+      <span className="border-2 border-neutral-400 font-semibold py-1 px-1 rounded-full bg-white">
         {
           SumaItemsCarrito(itemsCarrito)
         }

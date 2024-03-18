@@ -3,7 +3,7 @@ import { Brand } from ".";
 
 export function Header() {
   return (
-    <header className="mt-40">
+    <header className="mt-20">
       <Brand />
     </header>
   );

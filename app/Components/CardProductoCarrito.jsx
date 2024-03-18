@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { removeItemCarrito } from "@/Redux/Slices/CarritoSlice";
 import Image from "next/image";
 import { BotonDinamico } from ".";
-import { TfiAngleDown } from "react-icons/tfi";
+import { CiTrash } from "react-icons/ci";
 import { RankingProductos } from ".";
 
 export function CardProductoCarrito({productoCarrito}) {
@@ -30,11 +30,12 @@ export function CardProductoCarrito({productoCarrito}) {
         <span className="font-bold">$ {productoCarrito.pro_precio}</span>
         <div className="flex flex-row justify-center items-center gap-1">
           <BotonDinamico
+          className='bg-white border-neutral-500'
             onClick={() =>
               dispatch(removeItemCarrito(productoCarrito.pro_iden))
             }
           >
-            <TfiAngleDown size={20} />
+            <CiTrash color='red' size={20} />
           </BotonDinamico>
         </div>
       </div>

@@ -18,12 +18,15 @@ export function NavBar() {
   ];
 
   return (
-    <div className="w-full fixed top-24 p-2 flex flex-col gap-4 bg-neutral-50">
-      <BotonDinamico className="w-fit md:hidden" onClick={() => setIsView(!isView)}>
+    <div className="w-full p-2 flex flex-col gap-4 bg-neutral-50">
+      <BotonDinamico
+        className="w-fit bg-white md:hidden"
+        onClick={() => setIsView(!isView)}
+      >
         {isView ? (
-          <AiOutlineMenuFold size={35} />
+          <AiOutlineMenuFold size={25} />
         ) : (
-          <AiOutlineMenuUnfold size={35} />
+          <AiOutlineMenuUnfold size={25} />
         )}
       </BotonDinamico>
 
@@ -31,7 +34,7 @@ export function NavBar() {
         <div className="flex flex-row flex-wrap justify-center items-center gap-4">
           {listaCategorias.map((e) => (
             <Link
-              className="border text-lg text-semibold italic tracking-wider border-neutral-400 p-2 rounded-md bg-white"
+              className="border text-sm text-semibold italic tracking-wider border-neutral-400 p-2 rounded-md bg-white"
               key={e.cat_iden}
               href={`/Productos/${e.cat_iden}`}
             >

@@ -4,7 +4,7 @@ import { FaUserCircle } from "react-icons/fa";
 
 export function Usuario() {
   return (
-    <div className="flex flex-col justify-center items-center gap-3">
+    <div className="flex flex-row justify-center items-center gap-2">
       <Link href={`/Usuarios/${"brujomix.bt@gmail.com"}`}>
         <FaUserCircle size={30} />
       </Link>

@@ -6,17 +6,8 @@ import { IoHomeOutline } from "react-icons/io5";
 export function Brand() {
   return (
     <div className="flex justify-between items-center p-2 bg-neutral-50">
-      <Link className="hidden md:block" href={"/"}>
-        <Image
-          src={"/LogoWW.png"}
-          width={40}
-          height={40}
-          alt="Brand Image"
-          priority
-        />
-      </Link>
-      <Link className="md:hidden" href={"/"}>
-        <IoHomeOutline size={40}/>
+      <Link href={"/"}>
+        <IoHomeOutline size={35} />
       </Link>
       <figcaption className="text-2xl font-semibold italic ">
         E-Commerce NextJS
