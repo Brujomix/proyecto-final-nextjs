@@ -9,3 +9,12 @@ export const getUsuarioFilter = async (us_email) => {
     return error;
   }
 };
+
+export const validarUsuario = async ({ObjUser})=>{
+  try {
+    const res = await axios.post(`${UrlServer_nube}/Api/ValidarUsuario`, ObjUser)
+    return res.data
+  } catch (error) {
+    return error;
+  }
+}
