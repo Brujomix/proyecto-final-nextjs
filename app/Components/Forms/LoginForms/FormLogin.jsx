@@ -11,16 +11,20 @@ export function FormLogin() {
         initialValues={{
           us_email: "",
           us_pass: "",
-          confimPass: ""
+          confimPass: "",
         }}
         validate={(values) => {
           const errors = {};
+
           if (!values.us_email) {
             errors.us_email = "Required";
           } else if (
             !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.us_email)
           ) {
             errors.us_email = "Revisa Email Ej: nombre@gmail.com";
+          }
+          if (values.confimPass !== values.us_pass) {
+            errors.confimPass = "Contraseñas no Coinciden";
           }
           return errors;
         }}
@@ -37,10 +41,11 @@ export function FormLogin() {
           handleSubmit,
         }) => (
           <form className={style.formBody} onSubmit={handleSubmit}>
+            <label>Login</label>
             <input
               className={style.inputData}
               type="email"
-              placeholder={ObjUser.us_email}
+              placeholder="Ingresa Email"
               name="us_email"
               onChange={handleChange}
               onBlur={handleBlur}
@@ -49,25 +54,25 @@ export function FormLogin() {
             <input
               className={style.inputData}
               type="password"
-              placeholder="*************"
+              placeholder="Ingresa Contraseña"
               name="us_pass"
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            <div className={style.errosForm}>{errors.us_pass}</div>
-
-            <input
-              className={style.inputData}
-              type="password"
-              placeholder="confirmar Contraseña"
-              name="confirmPass"
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
+            {values.us_pass && (
+              <input
+                className={style.inputData}
+                type="password"
+                placeholder="confirmar Contraseña"
+                name="confirmPass"
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+            )}
             <div className={style.errosForm}>{errors.confimPass}</div>
 
             <div className={style.containerBotones}>
-              <BotonDinamico type="submit">Editar Usuario</BotonDinamico>
+              <BotonDinamico type="submit">Iniciar</BotonDinamico>
               <BotonDinamico type="reset">Reset Form</BotonDinamico>
             </div>
           </form>
