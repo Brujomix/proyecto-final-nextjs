@@ -11,7 +11,7 @@ function ErrorDinamico({reset}) {
         Algo salio mal, Intenta Recargar...
       </figcaption>
       <span>Si el problema persiste, Contactenos.</span>
-      <BotonDinamico reset >
+      <BotonDinamico>
         <div className="flex flex-row justify-center items-center gap-5">
           <TfiReload size={30} />
           <figcaption>Reload...</figcaption>
