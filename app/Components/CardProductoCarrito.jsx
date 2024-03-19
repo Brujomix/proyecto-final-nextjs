@@ -28,6 +28,7 @@ export function CardProductoCarrito({productoCarrito}) {
       <span>{productoCarrito.cat_iden}</span>
       <div className="flex flex-col justify-center items-center p-1 gap-4">
         <span className="font-bold">$ {productoCarrito.pro_precio}</span>
+        <span className="font-bold">X {productoCarrito.Cantidad}</span>
         <div className="flex flex-row justify-center items-center gap-1">
           <BotonDinamico
           className='bg-white border-neutral-500'

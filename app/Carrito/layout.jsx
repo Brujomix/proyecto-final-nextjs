@@ -1,5 +1,4 @@
 import React from 'react'
-import { SubMenuCarrito } from '../Components/SubMenus/SubMenuCarrito'
 
 function layoutCarrito({children}) {
   return (
@@ -7,7 +6,6 @@ function layoutCarrito({children}) {
       <span className="text-3xl font-semibold italic tracking-widest">
         Carrito Compras
       </span>
-      <SubMenuCarrito/>
       <div>{children}</div>
     </div>
   )

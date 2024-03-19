@@ -66,7 +66,7 @@ router.get("/Api/Producto/:ID", async (req, res) => {
       "SELECT * FROM producto WHERE pro_iden = ?",
       [req.params.ID]
     );
-    return res.json(rows);
+    return res.jsonp(rows);
   } catch (error) {
     res.status(500).json(error);
   }

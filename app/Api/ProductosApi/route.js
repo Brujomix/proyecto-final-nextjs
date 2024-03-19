@@ -29,3 +29,13 @@ export const getProductosbyPuntos = async () => {
         return error
     }
 }
+
+export const getProductobyId = async (pro_iden) => {
+    try {
+        const res = await axios.get(`${UrlServer_nube}/Api/Producto/${pro_iden}`)
+        return res.data[0].pro_precio
+        
+    } catch (error) {
+        return error
+    }
+}
