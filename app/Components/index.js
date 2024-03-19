@@ -1,7 +1,6 @@
 export * from "./CardProducto"
 export * from "./BotonDinamico"
 export * from "./User_Carrito"
-export * from "./ErrorDinamico"
 export * from "./CardComanda"
 export * from "./RankingProductos"
 export * from "./CardProductoCarrito"

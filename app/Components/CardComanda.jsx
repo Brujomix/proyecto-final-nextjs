@@ -18,10 +18,10 @@ export function CardComanda({ comanda }) {
       </div>
       <div>
         {comanda.com_carrito.map((e) => (
-          <>
+          <div key={e.pro_iden}>
             <span>{e.pro_iden}</span>
             <span>{e.Cantidad}</span>
-          </>
+          </div>
         ))}
       </div>
       <span>{comanda.com_entrega}</span>

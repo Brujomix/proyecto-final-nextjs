@@ -18,7 +18,7 @@ export function TablaProductos({ Productos }) {
       </thead>
       <tbody className="text-center">
         {Productos.map((e) => (
-          <tr>
+          <tr key={e.pro_iden}>
             <td>{e.pro_iden}</td>
             <td>{e.pro_name}</td>
             <td>$ {e.pro_precio}</td>
