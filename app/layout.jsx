@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import "./globals.css";
-import { Header, NavBar, NavBarAdmin } from "./ui";
+import { Header, NavBar, NavBarAdmin, NavBarView } from "./ui";
 import Footer from "./ui/Footer";
 import { ProviderRedux } from "@/Redux/Provider";
 import { EstadoApp, User_Carrito } from "./Components";
@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
           </Suspense>
           <User_Carrito />
           <Header />
-          <NavBar />
+          <NavBarView NavBar={<NavBar/>}/>
           <NavBarAdmin />
           <div>{children}</div>
           <Footer />
