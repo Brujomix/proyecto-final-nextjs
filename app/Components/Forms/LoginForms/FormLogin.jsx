@@ -3,8 +3,13 @@ import React from "react";
 import { Formik } from "formik";
 import { BotonDinamico } from "@/app/Components";
 import style from "@/app/Components/Forms/form.module.css";
+import { validarUsuario } from "@/app/Api/UsuariosApi/route";
+import { useDispatch } from "react-redux";
+import { setCurrentUser, setIsLogin } from "@/Redux/Slices/UsuarioSlice";
 
 export function FormLogin() {
+  const dispatch = useDispatch()
+
   return (
     <div>
       <Formik
@@ -28,8 +33,21 @@ export function FormLogin() {
           }
           return errors;
         }}
-        onSubmit={(values) => {
-          console.log(values);
+        onSubmit={async (values) => {
+          const newUser = {
+            us_email: values.us_email,
+            us_pass: values.us_pass,
+          };
+          try {
+            await validarUsuario( newUser ).then((res) => {
+              if (res.length !== 0) {
+                dispatch(setCurrentUser(res[0]))
+                dispatch(setIsLogin(true))     
+              }
+            });
+          } catch (error) {
+            console.log(error);
+          }
         }}
       >
         {({

@@ -3,6 +3,8 @@ import React from "react";
 import { Formik } from "formik";
 import { BotonDinamico } from "@/app/Components";
 import style from "@/app/Components/Forms/form.module.css";
+import { addUsuario } from "@/app/Api/UsuariosApi/route";
+import Swal from "sweetalert2";
 
 export function FormAddUser() {
   return (
@@ -32,7 +34,34 @@ export function FormAddUser() {
           return errors;
         }}
         onSubmit={(values) => {
-          console.log(values);
+          const newUser = {
+            us_email: values.us_email,
+            us_pass: values.confirmPass,
+            us_name: values.us_name,
+            us_ro_iden: 1,
+            us_dire: values.us_dire,
+            us_tel: values.us_tel,
+          };
+          Swal.fire({
+            icon:"question",
+            text:"Deseas Registrarte?",
+            showConfirmButton:true
+          }).then(async res => {
+            if (res.isConfirmed) {
+              await addUsuario(newUser).then(response=>{
+                if (response.statusText === "OK") {
+                  Swal.fire({
+                    icon:"success",
+                    text:"Usuario Registrado",
+                    toast:true,
+                    position:"top-end",
+                    timer:1800,
+                    showConfirmButton:false
+                  })
+                }
+              })
+            }
+          })
         }}
       >
         {({

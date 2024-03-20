@@ -10,7 +10,7 @@ export const getUsuarioFilter = async (us_email) => {
   }
 };
 
-export const validarUsuario = async ({ObjUsuario})=>{
+export const validarUsuario = async (ObjUsuario)=>{
   try {
     const res = await axios.post(`${UrlServer_nube}/Api/ValidarUsuario`, ObjUsuario)
     return res.data
@@ -19,7 +19,7 @@ export const validarUsuario = async ({ObjUsuario})=>{
   }
 }
 
-export const addUsuario = async ({ ObjUsuario }) => {
+export const addUsuario = async ( ObjUsuario ) => {
   try {
     const res = await axios.post(
       `${UrlServer_nube}/Api/Usuario`,
@@ -31,7 +31,7 @@ export const addUsuario = async ({ ObjUsuario }) => {
   }
 };
 
-export const editUsuario = async ({ ObjUsuario }) => {
+export const editUsuario = async ( ObjUsuario ) => {
   try {
     const res = await axios.put(`${UrlServer_nube}/Api/Usuario`, ObjUsuario);
     return res.status;
@@ -40,7 +40,7 @@ export const editUsuario = async ({ ObjUsuario }) => {
   }
 };
 
-export const deleteUsuario = async ({ ObjUsuario }) => {
+export const deleteUsuario = async (ObjUsuario ) => {
   try {
     const res = await axios.delete(
       `${UrlServer_nube}/Api/Usuario/${ObjUsuario.us_iden}`,

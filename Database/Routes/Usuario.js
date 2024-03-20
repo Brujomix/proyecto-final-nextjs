@@ -81,12 +81,12 @@ router.get("/Api/Usuario/:Email", async (req, res) => {
 
 router.post("/Api/Usuario", async (req, res) => {
   try {
-    const { us_email, us_pass, us_dire, us_name, us_tel, ro_us_iden } =
+    const { us_email, us_pass, us_dire, us_name, us_tel, us_ro_iden } =
       req.body;
     const promisePool = pool.promise();
     await promisePool.query(
-      "INSERT INTO Usuario (us_email, us_pass, us_dire, us_name, us_tel, ro_us_iden) VALUES (?,SHA(?),?,?,?,?)",
-      [us_email, us_pass, us_dire, us_name, us_tel, ro_us_iden]
+      "INSERT INTO Usuario (us_email, us_pass, us_dire, us_name, us_tel, us_ro_iden) VALUES (?,SHA(?),?,?,?,?)",
+      [us_email, us_pass, us_dire, us_name, us_tel, us_ro_iden]
     );
     return res.json();
   } catch (error) {
