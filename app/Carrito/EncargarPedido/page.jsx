@@ -3,7 +3,9 @@ import React from 'react'
 
 function EncargarPedido() {
   return (
-    <FormEncargarPedido/>
+    <div>
+      <FormEncargarPedido/>
+    </div>
   )
 }
 
