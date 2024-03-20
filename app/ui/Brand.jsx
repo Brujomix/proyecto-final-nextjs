@@ -5,7 +5,7 @@ import { IoHomeOutline } from "react-icons/io5";
 
 export function Brand() {
   return (
-    <div className="flex justify-between items-center p-2 bg-neutral-50">
+    <div className="flex justify-between items-center p-5 bg-neutral-50">
       <Link href={"/"}>
         <IoHomeOutline size={35} />
       </Link>

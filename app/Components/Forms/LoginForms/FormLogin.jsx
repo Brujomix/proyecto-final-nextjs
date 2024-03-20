@@ -6,9 +6,10 @@ import style from "@/app/Components/Forms/form.module.css";
 import { validarUsuario } from "@/app/Api/UsuariosApi/route";
 import { useDispatch } from "react-redux";
 import { setCurrentUser, setIsLogin } from "@/Redux/Slices/UsuarioSlice";
+import Swal from "sweetalert2";
 
 export function FormLogin() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -39,10 +40,28 @@ export function FormLogin() {
             us_pass: values.us_pass,
           };
           try {
-            await validarUsuario( newUser ).then((res) => {
+            await validarUsuario(newUser).then((res) => {
+              
               if (res.length !== 0) {
-                dispatch(setCurrentUser(res[0]))
-                dispatch(setIsLogin(true))     
+                Swal.fire({
+                  icon: "success",
+                  text: "Validacion Correcta",
+                  toast: true,
+                  timer: 1800,
+                  position: "top-end",
+                  showConfirmButton: false,
+                });
+                dispatch(setCurrentUser(res[0]));
+                dispatch(setIsLogin(true));
+              } else {
+                Swal.fire({
+                  icon: "info",
+                  text: "No pudimos Validarte",
+                  toast: true,
+                  timer: 1800,
+                  position: "top-end",
+                  showConfirmButton: false,
+                });
               }
             });
           } catch (error) {

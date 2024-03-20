@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import { Formik } from "formik";
 import { BotonDinamico } from "@/app/Components";

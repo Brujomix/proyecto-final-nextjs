@@ -5,8 +5,8 @@ import { getCategorias } from "../Api/CategoriasApi/route";
 export async function NavBar() {
   const listaCategorias = await getCategorias();
   return (
-    <div className="w-full p-2 flex flex-col gap-4 bg-neutral-50">
-      <div className="flex flex-row flex-wrap justify-center items-center gap-4">
+    <div className="w-full  flex flex-col bg-neutral-50">
+      <div className=" mt-3 mb-4 flex flex-row flex-wrap justify-center items-center gap-2">
         {listaCategorias.map((e) => (
           <Link
             className="border text-sm text-semibold italic tracking-wider border-neutral-400 p-2 rounded-md bg-white"

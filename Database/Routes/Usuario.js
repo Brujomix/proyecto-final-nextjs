@@ -47,7 +47,7 @@ router.post("/Api/ValidarUsuario", async (req, res) => {
     if (userHash === storedHash) {
       return res.json(rows);
     } else {
-      return res.status(401).json({ error: "Credenciales inválidas" });
+      return res.json([]);
     }
   } catch (error) {
     res.status(500).json(error);

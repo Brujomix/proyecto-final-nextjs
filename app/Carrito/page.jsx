@@ -9,7 +9,11 @@ function Carrito() {
   const itemsCarrito = useSelector((state) => state.Carrito.itemsCarrito);
   const isLogin = useSelector((state) => state.Usuario.isLogin);
   return itemsCarrito.length === 0 ? (
-    <div>No items carrito</div>
+    <div className="flex flex-col items-center">
+      <span className="text-3xl italic ">No items carrito</span>
+      <span>Agrega Productos al Carrito</span>
+    </div>
+  
   ) : (
     <div className="flex flex-col justify-center items-center gap-4">
       <div className="space-y-2">
@@ -24,7 +28,7 @@ function Carrito() {
       </div>
       <div>
         {isLogin ? (
-          <Link href={"/PaymentCarrito"} className={"Link"}>
+          <Link href={"/Carrito/EncargarPedido"} className={"Link"}>
             Encargar
           </Link>
         ) : (

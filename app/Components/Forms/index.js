@@ -11,6 +11,9 @@ export * from "./CategoriasForms/FormPrecioCategoria";
 export * from "./ProductosForms/FormAddProducto";
 export * from "./ProductosForms/FormEditProducto";
 
+/* Carrito */
+export * from "./EncargarPedido/FormEncargarPedido";
+
 /* Delivery Form */
 export * from "./DeliverysForms/FormAddDelivery";
 export * from "./DeliverysForms/FormEditDelivery";

@@ -7,15 +7,15 @@ export function NavBarView({ NavBar }) {
   const [isView, setIsView] = useState(true);
   return (
     <div>
-      <div>
+      <div className="mx-3 my-1">
         <BotonDinamico
           className="w-fit bg-white md:hidden"
           onClick={() => setIsView(!isView)}
         >
           {isView ? (
-            <AiOutlineMenuFold size={25} />
+            <AiOutlineMenuFold size={30} />
           ) : (
-            <AiOutlineMenuUnfold size={25} />
+            <AiOutlineMenuUnfold size={30} />
           )}
         </BotonDinamico>
       </div>
