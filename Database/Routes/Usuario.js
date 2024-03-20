@@ -81,11 +81,12 @@ router.get("/Api/Usuario/:Email", async (req, res) => {
 
 router.post("/Api/Usuario", async (req, res) => {
   try {
-    const { us_email, us_pass, us_dire, us_name, us_tel } = req.body;
+    const { us_email, us_pass, us_dire, us_name, us_tel, ro_us_iden } =
+      req.body;
     const promisePool = pool.promise();
     await promisePool.query(
-      "INSERT INTO Usuario (us_email, us_pass, us_dire, us_name, us_tel) VALUES (?,SHA(?),?,?,?)",
-      [us_email, us_pass, us_dire, us_name, us_tel]
+      "INSERT INTO Usuario (us_email, us_pass, us_dire, us_name, us_tel, ro_us_iden) VALUES (?,SHA(?),?,?,?,?)",
+      [us_email, us_pass, us_dire, us_name, us_tel, ro_us_iden]
     );
     return res.json();
   } catch (error) {
@@ -94,15 +95,14 @@ router.post("/Api/Usuario", async (req, res) => {
 });
 
 router.put("/Api/Usuario", async (req, res) => {
-
   try {
     const { us_tel, us_dire, us_name, us_email, us_pass, us_iden } = req.body;
     const promisePool = pool.promise();
     await promisePool.query(
       "UPDATE usuario SET us_tel = ?, us_dire = ?, us_name = ?, us_email = ?, us_pass = SHA(?) WHERE us_iden = ?",
-      [ us_tel, us_dire, us_name, us_email, us_pass, us_iden]
+      [us_tel, us_dire, us_name, us_email, us_pass, us_iden]
     );
-      return res.json()
+    return res.json();
   } catch (error) {
     res.status(500).json(error);
   }
@@ -111,15 +111,13 @@ router.put("/Api/Usuario", async (req, res) => {
 router.delete("/Api/Usuario/:ID", async (req, res) => {
   try {
     const promisePool = pool.promise();
-    await promisePool.query(
-      "DELETE FROM Usuario WHERE us_iden = ?",
-      [req.params.ID]
-    );
+    await promisePool.query("DELETE FROM Usuario WHERE us_iden = ?", [
+      req.params.ID,
+    ]);
     return res.json();
   } catch (error) {
     res.status(500).json(error);
   }
 });
-
 
 export default router;

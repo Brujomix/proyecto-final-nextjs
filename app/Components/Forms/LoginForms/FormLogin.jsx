@@ -41,7 +41,6 @@ export function FormLogin() {
           handleSubmit,
         }) => (
           <form className={style.formBody} onSubmit={handleSubmit}>
-            <label>Login</label>
             <input
               className={style.inputData}
               type="email"

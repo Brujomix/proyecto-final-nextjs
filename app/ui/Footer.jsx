@@ -13,7 +13,7 @@ export default function Footer() {
         </ul>
       </div>
       <div>
-        <FormContacto />
+        {/* <FormContacto /> */}
       </div>
       <div className="col-span-2 text-start mt-4 ">
         <span className=" opacity-75 tracking-widest">

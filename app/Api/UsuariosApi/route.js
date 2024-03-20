@@ -10,11 +10,44 @@ export const getUsuarioFilter = async (us_email) => {
   }
 };
 
-export const validarUsuario = async ({ObjUser})=>{
+export const validarUsuario = async ({ObjUsuario})=>{
   try {
-    const res = await axios.post(`${UrlServer_nube}/Api/ValidarUsuario`, ObjUser)
+    const res = await axios.post(`${UrlServer_nube}/Api/ValidarUsuario`, ObjUsuario)
     return res.data
   } catch (error) {
     return error;
   }
 }
+
+export const addUsuario = async ({ ObjUsuario }) => {
+  try {
+    const res = await axios.post(
+      `${UrlServer_nube}/Api/Usuario`,
+      ObjUsuario
+    );
+    return res.status;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const editUsuario = async ({ ObjUsuario }) => {
+  try {
+    const res = await axios.put(`${UrlServer_nube}/Api/Usuario`, ObjUsuario);
+    return res.status;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const deleteUsuario = async ({ ObjUsuario }) => {
+  try {
+    const res = await axios.delete(
+      `${UrlServer_nube}/Api/Usuario/${ObjUsuario.us_iden}`,
+      ObjUsuario
+    );
+    return res.status;
+  } catch (error) {
+    return error;
+  }
+};

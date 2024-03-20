@@ -44,7 +44,6 @@ export function FormAddUser() {
           handleSubmit,
         }) => (
           <form className={style.formBody} onSubmit={handleSubmit}>
-            <label>Registrarme</label>
             <input
               className={style.inputData}
               type="email"

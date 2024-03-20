@@ -1,11 +1,16 @@
 import React from "react";
+import { SubMenuUsuarios } from "../Components/SubMenus";
 
-function UsuariosLayout({ children }) {
+function layoutUsuario({ children }) {
   return (
-    <div className="flex flex-col justify-center items-center gap-4 p-2">
-      {children}
+    <div className="flex flex-col justify-center items-center gap-7">
+      <span className="text-3xl font-semibold italic tracking-widest">
+        Gestión Usuario
+      </span>
+      <SubMenuUsuarios />
+      <div>{children}</div>
     </div>
   );
 }
 
-export default UsuariosLayout;
+export default layoutUsuario;
