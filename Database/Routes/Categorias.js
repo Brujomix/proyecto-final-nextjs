@@ -29,11 +29,11 @@ router.get("/Api/Categoria/:ID", async (req, res) => {
 router.put("/Api/Categoria/:ID", async (req, res) => {
   try {
     const promisePool = pool.promise();
-    const [rows] = await promisePool.query(
+    await promisePool.query(
       "UPDATE categoria SET ? WHERE cat_iden = ?",
       [req.body, req.params.ID]
     );
-    return res.json(rows);
+    return res.json();
   } catch (error) {
     res.status(500).json(error);
   }
@@ -43,11 +43,11 @@ router.post("/Api/Categoria", async (req, res) => {
   try {
     const { cat_desc } = req.body;
     const promisePool = pool.promise();
-    const [rows] = await promisePool.query(
+    await promisePool.query(
       "INSERT INTO categoria (cat_desc) VALUES (?)",
       [cat_desc]
     );
-    return res.json(rows);
+    return res.json();
   } catch (error) {
     res.status(500).json(error);
   }
@@ -56,11 +56,11 @@ router.post("/Api/Categoria", async (req, res) => {
 router.delete("/Api/Categoria/:ID", async (req, res) => {
   try {
     const promisePool = pool.promise();
-    const [rows] = await promisePool.query(
+    await promisePool.query(
       "DELETE FROM categoria WHERE cat_iden = ?",
       [req.params.ID]
     );
-    return res.json(rows);
+    return res.json();
   } catch (error) {
     res.status(500).json(error);
   }

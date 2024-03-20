@@ -9,12 +9,12 @@ router.put("/Api/Productos/AumentaPrecio", async (req, res) => {
   try {
     const { porcentaje, pro_cat_iden } = req.body;
     const promisePool = pool.promise();
-    const [rows] = await promisePool.query(
+    await promisePool.query(
       "UPDATE producto SET pro_precio = pro_precio + (pro_precio * ? / 100) WHERE pro_cat_iden = ?",
       [porcentaje, pro_cat_iden]
     );
 
-    return res.json(rows);
+    return res.json();
   } catch (error) {
     res.status(500).json(error);
   }
@@ -24,12 +24,12 @@ router.put("/Api/Productos/DisminuyePrecio", async (req, res) => {
   try {
     const { porcentaje, pro_cat_iden } = req.body;
     const promisePool = pool.promise();
-    const [rows] = await promisePool.query(
+    await promisePool.query(
       "UPDATE producto SET pro_precio = pro_precio - (pro_precio * ? / 100) WHERE pro_cat_iden = ?",
       [porcentaje, pro_cat_iden]
     );
 
-    return res.json(rows);
+    return res.json();
   } catch (error) {
     res.status(500).json(error);
   }
@@ -101,11 +101,11 @@ router.get("/Api/ProductosRanking", async (req, res) => {
 router.put("/Api/Producto/:ID", async (req, res) => {
   try {
     const promisePool = pool.promise();
-    const [rows] = await promisePool.query(
+    await promisePool.query(
       "UPDATE producto SET ? WHERE pro_iden = ?",
       [req.body, req.params.ID]
     );
-    return res.json(rows);
+    return res.json();
   } catch (error) {
     res.status(500).json(error);
   }
@@ -121,7 +121,7 @@ router.post("/Api/Producto", async (req, res) => {
       pro_cat_iden,
     } = req.body;
     const promisePool = pool.promise();
-    const [rows] = await promisePool.query(
+    await promisePool.query(
       "INSERT INTO producto (pro_imagen, pro_name, pro_desc, pro_precio, pro_cat_iden) VALUES (?,?,?,?,?)",
       [
         pro_imagen,
@@ -131,7 +131,7 @@ router.post("/Api/Producto", async (req, res) => {
         pro_cat_iden,
       ]
     );
-    return res.json(rows);
+    return res.json();
   } catch (error) {
     res.status(500).json(error);
   }
@@ -140,11 +140,11 @@ router.post("/Api/Producto", async (req, res) => {
 router.delete("/Api/Producto/:ID", async (req, res) => {
   try {
     const promisePool = pool.promise();
-    const [rows] = await promisePool.query(
+    await promisePool.query(
       "DELETE FROM producto WHERE pro_iden = ?",
       [req.params.ID]
     );
-    return res.json(rows);
+    return res.json();
   } catch (error) {
     res.status(500).json(error);
   }

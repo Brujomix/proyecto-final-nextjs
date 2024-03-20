@@ -16,11 +16,11 @@ router.get("/Api/Pagos", async (req, res) => {
 router.put("/Api/Pago/:ID", async (req, res) => {
   try {
     const promisePool = pool.promise();
-    const [rows] = await promisePool.query(
+    await promisePool.query(
       "UPDATE pago SET ? WHERE pago_iden = ?",
       [req.body, req.params.ID]
     );
-    return res.json(rows);
+    return res.json();
   } catch (error) {
     res.status(500).json( error );
   }
@@ -30,11 +30,11 @@ router.post("/Api/Pago", async (req, res) => {
   try {
     const {categoria_desc} = req.body;
     const promisePool = pool.promise();
-    const [rows] = await promisePool.query(
+    await promisePool.query(
       "INSERT INTO pago (pago_desc) VALUES (?)",
       [categoria_desc]
     );
-    return res.json(rows);
+    return res.json();
   } catch (error) {
     res.status(500).json( error );
   }
@@ -43,11 +43,11 @@ router.post("/Api/Pago", async (req, res) => {
 router.delete("/Api/Pago/:ID", async (req, res) => {
     try {
       const promisePool = pool.promise();
-      const [rows] = await promisePool.query(
+      await promisePool.query(
         "DELETE FROM pago WHERE pago_iden = ?",
         [req.params.ID]
       );
-      return res.json(rows);
+      return res.json();
     } catch (error) {
       res.status(500).json( error );
     }

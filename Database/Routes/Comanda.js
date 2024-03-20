@@ -53,7 +53,7 @@ router.post("/Api/Comanda", async (req, res) => {
         com_exep,
     } = req.body;
     const promisePool = pool.promise();
-    const [rows] = await promisePool.query(
+    await promisePool.query(
       "INSERT INTO comanda (com_carrito, com_date, com_hora, com_env_iden, com_pago_iden, com_precioEnvio,com_us_iden, com_entrega, com_exep) VALUES (?,?,?,?,?,?,?,?,?)",
       [
         com_carrito,
@@ -67,20 +67,7 @@ router.post("/Api/Comanda", async (req, res) => {
         com_exep,
       ]
     );
-    return res.json(rows);
-  } catch (error) {
-    res.status(500).json(error);
-  }
-});
-
-router.delete("/Api/Comanda/:ID", async (req, res) => {
-  try {
-    const promisePool = pool.promise();
-    const [rows] = await promisePool.query(
-      "DELETE FROM comanda WHERE com_iden = ?",
-      [req.params.ID]
-      );
-    return res.json(rows);
+    return res.json();
   } catch (error) {
     res.status(500).json(error);
   }
