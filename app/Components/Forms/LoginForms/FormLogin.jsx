@@ -78,7 +78,6 @@ export function FormLogin() {
                       showConfirmButton: false,
                     });
                     break;
-
                   default:
                     break;
                 }

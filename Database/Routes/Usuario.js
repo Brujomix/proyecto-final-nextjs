@@ -37,7 +37,7 @@ router.post("/Api/ValidarUsuario", async (req, res) => {
     const userHash = crypto.createHash("sha1").update(us_pass).digest("hex");
     
     if (userHash === storedHash) {
-      return res.json(rows);
+      return res.status(200).json(rows);
     }else{
       return res.status(401).json({ message: "Revisa las Credenciales" });
     }
