@@ -15,12 +15,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="bg-neutral-100">
         <ProviderRedux>
-          <Suspense fallback={"Cargando Estado APP"}>
-            <EstadoApp />
-          </Suspense>
+          <EstadoApp />
           <User_Carrito />
           <Header />
-          <NavBarView NavBar={<NavBar/>}/>
+          <NavBarView NavBar={<NavBar />} />
           <NavBarAdmin />
           <div>{children}</div>
           <Footer />

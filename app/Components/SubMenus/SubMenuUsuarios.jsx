@@ -9,7 +9,7 @@ import { deleteUsuario } from "@/app/Api/UsuariosApi/route";
 
 export function SubMenuUsuarios() {
   const dispatch = useDispatch();
-  const currentUser = useSelector(state => state.Usuario.currentUser)
+  const currentUser = useSelector((state) => state.Usuario.currentUser);
   return (
     <div className="flex flex-row flex-wrap justify-center items-center gap-4">
       <Link className="Link" href={"/Usuarios/Login"}>
@@ -20,7 +20,7 @@ export function SubMenuUsuarios() {
       </Link>
       <BotonDinamico
         className="Link"
-        onClick={ () => {
+        onClick={() => {
           Swal.fire({
             icon: "question",
             title: "Lamentamos que te vayas !!!",
@@ -30,7 +30,7 @@ export function SubMenuUsuarios() {
             cancelButtonText: "No",
           }).then(async (res) => {
             if (res.isConfirmed) {
-              await deleteUsuario(currentUser).then(response=>{
+              await deleteUsuario(currentUser).then((response) => {
                 if (response.statusText === "OK") {
                   Swal.fire({
                     icon: "success",
@@ -50,7 +50,7 @@ export function SubMenuUsuarios() {
                     timer: 2000,
                   });
                 }
-              })
+              });
             }
           });
         }}
@@ -69,6 +69,7 @@ export function SubMenuUsuarios() {
           }).then((res) => {
             if (res.isConfirmed) {
               dispatch(cerrarSession());
+              localStorage.removeItem("currentUser");
             }
           });
         }}

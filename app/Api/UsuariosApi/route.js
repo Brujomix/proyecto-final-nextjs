@@ -13,7 +13,16 @@ export const getUsuarioFilter = async (us_email) => {
 export const validarUsuario = async (ObjUsuario)=>{
   try {
     const res = await axios.post(`${UrlServer_nube}/Api/ValidarUsuario`, ObjUsuario)
-    return res.data
+    return res
+  } catch (error) {
+    return error;
+  }
+}
+
+export const validarUserLs = async (ObjUsuario)=>{
+  try {
+    const res = await axios.post(`${UrlServer_nube}/Api/UserLS`, ObjUsuario)
+    return res
   } catch (error) {
     return error;
   }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { CarritoIcon, Usuario } from "../ui";
 
 export function User_Carrito() {

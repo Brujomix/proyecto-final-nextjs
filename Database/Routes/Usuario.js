@@ -14,14 +14,10 @@ router.post("/Api/UserLS", async (req, res) => {
       "SELECT * FROM usuario WHERE us_email = ?",
       [us_email]
     );
-    if (rows.length === 0) {
-      return res.status(401).json({ error: "Usuario Inexistente" });
-    }
-
     if (rows[0].us_pass === us_pass) {
-      return res.status(200).json({ error: "Login Correcto" });
+      return res.status(200).json({ message: "Verificado" });
     } else {
-      return res.status(401).json({ error: "Credenciales inválidas" });
+      return res.status(401).json({ message: "No Verificado" });
     }
   } catch (error) {
     res.status(500).json(error);
@@ -37,17 +33,13 @@ router.post("/Api/ValidarUsuario", async (req, res) => {
       "SELECT * FROM usuario WHERE us_email = ?",
       [us_email]
     );
-    if (rows.length === 0) {
-      return res.status(401).json({ error: "Usuario Inexistente" });
-    }
-
     const storedHash = rows[0].us_pass;
     const userHash = crypto.createHash("sha1").update(us_pass).digest("hex");
-
+    
     if (userHash === storedHash) {
       return res.json(rows);
-    } else {
-      return res.json([]);
+    }else{
+      return res.status(401).json({ message: "Revisa las Credenciales" });
     }
   } catch (error) {
     res.status(500).json(error);

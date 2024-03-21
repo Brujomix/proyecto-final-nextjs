@@ -6,32 +6,20 @@ import style from "../form.module.css";
 import { useSelector } from "react-redux";
 
 export function FormEncargarPedido() {
+  
   const itemsCarrito = useSelector((state) => state.Carrito.itemscarrito);
   const currentUser = useSelector(state => state.Usuario.currentUser)
-  const horariosEntrega = [
-    { Id: 0, Hora: "Cuando Esté Listo" },
-    { Id: 1, Hora: "19:00" },
-    { Id: 2, Hora: "19:30" },
-    { Id: 3, Hora: "20:00" },
-    { Id: 4, Hora: "20:30" },
-    { Id: 5, Hora: "21:00" },
-    { Id: 6, Hora: "21:30" },
-    { Id: 7, Hora: "22:00" },
-    { Id: 8, Hora: "22:30" },
-    { Id: 9, Hora: "23:00" },
-  ];
+
   return (
     <div className={style.containerForm}>
       <Formik
         initialValues={{
           com_date: "",
-          com_hora: "",
           com_us_iden: "",
           com_pago_iden: "",
           com_env_iden: "",
           com_precioEnvio: 0,
           com_carrito: JSON.stringify(itemsCarrito),
-          com_entrega: "",
           com_exep: "",
         }}
         validate={(values) => {
@@ -60,29 +48,6 @@ export function FormEncargarPedido() {
               <span>{currentUser.us_tel}</span>
               <span>{currentUser.us_email}</span>
             </div>
-
-            <strong>Especificar una Hora de Entrega ?</strong>
-            <div>
-              <div>
-                {[horariosEntrega].map((e) => (
-                  <div key={e.Id}>
-                    <input
-                      type="checkbox"
-                      name="com_entrega"
-                      value={e.Id}
-                      checked={values.com_entrega === e.Hora}
-                      onChange={() => {
-                        const newValue =
-                          values.com_entrega === e.Hora ? "" : e.Hora;
-                        setFieldValue("com_entrega", newValue);
-                      }}
-                    />
-                    <span>{e.Hora}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className={style.errorsForm}>{errors.com_entrega}</div>
 
             <strong>Alguna Aclaracion sobre el Pedido ?</strong>
             <div className="MensajeErrorForm">No Es Obligatorio.</div>

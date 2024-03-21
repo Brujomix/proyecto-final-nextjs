@@ -10,7 +10,6 @@ import Swal from "sweetalert2";
 
 export function FormLogin() {
   const dispatch = useDispatch();
-
   return (
     <div>
       <Formik
@@ -41,8 +40,8 @@ export function FormLogin() {
           };
           try {
             await validarUsuario(newUser).then((res) => {
-              
-              if (res.length !== 0) {
+              console.log(res);
+              if (res.status === 200) {
                 Swal.fire({
                   icon: "success",
                   text: "Validacion Correcta",
@@ -51,17 +50,38 @@ export function FormLogin() {
                   position: "top-end",
                   showConfirmButton: false,
                 });
-                dispatch(setCurrentUser(res[0]));
+                dispatch(setCurrentUser(res.data[0]));
                 dispatch(setIsLogin(true));
+                localStorage.setItem(
+                  "currentUser",
+                  JSON.stringify(res.data[0])
+                );
               } else {
-                Swal.fire({
-                  icon: "info",
-                  text: "No pudimos Validarte",
-                  toast: true,
-                  timer: 1800,
-                  position: "top-end",
-                  showConfirmButton: false,
-                });
+                switch (res.response.status) {
+                  case 401:
+                    Swal.fire({
+                      icon: "warning",
+                      text: "No pudimos Validarte",
+                      toast: true,
+                      timer: 1800,
+                      position: "top-end",
+                      showConfirmButton: false,
+                    });
+                    break;
+                  case 500:
+                    Swal.fire({
+                      icon: "error",
+                      text: "Error del Servidor",
+                      toast: true,
+                      timer: 1800,
+                      position: "top-end",
+                      showConfirmButton: false,
+                    });
+                    break;
+
+                  default:
+                    break;
+                }
               }
             });
           } catch (error) {
