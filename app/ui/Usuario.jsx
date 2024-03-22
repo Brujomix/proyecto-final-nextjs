@@ -20,7 +20,7 @@ export function Usuario() {
         await validarUserLs(userStorageParse).then((res) => {
           if (res.status === 200) {
             Swal.fire({
-              icon: "info",
+              icon: "success",
               text: "Usuario Verificado",
               toast: true,
               position: "top-end",

@@ -105,7 +105,7 @@ export function FormLogin() {
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            <div className={style.errosForm}>{errors.us_email}</div>
+            <div className={style.errorsForm}>{errors.us_email}</div>
             <input
               className={style.inputData}
               type="password"
@@ -124,7 +124,7 @@ export function FormLogin() {
                 onBlur={handleBlur}
               />
             )}
-            <div className={style.errosForm}>{errors.confirmPass}</div>
+            <div className={style.errorsForm}>{errors.confirmPass}</div>
 
             <div className={style.containerBotones}>
               <BotonDinamico type="submit">Iniciar</BotonDinamico>

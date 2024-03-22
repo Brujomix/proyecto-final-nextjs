@@ -81,7 +81,7 @@ export function FormAddUser() {
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            <div className={style.errosForm}>{errors.us_email}</div>
+            <div className={style.errorsForm}>{errors.us_email}</div>
             <input
               className={style.inputData}
               type="text"
@@ -90,7 +90,7 @@ export function FormAddUser() {
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            <div className={style.errosForm}>{errors.us_name}</div>
+            <div className={style.errorsForm}>{errors.us_name}</div>
             <input
               className={style.inputData}
               type="text"
@@ -99,7 +99,7 @@ export function FormAddUser() {
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            <div className={style.errosForm}>{errors.us_dire}</div>
+            <div className={style.errorsForm}>{errors.us_dire}</div>
             <input
               className={style.inputData}
               type="text"
@@ -108,7 +108,7 @@ export function FormAddUser() {
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            <div className={style.errosForm}>{errors.us_tel}</div>
+            <div className={style.errorsForm}>{errors.us_tel}</div>
 
             <input
               className={style.inputData}
@@ -118,7 +118,7 @@ export function FormAddUser() {
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            <div className={style.errosForm}>{errors.us_pass}</div>
+            <div className={style.errorsForm}>{errors.us_pass}</div>
 
             {values.us_pass && (
               <input
@@ -130,7 +130,7 @@ export function FormAddUser() {
                 onBlur={handleBlur}
               />
             )}
-            <div className={style.errosForm}>{errors.confirmPass}</div>
+            <div className={style.errorsForm}>{errors.confirmPass}</div>
 
             <div className={style.containerBotones}>
               <BotonDinamico type="submit">Agregar Usuario</BotonDinamico>

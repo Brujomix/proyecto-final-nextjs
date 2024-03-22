@@ -61,7 +61,7 @@ export function FormAddProducto() {
                 reader.readAsDataURL(e.target.files[0]);
               }}
             />
-            <div className={style.errosForm}>{errors.pro_imagen}</div>
+            <div className={style.errorsForm}>{errors.pro_imagen}</div>
             <input
               className={style.inputData}
               type="string"
@@ -71,7 +71,7 @@ export function FormAddProducto() {
               value={values.pro_name}
               required
             />
-            <div className={style.errosForm}>{errors.pro_name}</div>
+            <div className={style.errorsForm}>{errors.pro_name}</div>
             <textarea
               className={style.areaTexto}
               placeholder={"Descripcion Del Producto"}
@@ -80,7 +80,7 @@ export function FormAddProducto() {
               defaultValue={""}
               onChange={handleChange}
             />
-            <div className={style.errosForm}>{errors.pro_desc}</div>
+            <div className={style.errorsForm}>{errors.pro_desc}</div>
             <input
               className={style.inputData}
               type="number"
@@ -90,7 +90,7 @@ export function FormAddProducto() {
               value={values.pro_precio}
               required
             />
-            <div className={style.errosForm}>{errors.pro_precio}</div>
+            <div className={style.errorsForm}>{errors.pro_precio}</div>
 
             <label>Seleccione Categoria:</label>
             <Field

@@ -38,7 +38,7 @@ export function FormEditProducto({pro_iden}) {
             onChange={handleChange}
             onBlur={handleBlur}
           />
-          <div className={style.errosForm}>{errors.pro_desc}</div>
+          <div className={style.errorsForm}>{errors.pro_desc}</div>
 
           <div className={style.containerBotones}>
             <BotonDinamico type="submit">Editar</BotonDinamico>

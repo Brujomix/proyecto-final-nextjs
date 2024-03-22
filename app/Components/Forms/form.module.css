@@ -4,8 +4,7 @@
 }
 
 .formBody{
-    background-color: #998;
-    border: 1px solid #DDD;
+    border: 1px solid black;
     border-radius: 10px;
     padding: 20px;
     display: flex;

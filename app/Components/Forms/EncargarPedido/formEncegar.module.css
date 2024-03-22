@@ -1,0 +1,37 @@
+.containerForm{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+}
+.formBody{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.containerUser{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 5px;
+    font-size: small;
+}
+
+.aclaracionPedido{
+    width: 220px;
+    height: 120px;
+    resize: none;
+    font-size: small;
+    font-style: italic;
+    padding: 5px;
+    border: 1.2px solid black;
+    border-radius: 5px;
+}
+
+.errorsForm{
+    color: brown;
+    font-style: italic;
+}
