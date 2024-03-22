@@ -18,3 +18,11 @@ export const PrecioCarrito = async (itemsCarrito) => {
   }
   return total;
 };
+
+export const ConvierteCarrito = (itemsCarrito) => {
+  let newCarrito = [];
+  for (const obj of itemsCarrito) {
+    newCarrito.push({pro_iden:obj.pro_iden, Cantidad: obj.Cantidad})
+  }
+  return JSON.stringify(newCarrito);
+};

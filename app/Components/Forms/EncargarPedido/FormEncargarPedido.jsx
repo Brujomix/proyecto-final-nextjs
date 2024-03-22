@@ -5,6 +5,9 @@ import { BotonDinamico } from "@/app/Components";
 import style from "./formEncegar.module.css";
 import { useSelector } from "react-redux";
 import { getDateTime } from "@/app/Utilidades/NowDate";
+import { ConvierteCarrito } from "@/app/Utilidades/Utils_Carrito";
+import { addComanda } from "@/app/Api/ComandasApi/route";
+import Swal from "sweetalert2";
 
 export function FormEncargarPedido() {
   const itemsCarrito = useSelector((state) => state.Carrito.itemsCarrito);
@@ -15,11 +18,11 @@ export function FormEncargarPedido() {
       <Formik
         initialValues={{
           com_date: getDateTime(),
-          com_us_iden: JSON.stringify(currentUser.us_iden),
+          com_us_iden: currentUser.us_iden,
           com_pago_iden: "",
           com_env_iden: "",
           com_precioEnvio: "",
-          com_carrito: itemsCarrito,
+          com_carrito: ConvierteCarrito(itemsCarrito),
           com_exep: "",
         }}
         validate={(values) => {
@@ -33,8 +36,33 @@ export function FormEncargarPedido() {
           }
           return errors;
         }}
-        onSubmit={(values) => {
-          console.log(values);
+        onSubmit={async (values) => {
+          try {
+            console.log(values);
+            await addComanda(values).then(res=>{
+              if (res.status === 200) {
+                Swal.fire({
+                  icon:"success",
+                  text:"Procesaremos tu Pedido",
+                  confirmButtonText:"Ok",
+                  showConfirmButton:true,
+                  allowEnterKey:false         
+                })
+              }else{
+                Swal.fire({
+                  icon:"error",
+                  text:"No Pudimos Procesar el Pedido",
+                  showConfirmButton:false,
+                  toast:true,
+                  timer:2500,
+                  position:"top-end"
+                })
+              }
+            })
+          } catch (error) {
+            console.log(error);
+          }
+          
         }}
       >
         {({ values, errors, handleChange, handleSubmit, setFieldValue }) => (
@@ -61,8 +89,8 @@ export function FormEncargarPedido() {
             <strong>Forma de Entrega ?</strong>
             <div>
               {[
-                { env_iden: 1, env_desc: "Delivery" },
-                { env_iden: 2, env_desc: "Local" },
+                { env_iden: 1, env_desc: "Delivery", env_precio:500 },
+                { env_iden: 2, env_desc: "Local", env_precio: 0 },
               ].map((e) => (
                 <div key={e.env_iden}>
                   <input

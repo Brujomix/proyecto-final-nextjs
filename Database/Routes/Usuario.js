@@ -65,7 +65,20 @@ router.get("/Api/Usuario/:Email", async (req, res) => {
       "SELECT * FROM usuario WHERE us_email = ?",
       [req.params.Email]
     );
-    return res.json(rows);
+    return res.json(rows[0]);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
+router.get("/Api/UsuarioById/:ID", async (req, res) => {
+  try {
+    const promisePool = pool.promise();
+    const [rows] = await promisePool.query(
+      "SELECT * FROM usuario WHERE us_iden = ?",
+      [req.params.ID]
+    );
+    return res.json(rows[0]);
   } catch (error) {
     res.status(500).json(error);
   }
@@ -94,7 +107,7 @@ router.put("/Api/Usuario", async (req, res) => {
       "UPDATE usuario SET us_tel = ?, us_dire = ?, us_name = ?, us_email = ?, us_pass = SHA(?) WHERE us_iden = ?",
       [us_tel, us_dire, us_name, us_email, us_pass, us_iden]
     );
-    return res.json();
+    return res.json({message: "Usuario Actualizado"});
   } catch (error) {
     res.status(500).json(error);
   }
@@ -106,7 +119,7 @@ router.delete("/Api/Usuario/:ID", async (req, res) => {
     await promisePool.query("DELETE FROM Usuario WHERE us_iden = ?", [
       req.params.ID,
     ]);
-    return res.json();
+    return res.json({message: "Usuario Eliminado"});
   } catch (error) {
     res.status(500).json(error);
   }

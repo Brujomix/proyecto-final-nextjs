@@ -20,7 +20,7 @@ router.get("/Api/Categoria/:ID", async (req, res) => {
       "SELECT * FROM categoria WHERE cat_iden = ?",
       [req.params.ID]
     );
-    return res.json(rows);
+    return res.json(rows[0]);
   } catch (error) {
     res.status(500).json(error);
   }

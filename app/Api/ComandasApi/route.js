@@ -9,3 +9,12 @@ export const getComandas = async () => {
     return error;
   }
 };
+
+export const addComanda = async (comanda) => {
+  try {
+    const res = await axios.post(`${UrlServer_nube}/Api/Comanda`, comanda);
+    return res;
+  } catch (error) {
+    return error;
+  }
+};
