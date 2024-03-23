@@ -38,7 +38,6 @@ export function FormEncargarPedido() {
         }}
         onSubmit={async (values) => {
           try {
-            console.log(values);
             await addComanda(values).then(res=>{
               if (res.status === 200) {
                 Swal.fire({
@@ -90,7 +89,7 @@ export function FormEncargarPedido() {
             <div>
               {[
                 { env_iden: 1, env_desc: "Delivery", env_precio:500 },
-                { env_iden: 2, env_desc: "Local", env_precio: 0 },
+                { env_iden: 3, env_desc: "Retiro en Local", env_precio: 0 },
               ].map((e) => (
                 <div key={e.env_iden}>
                   <input
@@ -159,7 +158,7 @@ export function FormEncargarPedido() {
 
             <div className={style.containerBotones}>
               <BotonDinamico className="text-black text-sm" type="submit">
-                Efectuar el Pago
+                Encargar Pedido
               </BotonDinamico>
             </div>
           </form>
