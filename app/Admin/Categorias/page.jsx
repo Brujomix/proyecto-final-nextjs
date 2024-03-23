@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
-import { TablaCategorias } from "../Components/Tablas";
-import { getCategorias } from "../Api/CategoriasApi/route";
-import { TablaGenericaSkeleton } from "../Components/Skeletons";
+import { TablaCategorias } from "@/app/Components/Tablas";
+import { getCategorias } from "@/app/Api/CategoriasApi/route";
+import { TablaGenericaSkeleton } from "@/app/Components/Skeletons";
 
 async function categorias() {
   const listaCategorias = await getCategorias();

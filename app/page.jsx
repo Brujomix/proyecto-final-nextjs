@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { getProductosbyPuntos } from "./Api/ProductosApi/route";
+import { getProductosbyPuntos } from "@/app/Api/ProductosApi/route";
 import { CardProductoSkeleton } from "@/app/Components/Skeletons";
 import { CardProducto } from "@/app/Components";
 

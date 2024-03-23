@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import { BotonDinamico } from '../Components'
+import { BotonDinamico } from '@/app/Components'
 
 export function BtnEncender() {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import { SubMenuUsuarios } from "../Components/SubMenus";
+import { SubMenuUsuarios } from "@/app/Components/SubMenus";
 
 function layoutUsuario({ children }) {
   return (

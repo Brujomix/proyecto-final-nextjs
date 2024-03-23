@@ -1,5 +1,5 @@
 import React from "react";
-import { SubMenuDelivery, SubMenuDelyvery } from "../Components/SubMenus";
+import { SubMenuDelivery } from "@/app/Components/SubMenus";
 
 function layoutDelivery({ children }) {
   return (

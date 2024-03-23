@@ -1,6 +1,6 @@
 "use client";
 import React, { Suspense, useState } from "react";
-import { BotonDinamico } from "../Components";
+import { BotonDinamico } from "@/app/Components";
 import { AiOutlineMenuFold, AiOutlineMenuUnfold } from "react-icons/ai";
 
 export function NavBarView({ NavBar }) {

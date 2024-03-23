@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import "./globals.css";
 import { Header, NavBar, NavBarAdmin, NavBarView } from "./ui";
-import Footer from "./ui/Footer";
+import Footer from "@/app/ui/Footer";
 import { ProviderRedux } from "@/Redux/Provider";
 import { EstadoApp, User_Carrito } from "./Components";
 

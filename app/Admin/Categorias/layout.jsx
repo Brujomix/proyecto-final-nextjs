@@ -1,5 +1,5 @@
 import React from "react";
-import { SubMenuCategorias } from "../Components/SubMenus";
+import { SubMenuCategorias } from "@/app/Components/SubMenus";
 
 function layoutCategorias({ children }) {
   return (
