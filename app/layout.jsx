@@ -1,9 +1,16 @@
 import React, { Suspense } from "react";
 import "./globals.css";
-import { Header, NavBar, NavBarAdmin, NavBarView } from "./ui";
+import {
+  CarritoIcon,
+  Header,
+  NavBar,
+  NavBarAdmin,
+  NavBarView,
+  Usuario_Icon
+} from "./ui";
 import Footer from "@/app/ui/Footer";
 import { ProviderRedux } from "@/Redux/Provider";
-import { EstadoApp, User_Carrito } from "./Components";
+import { EstadoApp } from "./Components";
 
 export const metadata = {
   title: "Create Next App",
@@ -16,7 +23,12 @@ export default function RootLayout({ children }) {
       <body className="bg-neutral-100">
         <ProviderRedux>
           <EstadoApp />
-          <User_Carrito />
+          <div className="flex flex-row justify-start items-center bg-neutral-300 fixed top-7 w-full p-2">
+            <Suspense fallback={"loading user..."}> 
+              <Usuario_Icon />
+            </Suspense>
+            <CarritoIcon />
+          </div >
           <Header />
           <NavBarView NavBar={<NavBar />} />
           <NavBarAdmin />

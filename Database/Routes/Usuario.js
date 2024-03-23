@@ -8,16 +8,20 @@ const router = Router();
 
 router.post("/Api/UserLS", async (req, res) => {
   try {
-    const { us_email, us_pass } = req.body;
+    const { us_email } = req.body;
     const promisePool = pool.promise();
     const [rows] = await promisePool.query(
       "SELECT * FROM usuario WHERE us_email = ?",
       [us_email]
     );
-    if (rows[0].us_pass === us_pass) {
-      return res.status(200).json({ message: "Verificado" });
-    } else {
-      return res.status(401).json({ message: "No Verificado" });
+
+    const objStorage = rows[0];
+    for (let key of req.body) {
+      if (req.body[key] !== objStorage[key]) {
+        return res.status(200).json({ message: "Verificado" });
+      } else {
+        return res.status(401).json({ message: "No Verificado" });
+      }
     }
   } catch (error) {
     res.status(500).json(error);
@@ -35,10 +39,10 @@ router.post("/Api/ValidarUsuario", async (req, res) => {
     );
     const storedHash = rows[0].us_pass;
     const userHash = crypto.createHash("sha1").update(us_pass).digest("hex");
-    
+
     if (userHash === storedHash) {
-      return res.status(200).json(rows);
-    }else{
+      return res.json(rows);
+    } else {
       return res.status(401).json({ message: "Revisa las Credenciales" });
     }
   } catch (error) {
@@ -107,7 +111,7 @@ router.put("/Api/Usuario", async (req, res) => {
       "UPDATE usuario SET us_tel = ?, us_dire = ?, us_name = ?, us_email = ?, us_pass = SHA(?) WHERE us_iden = ?",
       [us_tel, us_dire, us_name, us_email, us_pass, us_iden]
     );
-    return res.json({message: "Usuario Actualizado"});
+    return res.json({ message: "Usuario Actualizado" });
   } catch (error) {
     res.status(500).json(error);
   }
@@ -119,7 +123,7 @@ router.delete("/Api/Usuario/:ID", async (req, res) => {
     await promisePool.query("DELETE FROM Usuario WHERE us_iden = ?", [
       req.params.ID,
     ]);
-    return res.json({message: "Usuario Eliminado"});
+    return res.json({ message: "Usuario Eliminado" });
   } catch (error) {
     res.status(500).json(error);
   }
