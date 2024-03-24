@@ -3,7 +3,7 @@ import React from "react";
 export function BotonDinamico({ children, className = "", ...args }) {
   return (
     <button
-      className={`border p-2 font-semibold italic tracking-wider bg-slate-300 rounded-md ${className}`}
+      className={`border p-1 text-sm italic tracking-wider bg-slate-100 rounded-md ${className}`}
       {...args}
     >
       {children}

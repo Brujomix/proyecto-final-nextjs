@@ -24,6 +24,7 @@ export function FormEncargarPedido() {
           com_precioEnvio: "",
           com_carrito: ConvierteCarrito(itemsCarrito),
           com_exep: "",
+          com_escom_iden: 1
         }}
         validate={(values) => {
           const errors = {};
