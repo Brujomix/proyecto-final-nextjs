@@ -6,6 +6,7 @@ export const getCategorias = async () => {
     const res = await axios.get(`${UrlServer_nube}/Api/Categorias`);
     return res.data;
   } catch (error) {
-    return error;
+    console.log(error);
+    return [];
   }
 };

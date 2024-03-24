@@ -1,10 +1,15 @@
 import React from "react";
-import { FaSpinner } from "react-icons/fa6";
-
+import ClipLoader from "react-spinners/ClipLoader";
 function loading() {
   return (
     <div className="p-7 flex flex-col justify-center items-center">
-      <FaSpinner color="#DDD" size={70} />
+      <ClipLoader
+        color="#000"
+        loading={true}
+        size={90}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
     </div>
   );
 }

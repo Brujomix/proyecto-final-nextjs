@@ -29,7 +29,9 @@ export default function RootLayout({ children }) {
           </div>
           <Header />
           <NavBarView NavBar={<NavBar />} />
-          <NavBarAdmin />
+          <Suspense fallback={"Cargando Navbar"}>
+            <NavBarAdmin />
+          </Suspense>
           <div>{children}</div>
           <Footer />
         </ProviderRedux>

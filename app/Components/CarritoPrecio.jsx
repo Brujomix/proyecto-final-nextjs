@@ -10,7 +10,7 @@ export function CarritoPrecio() {
         <span>Total a Pagar $ </span>
         <strong className="text-lg italic text-red-600">{PrecioCarrito(itemsCarrito)}</strong>
       </div>
-      <span className="text-sm italic text-blue-700">Precio Carrito sin Envío</span>
+      <span className="text-sm italic text-blue-700">Precio Envio: $ 500</span>
     </div>
   );
 }
