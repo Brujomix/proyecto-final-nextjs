@@ -3,6 +3,7 @@ import React, { Suspense } from "react";
 import { useSelector } from "react-redux";
 import { CardProductoCarrito, CarritoPrecio } from "../Components";
 import { CardProductoSkeleton } from "../Components/Skeletons";
+import { MdOutlineAddShoppingCart } from "react-icons/md";
 import Link from "next/link";
 
 function Carrito() {
@@ -10,8 +11,9 @@ function Carrito() {
   const isLogin = useSelector((state) => state.Usuario.isLogin);
   return itemsCarrito.length === 0 ? (
     <div className="flex flex-col items-center">
-      <span className="text-3xl italic ">No items carrito</span>
-      <span>Agrega Productos al Carrito</span>
+      <Link href={"/"}>
+        <MdOutlineAddShoppingCart color="#999" size={150}/>
+      </Link>
     </div>
   
   ) : (

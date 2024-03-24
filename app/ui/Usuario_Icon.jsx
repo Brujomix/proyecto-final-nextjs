@@ -1,23 +1,24 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import Link from "next/link";
-import { FaRegCircleUser } from "react-icons/fa6";
-import { FaUserAltSlash } from "react-icons/fa";
+import { FaUserAltSlash, FaUserCheck } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { setCurrentUser } from "@/Redux/Slices/UsuarioSlice";
+import { setCurrentUser, setIsLogin } from "@/Redux/Slices/UsuarioSlice";
 
 export function Usuario_Icon() {
-
-  const isLogin = useSelector(state => state.Usuario.isLogin)
+  const isLogin = useSelector((state) => state.Usuario.isLogin);
   const [userLogin, setUserLogin] = useState({});
-  const currentUser = localStorage.getItem("currentUser");
   const dispatch = useDispatch();
 
   useEffect(() => {
     const setUser = () => {
-      if (currentUser !== null) {
-        setUserLogin(JSON.parse(currentUser))
-        dispatch(setCurrentUser(JSON.parse(currentUser)))
+      const userStorage = localStorage.getItem("currentUser")
+      if (userStorage !== null) {
+        setUserLogin(JSON.parse(userStorage));
+        dispatch(setCurrentUser(JSON.parse(userStorage)));
+        dispatch(setIsLogin(true));
+      } else {
+        setUserLogin({});
       }
     };
     setUser();
@@ -33,7 +34,7 @@ export function Usuario_Icon() {
           </div>
         ) : (
           <div className="flex flex-row justify-center items-center gap-2">
-            <FaRegCircleUser color="#666" size={40} />
+            <FaUserCheck color="#666" size={40} />
             <span className="text-blue-500 text-sm italic">
               {userLogin.us_email}
             </span>

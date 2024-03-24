@@ -5,10 +5,12 @@ import { useSelector } from "react-redux";
 
 export function NavBarAdmin() {
   const currentUser = useSelector((state) => state.Usuario.currentUser);
-  return  (
+  return (
     <div
       className={`${
-        currentUser.us_rol === 1 ? "hidden" : "block"
+        currentUser.us_ro_iden === 1 || Object.keys(currentUser).length === 0
+          ? "hidden"
+          : "block"
       } w-full flex flex-row flex-wrap justify-center items-center p-4 gap-4`}
     >
       <Link className="Link" href="/Admin/Comandas">
