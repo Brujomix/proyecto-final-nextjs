@@ -1,14 +1,21 @@
+"use client"
 import React from "react";
-import ClipLoader from "react-spinners/ClipLoader";
+import { LineWave } from "react-loader-spinner";
+
 function loading() {
   return (
-    <div className="p-7 flex flex-col justify-center items-center">
-      <ClipLoader
+    <div className="p-7 flex flex-col justify-center items-center opacity-50">
+      <LineWave
+        visible={true}
+        height="250"
+        width="200"
         color="#000"
-        loading={true}
-        size={90}
-        aria-label="Loading Spinner"
-        data-testid="loader"
+        ariaLabel="line-wave-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+        firstLineColor=""
+        middleLineColor=""
+        lastLineColor=""
       />
     </div>
   );
