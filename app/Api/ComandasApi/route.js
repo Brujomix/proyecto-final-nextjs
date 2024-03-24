@@ -10,6 +10,15 @@ export const getComandas = async () => {
   }
 };
 
+export const getEstadosComanda = async () => {
+  try {
+    const res = await axios.get(`${UrlServer_nube}/Api/EstadoComandas`);
+    return res.data;
+  } catch (error) {
+    return error;
+  }
+};
+
 export const addComanda = async (comanda) => {
   try {
     const res = await axios.post(`${UrlServer_nube}/Api/Comanda`, comanda);
@@ -18,3 +27,5 @@ export const addComanda = async (comanda) => {
     return error;
   }
 };
+
+

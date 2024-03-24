@@ -3,6 +3,16 @@ import { pool } from "../configDB.js";
 
 const router = Router();
 
+router.get("/Api/EstadoComandas", async (req, res) => {
+  try {
+    const promisePool = pool.promise();
+    const [rows] = await promisePool.query("SELECT * FROM estadocom");
+    return res.json(rows);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
 router.get("/Api/Comandas", async (req, res) => {
   try {
     const promisePool = pool.promise();

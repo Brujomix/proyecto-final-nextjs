@@ -8,11 +8,9 @@ export function CardComanda({ comanda }) {
   const cambiaBackground = () => {
     switch (comanda.com_escom_iden) {
       case 2:
-        return "bg-slate-500";
-
+        return "bg-slate-300";
       case 3:
-        return "bg-green-700";
-
+        return "bg-green-500";
       default:
         return "bg-orange-300";
     }
@@ -20,15 +18,13 @@ export function CardComanda({ comanda }) {
 
   return (
     <div
-      className={`${cambiaBackground()} w-[180px] flex flex-col justify-center items-center border gap-3 border-neutral-500 rounded-md p-2 bg-white`}
+      className={`${cambiaBackground()} w-[180px] flex flex-col justify-center items-center border gap-3 border-neutral-500 rounded-md p-2`}
     >
       <span className="text-2xl">N° {comanda.com_iden}</span>
       <span>Hora: {comanda.com_date}</span>
       <div className="flex flex-col justify-center items-center g-2">
         <span>Datos del Cliente:</span>
-        <div>
-          <UserComanda id_user={comanda.com_us_iden} />
-        </div>
+        {/* <UserComanda id_user={comanda.com_us_iden} /> */}
       </div>
       <div>
         {comanda.com_carrito.map((e) => (
