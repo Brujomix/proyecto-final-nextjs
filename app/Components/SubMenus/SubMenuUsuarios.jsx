@@ -12,8 +12,8 @@ export function SubMenuUsuarios() {
   const currentUser = useSelector((state) => state.Usuario.currentUser);
   return (
     <div className="flex flex-row flex-wrap justify-center items-center gap-4">
-      <Link className="Link" href={"/Usuarios/Login"}>
-        Iniciar Session
+      <Link className="Link" href={"/Usuarios/EditarUsuario"}>
+        Editar Usuario
       </Link>
       <Link className="Link" href={"/Usuarios/RegistrarUsuario"}>
         Registrarme

@@ -1,8 +1,14 @@
 import React from 'react'
+import { FormLogin } from "@/app/Components/Forms";
 
 function Usuarios() {
   return (
-    <div>Usuarios</div>
+    <div className="flex flex-col justify-center items-center gap-7">
+      <span className="text-2xl font-semibold italic tracking-widest">
+        Iniciar Sessión
+      </span>
+      <FormLogin />
+    </div>
   )
 }
 

@@ -6,7 +6,7 @@ import {
   NavBar,
   NavBarAdmin,
   NavBarView,
-  Usuario_Icon
+  Usuario_Icon,
 } from "./ui";
 import Footer from "@/app/ui/Footer";
 import { ProviderRedux } from "@/Redux/Provider";
@@ -24,11 +24,9 @@ export default function RootLayout({ children }) {
         <ProviderRedux>
           <EstadoApp />
           <div className="flex flex-row justify-start items-center bg-neutral-300 fixed top-7 w-full p-2">
-            <Suspense fallback={"loading user..."}> 
-              <Usuario_Icon />
-            </Suspense>
+            <Usuario_Icon />
             <CarritoIcon />
-          </div >
+          </div>
           <Header />
           <NavBarView NavBar={<NavBar />} />
           <NavBarAdmin />
