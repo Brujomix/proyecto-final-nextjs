@@ -33,13 +33,9 @@ const io = new Server(server, {
 
 io.on("connection", (socket) => {
   console.log(socket.id);
-  socket.on("mensaje", (ObjetoMensaje) => {
-    socket.broadcast.emit("nuevoMensaje", ObjetoMensaje);
-  });
-
   socket.on("cambiarEstado", (nuevoEstado) => {
     // Cambia el estado de la app de encendido a apagado
-    socket.broadcast.emit("estadoActualizado", nuevoEstado);
+    socket.emit("estadoActualizado", nuevoEstado);
   });
 });
 
