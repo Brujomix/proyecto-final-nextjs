@@ -5,7 +5,6 @@ import {
   Header,
   NavBar,
   NavBarAdmin,
-  NavBarView,
   Usuario_Icon,
 } from "./ui";
 import Footer from "@/app/ui/Footer";
@@ -28,7 +27,9 @@ export default function RootLayout({ children }) {
             <CarritoIcon />
           </div>
           <Header />
-          <NavBarView NavBar={<NavBar />} />
+          <Suspense fallback={"Loading Nvbar..."}>
+            <NavBar/>
+          </Suspense>
           <Suspense fallback={"Cargando Navbar"}>
             <NavBarAdmin />
           </Suspense>

@@ -1,10 +1,10 @@
-"use client"
+"use client";
 import React from "react";
 import { LineWave } from "react-loader-spinner";
 
 function loading() {
   return (
-    <div className="p-7 flex flex-col justify-center items-center opacity-50">
+    <div className="flex justify-center items-center opacity-50">
       <LineWave
         visible={true}
         height="250"
@@ -14,7 +14,7 @@ function loading() {
         wrapperStyle={{}}
         wrapperClass=""
         firstLineColor=""
-        middleLineColor=""
+        middleLineColor="#111"
         lastLineColor=""
       />
     </div>
