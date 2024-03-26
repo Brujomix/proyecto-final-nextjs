@@ -3,15 +3,16 @@ import React, { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 
 export function EstadoApp() {
-  const socket = io();
+  const socket = io("localhost:4000");
 
   const [messageEstado, setMessageEstado] = useState("");
 
   useEffect(() => {
-    const cambiaEstado = () => {
-      socket.on("message", (message)=>{setMessageEstado(message)});
-    };
-    cambiaEstado();
+    
+      socket.on("estadoActualizado", (message)=>{setMessageEstado(message)});
+    
+      socket.off("message")
+
   }, []);
 
   console.log("El mensaje:", messageEstado);

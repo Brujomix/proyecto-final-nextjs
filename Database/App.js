@@ -31,13 +31,16 @@ const io = new Server(server, {
   },
 });
 
-io.on("connection", (socket) => {
-  console.log(socket.id);
-  socket.on("cambiarEstado", (nuevoEstado) => {
+io.on("connection", (Socket) => {
+  console.log("Conected Socket", Socket.id);
+  Socket.on("cambiarEstado", (nuevoEstado) => {
     // Cambia el estado de la app de encendido a apagado
-    socket.emit("estadoActualizado", nuevoEstado);
+    Socket.emit("estadoActualizado", nuevoEstado);
   });
-  socket.emit("message", "Hola Desde Server");
+
+  Socket.on("disconnect", ()=>{
+    console.log("Disconect Socket", Socket.id);
+  })
 });
 
 const __dirname = dirname(fileURLToPath(import.meta.url));

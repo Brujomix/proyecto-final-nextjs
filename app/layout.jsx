@@ -10,6 +10,7 @@ import {
 import Footer from "@/app/ui/Footer";
 import { ProviderRedux } from "@/Redux/Provider";
 import { EstadoApp } from "./Components";
+import NavbarSkeleton from "./Components/Skeletons/NavbarSkeleton";
 
 export const metadata = {
   title: "Home - E-Commerce Next",
@@ -27,10 +28,10 @@ export default function RootLayout({ children }) {
             <CarritoIcon />
           </div>
           <Header />
-          <Suspense fallback={"Loading Nvbar..."}>
+          <Suspense fallback={<NavbarSkeleton/>}>
             <NavBar/>
           </Suspense>
-          <Suspense fallback={"Cargando Navbar"}>
+          <Suspense fallback={"Cargando NavbarAdmin"}>
             <NavBarAdmin />
           </Suspense>
           <div>{children}</div>
