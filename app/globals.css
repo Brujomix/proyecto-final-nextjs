@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .Link {
-  background: #ddd;
+  background: #EEE;
   border: 1px solid #000;
   border-radius: 10px;
   font-style: italic;
