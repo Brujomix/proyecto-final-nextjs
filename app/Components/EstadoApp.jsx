@@ -11,7 +11,7 @@ export function EstadoApp() {
     
       socket.on("estadoActualizado", (message)=>{setMessageEstado(message)});
     
-      socket.off("message")
+      socket.off("estadoActualizado")
 
   }, []);
 
