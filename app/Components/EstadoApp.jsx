@@ -9,7 +9,7 @@ export function EstadoApp() {
 
   useEffect(() => {
     
-      socket.on("estadoActualizado", (message)=>{setMessageEstado(message)});
+      socket.on("estadoActualizado", (ObjMensaje)=>{setMessageEstado(ObjMensaje)});
     
       socket.off("estadoActualizado")
 
