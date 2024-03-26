@@ -37,6 +37,7 @@ io.on("connection", (socket) => {
     // Cambia el estado de la app de encendido a apagado
     socket.emit("estadoActualizado", nuevoEstado);
   });
+  socket.emit("message", "Hola Desde Server");
 });
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
