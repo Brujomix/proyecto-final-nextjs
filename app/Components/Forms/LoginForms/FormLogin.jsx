@@ -40,7 +40,6 @@ export function FormLogin() {
           };
           try {
             await validarUsuario(newUser).then((res) => {
-              console.log(res);
               if (res.status === 200) {
                 Swal.fire({
                   icon: "success",

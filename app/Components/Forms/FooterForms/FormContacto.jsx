@@ -2,7 +2,7 @@
 import React from "react";
 import { Formik } from "formik";
 import { BotonDinamico } from "@/app/Components";
-import style from "./formFooter.module.css";
+import style from "../form.module.css";
 
 export function FormContacto() {
   return (
@@ -38,38 +38,36 @@ export function FormContacto() {
           handleBlur,
           handleSubmit,
         }) => (
-          <form className={style.formAlign} onSubmit={handleSubmit}>
-            <div className={style.formDatos}>
-              <input
-                className={style.inputFormFooter}
-                type="text"
-                placeholder="Tu Email"
-                name="contacto_email"
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-              <div>{errors.contacto_email}</div>
-              <input
-                className={style.inputFormFooter}
-                type="text"
-                placeholder="Tu Nombre"
-                name="contacto_nombre"
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-              <div>{errors.contacto_nombre}</div>
-              <textarea
-                name="contacto_mensaje"
-                id=""
-                cols="26"
-                rows="8"
-                className={style.areaMensaje}
-                placeholder="Dejanos un mensaje"
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-              <div>{errors.contacto_mensaje}</div>
-            </div>
+          <form className={style.formBody} onSubmit={handleSubmit}>
+            <input
+              className={style.inputData}
+              type="text"
+              placeholder="Tu Email"
+              name="contacto_email"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            <div className={style.errorsForm}>{errors.contacto_email}</div>
+            <input
+              className={style.inputData}
+              type="text"
+              placeholder="Tu Nombre"
+              name="contacto_nombre"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            <div className={style.errorsForm}>{errors.contacto_nombre}</div>
+            <textarea
+              name="contacto_mensaje"
+              id=""
+              cols="26"
+              rows="8"
+              className={style.areaTexto}
+              placeholder="Dejanos un mensaje"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            <div className={style.errorsForm}>{errors.contacto_mensaje}</div>
 
             <div className={style.containerBotones}>
               <BotonDinamico className="text-black text-sm" type="submit">
