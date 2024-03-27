@@ -1,4 +1,6 @@
 import express from "express";
+import http from "http";
+import { Server } from "socket.io";
 import cors from "cors";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
@@ -21,6 +23,29 @@ const App = express();
 App.use(cors());
 App.use(express.json());
 
+const server = http.createServer(App);
+const io = new Server(server, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+  },
+});
+
+io.on("connection", (socket) => {
+  console.log(socket.id);
+  socket.on("mensaje", (ObjetoMensaje) => {
+    socket.broadcast.emit("nuevoMensaje", ObjetoMensaje);
+  });
+
+  socket.on("cambiarEstado", (nuevoEstado) => {
+    // Cambia el estado de la app de encendido a apagado
+    socket.broadcast.emit("estadoActualizado", nuevoEstado);
+  });
+  socket.dn("disconnect", () => {
+    console.log("disconect", socket.id);
+  });
+});
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 App.use(express.static(path.join(__dirname, "build")));
 
@@ -35,4 +60,4 @@ App.use(Comandas);
 App.use(Mercadopago);
 App.use(Deliverys);
 
-App.listen(PORT, () => console.log("MySql Server Ready"));
+server.listen(PORT, () => console.log("MySql Server Ready"));

@@ -7,7 +7,7 @@ router.get("/Api/Encender", async (req, res) => {
   try {
     const promisePool = pool.promise();
     const [rows] = await promisePool.query("SELECT * FROM encender");
-    return res.json(rows[0]);
+    return res.json(rows[0].enc_desc);
   } catch (error) {
     res.status(500).json(error);
   }
@@ -17,11 +17,11 @@ router.put("/Api/Encender", async (req, res) => {
   try {
     const { enc_desc } = req.body;
     const promisePool = pool.promise();
-    const [rows]=await promisePool.query(
+    const [rows] = await promisePool.query(
       "UPDATE encender SET enc_desc = ? WHERE enc_iden = 1",
       [enc_desc]
     );
-    return res.json(rows[0]);
+    return res.json(rows[0].enc_desc);
   } catch (error) {
     res.status(500).json(error);
   }
