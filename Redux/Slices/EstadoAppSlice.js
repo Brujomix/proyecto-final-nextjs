@@ -1,16 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const EstadoSlice = createSlice({
+export const EstadoAppSlice = createSlice({
   name: "Estado",
   initialState: {
     Estado: false,
   },
   reducers: {
     setEstado: (state, action) => {
-      state.isLogin = action.payload;
+      state.Estado = action.payload;
     },
   },
 });
 
-export const { setEstado } = EstadoSlice.actions;
-export default EstadoSlice.reducer;
+export const { setEstado } = EstadoAppSlice.actions;
+export default EstadoAppSlice.reducer;

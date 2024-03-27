@@ -9,3 +9,12 @@ export const getEstado = async () => {
     return error;
   }
 };
+
+export const putEstado = async () => {
+  try {
+    const res = await axios.get(`${UrlServer_nube}/Api/Encender`);
+    return res.data;
+  } catch (error) {
+    return error;
+  }
+};

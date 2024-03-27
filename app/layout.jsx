@@ -6,10 +6,10 @@ import {
   NavBar,
   NavBarAdmin,
   Usuario_Icon,
+  EstadoApp,
 } from "./ui";
 import Footer from "@/app/ui/Footer";
 import { ProviderRedux } from "@/Redux/Provider";
-import { EstadoApp } from "./Components";
 import NavbarSkeleton from "./Components/Skeletons/NavbarSkeleton";
 
 export const metadata = {
@@ -23,13 +23,13 @@ export default function RootLayout({ children }) {
       <body className="bg-neutral-100">
         <ProviderRedux>
           <EstadoApp />
-          <div className="flex flex-row justify-start items-center bg-neutral-300 fixed top-7 w-full p-2">
+          <div className="flex flex-row justify-start items-center bg-neutral-300 fixed top-9 w-full p-2">
             <Usuario_Icon />
             <CarritoIcon />
           </div>
           <Header />
-          <Suspense fallback={<NavbarSkeleton/>}>
-            <NavBar/>
+          <Suspense fallback={<NavbarSkeleton />}>
+            <NavBar />
           </Suspense>
           <Suspense fallback={"Cargando NavbarAdmin"}>
             <NavBarAdmin />
