@@ -33,15 +33,10 @@ const io = new Server(server, {
 
 io.on("connection", (socket) => {
   console.log(socket.id);
-  socket.on("mensaje", (ObjetoMensaje) => {
-    socket.broadcast.emit("nuevoMensaje", ObjetoMensaje);
+  socket.on("cambiarEstado", (ObjEstado) => {
+    socket.broadcast.emit("estadoActualizado", ObjEstado);
   });
-
-  socket.on("cambiarEstado", (nuevoEstado) => {
-    // Cambia el estado de la app de encendido a apagado
-    socket.broadcast.emit("estadoActualizado", nuevoEstado);
-  });
-  socket.dn("disconnect", () => {
+  socket.on("disconnect", () => {
     console.log("disconect", socket.id);
   });
 });

@@ -7,6 +7,18 @@ export default function NavbarSkeleton() {
         <span className="text-center border text-sm italic tracking-wider border-neutral-400 p-2 rounded-md bg-white">
           Caterogia
         </span>
+        <span className="text-center border text-sm italic tracking-wider border-neutral-400 p-2 rounded-md bg-white">
+          Caterogia
+        </span>
+        <span className="text-center border text-sm italic tracking-wider border-neutral-400 p-2 rounded-md bg-white">
+          Caterogia
+        </span>
+        <span className="text-center border text-sm italic tracking-wider border-neutral-400 p-2 rounded-md bg-white">
+          Caterogia
+        </span>
+        <span className="text-center border text-sm italic tracking-wider border-neutral-400 p-2 rounded-md bg-white">
+          Caterogia
+        </span>
       </div>
     </div>
   );
