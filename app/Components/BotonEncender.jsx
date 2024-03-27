@@ -8,7 +8,7 @@ export function BotonEncender() {
   const currentEstado = useSelector((state) => state.EstadoApp.Estado);
   return (
     <button
-      onClick={() => cambiarEstadoApp(currentEstado)}
+      onClick={() => cambiarEstadoApp({enc_desc: !currentEstado})}
       className="ml-5 border bg-slate-50 rounded-md"
     >
       <CiPower color="#000" size={25} />
