@@ -15,12 +15,12 @@ export function EstadoApp() {
   return (
     <div
       className={`${
-        currentEstado === "true" ? "bg-green-400" : "bg-red-400"
+        currentEstado ? "bg-green-400" : "bg-red-400"
       } flex flex-row justify-between items-center fixed top-0 w-full h-9 p-1`}
     >
       <BotonEncender/>
       <span className="mr-5 italic font-sm">
-        {currentEstado === "true"
+        {currentEstado
           ? "Comercio En Línea"
           : "Comercio Fuera de Línea"}
       </span>

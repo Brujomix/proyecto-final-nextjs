@@ -32,12 +32,12 @@ const io = new Server(server, {
 });
 
 io.on("connection", (socket) => {
-  console.log(socket.id);
+  console.log("Conected Socket", socket.id);
   socket.on("cambiarEstado", (ObjEstado) => {
-    socket.broadcast.emit("estadoActualizado", ObjEstado);
+    console.log(ObjEstado);
   });
   socket.on("disconnect", () => {
-    console.log("disconect", socket.id);
+    console.log("Disconect socket", socket.id);
   });
 });
 

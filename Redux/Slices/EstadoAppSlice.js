@@ -15,7 +15,14 @@ export const EstadoAppSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getEstadoApp.fulfilled, (state, action) => {
-        state.Estado = action.payload
+        switch (action.payload) {
+          case 1:
+             state.Estado = true
+            break;
+          case 0:
+             state.Estado = false
+            break;
+        }
       })
       .addCase(getEstadoApp.rejected, (state, action) => {
         state.Errors = action.error;
