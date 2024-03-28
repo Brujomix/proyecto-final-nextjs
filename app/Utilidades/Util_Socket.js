@@ -1,4 +1,5 @@
 import { io } from "socket.io-client";
+import { UrlServer_nube } from "./UrlServer";
 
-export const socket = io("localhost:4001");
+export const socket = io(`${UrlServer_nube}`);
 
