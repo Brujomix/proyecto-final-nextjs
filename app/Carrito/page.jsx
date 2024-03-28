@@ -34,7 +34,7 @@ function Carrito() {
             Encargar
           </Link>
         ) : (
-          <Link href={"/Usuarios/Login"} className={"Link"}>
+          <Link href={"/Usuarios"} className={"Link"}>
             Iniciar Session
           </Link>
         )}

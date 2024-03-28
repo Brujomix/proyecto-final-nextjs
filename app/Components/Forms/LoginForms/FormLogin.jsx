@@ -69,8 +69,8 @@ export function FormLogin() {
                     break;
                   case 500:
                     Swal.fire({
-                      icon: "error",
-                      text: "Error del Servidor",
+                      icon: "warning",
+                      text: "Usuario Inexistente",
                       toast: true,
                       timer: 1800,
                       position: "top-end",
