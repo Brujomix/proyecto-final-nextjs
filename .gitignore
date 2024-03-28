@@ -2,10 +2,15 @@
 
 # dependencies
 /*node_modules
-/Database
 /.pnp
 .pnp.js
 .yarn/install-state.gz
+
+#folders
+/Database
+
+#gitIgnore
+.gitignore
 
 # testing
 /coverage
