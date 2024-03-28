@@ -31,9 +31,9 @@ export default function RootLayout({ children }) {
           <Suspense fallback={<NavbarSkeleton />}>
             <NavBar />
           </Suspense>
-          <Suspense fallback={"Cargando NavbarAdmin"}>
-            <NavBarAdmin />
-          </Suspense>
+
+          <NavBarAdmin />
+
           <div>{children}</div>
           <Footer />
         </ProviderRedux>

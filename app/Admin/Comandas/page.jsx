@@ -11,9 +11,9 @@ async function Comandas() {
         Comandas
       </span>
       <div className="w-full flex flex-row justify-around items-center">
-        <span className="text-2xl italic border p-2 rounded-full bg-orange-300">Pendiente</span>
-        <span className="text-2xl italic border p-2 rounded-full bg-slate-300">Preparado</span>
-        <span className="text-2xl italic border p-2 rounded-full bg-green-500">Enviado</span>
+        <span className="text-xl italic border p-2 rounded-full bg-orange-300">Pendiente</span>
+        <span className="text-xl italic border p-2 rounded-full bg-slate-300">Preparado</span>
+        <span className="text-xl italic border p-2 rounded-full bg-green-500">Enviado</span>
       </div>
       <hr className="w-full h-2 border bg-slate-300" />
       <div className="flex flex-row justify-center items-center flex-wrap gap-4">

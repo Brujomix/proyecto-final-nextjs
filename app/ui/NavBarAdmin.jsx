@@ -2,16 +2,13 @@
 import Link from "next/link";
 import React from "react";
 import { useSelector } from "react-redux";
+import { verificaUserRol } from "../Utilidades/Util_Estado";
 
 export function NavBarAdmin() {
   const currentUser = useSelector((state) => state.Usuario.currentUser);
   return (
     <div
-      className={`${
-        currentUser.us_ro_iden === 1 || Object.keys(currentUser).length === 0
-          ? "hidden"
-          : "block"
-      } w-full flex flex-row flex-wrap justify-center items-center p-4 gap-4`}
+      className={`${verificaUserRol(currentUser)} w-full flex flex-row flex-wrap justify-center items-center p-4 gap-4`}
     >
       <Link className="Link" href="/Admin/Comandas">
         Comandas

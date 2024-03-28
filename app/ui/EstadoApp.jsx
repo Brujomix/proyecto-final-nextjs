@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getEstadoApp } from "@/app/Api/EstadoAppApi/route";
 import { BotonEncender } from "../Components";
-import { socket } from "@/app/Utilidades/UtilSocket";
+import { socket } from "@/app/Utilidades/Util_Socket";
 import { setEstado } from "@/Redux/Slices/EstadoAppSlice";
 
 export function EstadoApp() {
@@ -13,7 +13,6 @@ export function EstadoApp() {
   useEffect(() => {
     dispatch(getEstadoApp());
     socket.on("nuevoEstado", (ObjEsatdo) => {
-      console.log(ObjEsatdo);
       dispatch(setEstado(ObjEsatdo.estado));
     });
   }, [currentEstado]);
