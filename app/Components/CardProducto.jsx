@@ -30,16 +30,20 @@ export function CardProducto({ producto }) {
       <span>{producto.cat_iden}</span>
       <div className="flex flex-col justify-center items-center p-1 gap-4">
         <span className="font-bold">$ {producto.pro_precio}</span>
-        <div className="flex flex-row justify-center items-center gap-1">
-          <BotonDinamico onClick={() => dispatch(addItemCarrito(producto))}>
-            <BsCartPlus size={20} />
-          </BotonDinamico>
-          <BotonDinamico
-            onClick={() => dispatch(removeItemCarrito(producto.pro_iden))}
-          >
-            <BsCartDash size={20} />
-          </BotonDinamico>
-        </div>
+        {currentEstado ? (
+          <div className="flex flex-row justify-center items-center gap-1">
+            <BotonDinamico onClick={() => dispatch(addItemCarrito(producto))}>
+              <BsCartPlus size={20} />
+            </BotonDinamico>
+            <BotonDinamico
+              onClick={() => dispatch(removeItemCarrito(producto.pro_iden))}
+            >
+              <BsCartDash size={20} />
+            </BotonDinamico>
+          </div>
+        ) : (
+          <div className="bg-red-400 p-1 rounded-md text-sm italic">Cerrado</div>
+        )}
       </div>
     </div>
   );
