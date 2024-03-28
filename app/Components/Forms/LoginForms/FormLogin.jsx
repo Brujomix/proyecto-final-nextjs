@@ -60,7 +60,8 @@ export function FormLogin() {
                   case 401:
                     Swal.fire({
                       icon: "warning",
-                      text: "No pudimos Validarte",
+                      titleText:"No Pudimos Validarte",
+                      text: "Revisa Las Credenciales",
                       toast: true,
                       timer: 1800,
                       position: "top-end",
