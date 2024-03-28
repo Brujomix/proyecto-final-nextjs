@@ -33,8 +33,8 @@ const io = new Server(server, {
 
 io.on("connection", (socket) => {
   console.log("Conected Socket", socket.id);
-  socket.on("cambiarEstado", (ObjEstado) => {
-    console.log(ObjEstado);
+  socket.on("cambiaEstado", (ObjEstado) => {
+    socket.broadcast.emit("nuevoEstado", ObjEstado)
   });
   socket.on("disconnect", () => {
     console.log("Disconect socket", socket.id);

@@ -13,9 +13,9 @@ export const getEstadoApp = createAsyncThunk("EstadoApp", async () => {
 
 export const putEstado = async (enc_desc) => {
   try {
-    const res = await axios.put(`${UrlServer_nube}`, enc_desc)
+    const res = await axios.put(`${UrlServer_nube}/Api/Encender`, enc_desc)
     return res;
   } catch (error) {
-    throw new Error("Este Es un Error de API", error);
+    console.log(error);
   }
 };

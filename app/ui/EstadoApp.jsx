@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getEstadoApp } from "@/app/Api/EstadoAppApi/route";
 import { BotonEncender } from "../Components";
+import { socket } from "@/app/Utilidades/UtilSocket";
+import { setEstado } from "@/Redux/Slices/EstadoAppSlice";
 
 export function EstadoApp() {
   const dispatch = useDispatch();
@@ -10,7 +12,11 @@ export function EstadoApp() {
 
   useEffect(() => {
     dispatch(getEstadoApp());
-  }, [dispatch]);
+    socket.on("nuevoEstado", (ObjEsatdo) => {
+      console.log(ObjEsatdo);
+      dispatch(setEstado(ObjEsatdo.estado));
+    });
+  }, [currentEstado]);
 
   return (
     <div
@@ -18,11 +24,9 @@ export function EstadoApp() {
         currentEstado ? "bg-green-400" : "bg-red-400"
       } flex flex-row justify-between items-center fixed top-0 w-full h-9 p-1`}
     >
-      <BotonEncender/>
+      <BotonEncender />
       <span className="mr-5 italic font-sm">
-        {currentEstado
-          ? "Comercio En Línea"
-          : "Comercio Fuera de Línea"}
+        {currentEstado ? "Comercio En Línea" : "Comercio Fuera de Línea"}
       </span>
     </div>
   );
