@@ -1,9 +1,8 @@
 import React from "react";
 import { PrecioCarrito } from "../Utilidades/Utils_Carrito";
-import { useSelector } from "react-redux";
 
 export function CarritoPrecio() {
-  const itemsCarrito = useSelector((state) => state.Carrito.itemsCarrito);
+  const itemsCarrito = []
   return (
     <div className="flex flex-col justify-center items-center gap-2">
       <div>

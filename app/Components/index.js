@@ -4,3 +4,7 @@ export * from "./RankingProductos";
 export * from "./CardProductoCarrito";
 export * from "./CarritoPrecio";
 export * from "./BotonEncender";
+export * from "./BotonesCarrito";
+export * from "./SinProductosCarrito";
+export * from "./ItemsCarrito";
+export * from "./CheckIsLogin";

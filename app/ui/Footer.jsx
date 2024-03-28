@@ -1,7 +1,7 @@
 import React from "react";
 import { FormContacto } from "@/app/Components/Forms";
 
-export default function Footer() {
+export default function Footer({formContacto}) {
   return (
     <footer className="flex flex-col items-center gap-4 bg-white md:grid md:grid-cols-2 mt-4 italic p-4">
       <div>
@@ -13,7 +13,7 @@ export default function Footer() {
         </ul>
       </div>
       <div>
-        <FormContacto />
+        {formContacto}
       </div>
       <div className="col-span-2 text-start mt-4 ">
         <span className=" opacity-75 tracking-widest">

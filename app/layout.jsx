@@ -10,7 +10,8 @@ import {
 } from "./ui";
 import Footer from "@/app/ui/Footer";
 import { ProviderRedux } from "@/Redux/Provider";
-import NavbarSkeleton from "./Components/Skeletons/NavbarSkeleton";
+import { NavbarSkeleton } from "@/app/Components/Skeletons";
+import { FormContacto } from "@/app/Components/Forms";
 
 export const metadata = {
   title: "Home - E-Commerce Next",
@@ -22,7 +23,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="bg-neutral-100">
         <ProviderRedux>
-          <EstadoApp />
+          <Suspense fallback={"Loading EstadoApp"}>
+            <EstadoApp />
+          </Suspense>
           <div className="flex flex-row justify-start items-center bg-neutral-300 fixed top-9 w-full p-2">
             <Usuario_Icon />
             <CarritoIcon />
@@ -35,7 +38,7 @@ export default function RootLayout({ children }) {
           <NavBarAdmin />
 
           <div>{children}</div>
-          <Footer />
+          <Footer formContacto={<FormContacto />} />
         </ProviderRedux>
       </body>
     </html>

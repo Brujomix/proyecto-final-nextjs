@@ -1,12 +1,10 @@
-"use client";
 import React from "react";
 import Link from "next/link";
 import { FiShoppingCart } from "react-icons/fi";
-import { useSelector } from "react-redux";
 import { SumaItemsCarrito } from "@/app/Utilidades/Utils_Carrito";
 
 export function CarritoIcon() {
-  const itemsCarrito = useSelector((state) => state.Carrito.itemsCarrito);
+  const itemsCarrito = []
   return (
     <div className="absolute right-7 top-[-5px] ">
       <Link href={"/Carrito"}>

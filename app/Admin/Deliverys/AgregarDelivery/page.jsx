@@ -1,4 +1,3 @@
-"use client"
 import { FormAddDelivery } from '@/app/Components/Forms'
 import React from 'react'
 
