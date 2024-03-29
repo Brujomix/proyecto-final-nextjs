@@ -34,9 +34,7 @@ export default function RootLayout({ children }) {
           <Suspense fallback={<NavbarSkeleton />}>
             <NavBar />
           </Suspense>
-
           <NavBarAdmin />
-
           <div>{children}</div>
           <Footer formContacto={<FormContacto />} />
         </ProviderRedux>
