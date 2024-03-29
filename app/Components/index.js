@@ -8,3 +8,5 @@ export * from "./BotonesCarrito";
 export * from "./ItemsCarrito";
 export * from "./CheckIsLogin";
 export * from "./SinItemsCarrito";
+export * from "./Metodos_Pagos";
+export * from "./Metodos_Envios";

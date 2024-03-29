@@ -10,7 +10,6 @@ export const verificaUserRol = (ObjUser) => {
       case 3:
         return"block"
         break;
-
       default:
         return"hidden"
         break;
