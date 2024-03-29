@@ -3,22 +3,22 @@ import { createSlice } from "@reduxjs/toolkit";
 export const UsuarioSlice = createSlice({
   name: "Usuario",
   initialState: {
-    currentUser: {},
+    currentUser: null,
     isLogin: false,
   },
   reducers: {
-    setCurrentUser: (state, action) => {
-      state.currentUser = action.payload;
+    loginUser: (state, action) => {
+      state.currentUser = action.payload
+      state.isLogin = true;
+      localStorage.setItem('currentUser', JSON.stringify(action.payload));
     },
-    setIsLogin: (state, action) => {
-      state.isLogin = action.payload;
-    },
-    cerrarSession: (state, action) => {
-      state.currentUser = {};
+    logOutUser: (state) => {
+      state.currentUser = null;
       state.isLogin = false;
+      localStorage.removeItem('currentUser');
     },
   },
 });
 
-export const { setCurrentUser, setIsLogin, cerrarSession } = UsuarioSlice.actions;
+export const { loginUser, logOutUser } = UsuarioSlice.actions;
 export default UsuarioSlice.reducer;

@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { BotonDinamico } from "..";
 import { useDispatch, useSelector } from "react-redux";
-import { cerrarSession } from "@/Redux/Slices/UsuarioSlice";
+import { logOutUser } from "@/Redux/Slices/UsuarioSlice";
 import Swal from "sweetalert2";
 import { deleteUsuario } from "@/app/Api/UsuariosApi/route";
 
@@ -68,8 +68,7 @@ export function SubMenuUsuarios() {
             cancelButtonText: "No",
           }).then((res) => {
             if (res.isConfirmed) {
-              dispatch(cerrarSession());
-              localStorage.removeItem("currentUser");
+              dispatch(logOutUser());
             }
           });
         }}
