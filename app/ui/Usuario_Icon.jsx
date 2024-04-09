@@ -4,7 +4,7 @@ import React from "react";
 import { FaUserAltSlash, FaUserCheck } from "react-icons/fa";
 import { useSelector } from "react-redux";
 
-export async function Usuario_Icon() {
+export function Usuario_Icon() {
     const currentUser = useSelector(state=>state.Usuario.currentUser)
   return (
     <div>

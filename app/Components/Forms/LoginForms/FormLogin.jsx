@@ -5,8 +5,8 @@ import { BotonDinamico } from "@/app/Components";
 import style from "@/app/Components/Forms/form.module.css";
 import { validarUsuario } from "@/app/Api/UsuariosApi/route";
 import { useDispatch } from "react-redux";
-import { setCurrentUser, setIsLogin } from "@/Redux/Slices/UsuarioSlice";
 import Swal from "sweetalert2";
+import { loginUser } from "@/Redux/Slices/UsuarioSlice";
 
 export function FormLogin() {
   const dispatch = useDispatch();
@@ -49,8 +49,7 @@ export function FormLogin() {
                   position: "top-end",
                   showConfirmButton: false,
                 });
-                dispatch(setCurrentUser(res.data[0]));
-                dispatch(setIsLogin(true));
+                dispatch(loginUser(res.data[0]));
                 localStorage.setItem(
                   "currentUser",
                   JSON.stringify(res.data[0])
