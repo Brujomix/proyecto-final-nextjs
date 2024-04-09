@@ -16,7 +16,7 @@ export const UsuarioSlice = createSlice({
       state.currentUser = null;
       state.isLogin = false;
       localStorage.removeItem('currentUser');
-    },
+    }
   },
 });
 

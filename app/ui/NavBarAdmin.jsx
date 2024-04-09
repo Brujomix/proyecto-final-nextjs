@@ -1,9 +1,11 @@
+"use client"
 import Link from "next/link";
 import React from "react";
 import { verificaUserRol } from "../Utilidades/Util_Estado";
+import { useSelector } from "react-redux";
 
-export const NavBarAdmin = () =>{
-  
+export function NavBarAdmin () {
+  const currentUser = useSelector(state => state.Usuario.currentUser)
   return (
     <div
       className={`${verificaUserRol(currentUser)} w-full flex flex-row flex-wrap justify-center items-center p-4 gap-4`}
