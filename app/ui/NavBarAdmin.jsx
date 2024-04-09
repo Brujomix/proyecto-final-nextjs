@@ -2,8 +2,8 @@ import Link from "next/link";
 import React from "react";
 import { verificaUserRol } from "../Utilidades/Util_Estado";
 
-export function NavBarAdmin() {
-  const currentUser = {}
+export const NavBarAdmin = () =>{
+  
   return (
     <div
       className={`${verificaUserRol(currentUser)} w-full flex flex-row flex-wrap justify-center items-center p-4 gap-4`}
