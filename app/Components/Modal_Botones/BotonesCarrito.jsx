@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { BotonDinamico } from ".";
+import { BotonDinamico } from "..";
 import { useDispatch, useSelector } from "react-redux";
 import { addItemCarrito, removeItemCarrito } from "@/Redux/Slices/CarritoSlice";
 import { BsCartDash, BsCartPlus } from "react-icons/bs";

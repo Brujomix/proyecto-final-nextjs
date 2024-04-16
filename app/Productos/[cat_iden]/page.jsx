@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import { getProductosbyCategoria } from "@/app/Api/ProductosApi/route";
 import { CardProducto } from "@/app/Components";
 import { CardProductoSkeleton } from "@/app/Components/Skeletons";
-import BotonesCarrito from "@/app/Components/BotonesCarrito";
+import BotonesCarrito from "@/app/Components/Modal_Botones/BotonesCarrito";
 
 async function filterProductos({ params }) {
   const listaProductosFilter = await getProductosbyCategoria(params.cat_iden);

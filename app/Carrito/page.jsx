@@ -11,6 +11,7 @@ import Link from "next/link";
 
 export default function CarritoPage() {
   const itemsCarrito = useSelector((state) => state.Carrito.itemsCarrito);
+  const currentUser = useSelector(state=> state.Usuario.currentUser)
   return (
     <div>
       {itemsCarrito.length === 0 ? (
@@ -20,9 +21,10 @@ export default function CarritoPage() {
           <ItemsCarrito itemsCarrito={itemsCarrito} />
           <Metodos_Envios />
           <Metodos_Pagos />
-          <Link className={"Link"} href={"PaymentCarrito"}>
+          {currentUser === null ? <Link className="Link" href={"/Usuarios"}>Iniciar Session</Link> : <Link className="Link" href={"PaymentCarrito"}>
             Hacer Pedido...
-          </Link>
+          </Link> }
+          
         </div>
       )}
     </div>

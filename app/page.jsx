@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import { getProductosbyPuntos } from "@/app/Api/ProductosApi/route";
 import { CardProductoSkeleton } from "@/app/Components/Skeletons";
 import { CardProducto } from "@/app/Components";
-import BotonesCarrito from "./Components/BotonesCarrito";
+import BotonesCarrito from "./Components/Modal_Botones/BotonesCarrito";
 
 export default async function Home() {
   const listaProductosRanking = await getProductosbyPuntos();
@@ -14,7 +14,10 @@ export default async function Home() {
       <div className="flex flex-row justify-center items-center flex-wrap gap-2">
         {listaProductosRanking.map((e) => (
           <Suspense key={e.pro_iden} fallback={<CardProductoSkeleton />}>
-            <CardProducto producto={e} BtnsCarrito={<BotonesCarrito currentProducto={e}/>} />
+            <CardProducto
+              producto={e}
+              BtnsCarrito={<BotonesCarrito currentProducto={e} />}
+            />
           </Suspense>
         ))}
       </div>

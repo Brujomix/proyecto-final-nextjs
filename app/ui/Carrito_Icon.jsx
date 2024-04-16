@@ -10,9 +10,9 @@ export function CarritoIcon() {
   return (
     <div className="absolute right-7 top-[-5px] ">
       <Link href={"/Carrito"}>
-        <FiShoppingCart size={35} />
+        <FiShoppingCart size={30} />
       </Link>
-      <span className="border-2 border-neutral-400 font-semibold py-1 px-1 rounded-full bg-white">
+      <span className="border-2 border-neutral-400 text-sm font-semibold py-1 px-1 rounded-full bg-white">
         {SumaItemsCarrito(itemsCarrito)}
       </span>
     </div>
