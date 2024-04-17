@@ -13,7 +13,9 @@ export default function CarritoPage() {
         <SinItemsCarrito />
       ) : (
         <div className="space-y-7">
-          <ItemsCarrito itemsCarrito={itemsCarrito} />
+          
+            <ItemsCarrito itemsCarrito={itemsCarrito} />
+
           <div className="grid grid-cols-3">
             <div className="col-span-2">
               <span>Total Carrito </span>
@@ -22,7 +24,9 @@ export default function CarritoPage() {
               <b className="text-red-500">$ {PrecioCarrito(itemsCarrito)}</b>
             </div>
             <div className="col-span-3">
-              <span className="text-sm text-blue-700 italic">No Incluye Costos de Envios</span>
+              <span className="text-sm text-blue-700 italic">
+                No Incluye Costos de Envios
+              </span>
             </div>
           </div>
           <FormCarrito itemsCarrito={itemsCarrito} currentUser={currentUser} />
