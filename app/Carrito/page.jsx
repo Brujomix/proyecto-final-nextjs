@@ -24,7 +24,6 @@ export default function CarritoPage() {
           {currentUser === null ? <div className="border border-red-300 rounded-md p-2 italic text-sm bg-red-400">Debes Iniciar Session</div> : <Link className="Link" href={"PaymentCarrito"}>
             Hacer Pedido...
           </Link> }
-          
         </div>
       )}
     </div>

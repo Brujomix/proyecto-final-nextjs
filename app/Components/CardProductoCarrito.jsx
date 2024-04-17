@@ -1,44 +1,40 @@
-import React from 'react'
+import React from "react";
 import { useDispatch } from "react-redux";
 import { removeItemCarrito } from "@/Redux/Slices/CarritoSlice";
 import Image from "next/image";
-import { BotonDinamico, RankingProductos } from "@/app/Components";
+import { BotonDinamico } from "@/app/Components";
 import { CiTrash } from "react-icons/ci";
 
-export function CardProductoCarrito({productoCarrito}) {
-    const dispatch = useDispatch()
+export function CardProductoCarrito({ productoCarrito }) {
+  const dispatch = useDispatch();
   return (
-    <div className="max-w-[310px] flex flex-row justify-around items-center border p-1 gap-2 border-neutral-500 rounded-md bg-white">
+    <div className="grid grid-cols-3 border border-gray-300 bg-gray-200 rounded-md p-2">
+      <div className="col-span-3 flex flex-row justify-center gap-7">
+        <span className="font-semibold text-center">
+          {productoCarrito.pro_name}
+        </span>
+        <span className="font-bold">$ {productoCarrito.pro_precio}</span>
+      </div>
       <div className="flex flex-col justify-center items-center gap-1 p-1">
         <Image
           src={productoCarrito.pro_imagen}
-          width={80}
-          height={80}
+          width={50}
+          height={50}
           alt="Imagen Producto"
         />
-        <figcaption className="font-semibold text-center">
-          {productoCarrito.pro_name}
-        </figcaption>
-        <RankingProductos pro_puntos={productoCarrito.pro_puntos} />
       </div>
-      <div className="w-[120px] italic text-sm">
-        <p>{productoCarrito.pro_desc}</p>
-      </div>
-      <span>{productoCarrito.cat_iden}</span>
-      <div className="flex flex-col justify-center items-center p-1 gap-4">
-        <span className="font-bold">$ {productoCarrito.pro_precio}</span>
+      <div className="flex flex-col text-center">
+        <span className="text-sm italic">Cantidad</span>
         <span className="font-bold">X {productoCarrito.Cantidad}</span>
-        <div className="flex flex-row justify-center items-center gap-1">
-          <BotonDinamico
-          className='bg-white border-neutral-500'
-            onClick={() =>
-              dispatch(removeItemCarrito(productoCarrito.pro_iden))
-            }
-          >
-            <CiTrash color='red' size={20} />
-          </BotonDinamico>
-        </div>
+      </div>
+      <div className="flex flex-row justify-center items-center gap-1">
+        <BotonDinamico
+          className="bg-white border-neutral-500"
+          onClick={() => dispatch(removeItemCarrito(productoCarrito.pro_iden))}
+        >
+          <CiTrash color="red" size={15} />
+        </BotonDinamico>
       </div>
     </div>
-  )
+  );
 }

@@ -5,8 +5,8 @@ import { CiBank } from "react-icons/ci";
 
 export function Metodos_Pagos() {
   return (
-    <div>
-      <span>Selecciona Metodo de Pago:</span>
+    <div className="text-center">
+      <span className="underline italic font-semibold">Selecciona Metodo de Pago:</span>
       <div className="mt-5 flex flex-row justify-center items-center gap-7">
         <div className="flex flex-col items-center text-sm italic">
           <SiMercadopago size={50} />
