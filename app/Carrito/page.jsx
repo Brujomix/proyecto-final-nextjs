@@ -1,29 +1,31 @@
 "use client";
 import React from "react";
-import {
-  ItemsCarrito,
-  Metodos_Envios,
-  Metodos_Pagos,
-  SinItemsCarrito,
-} from "@/app/Components";
+import { FormCarrito, ItemsCarrito, SinItemsCarrito } from "@/app/Components";
 import { useSelector } from "react-redux";
-import Link from "next/link";
+import { PrecioCarrito } from "../Utilidades/Utils_Carrito";
 
 export default function CarritoPage() {
   const itemsCarrito = useSelector((state) => state.Carrito.itemsCarrito);
-  const currentUser = useSelector(state=> state.Usuario.currentUser)
+  const currentUser = useSelector((state) => state.Usuario.currentUser);
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center gap-7">
       {itemsCarrito.length === 0 ? (
         <SinItemsCarrito />
       ) : (
-        <div className="flex flex-col justify-center items-center gap-7">
+        <div className="space-y-7">
           <ItemsCarrito itemsCarrito={itemsCarrito} />
-          <Metodos_Envios />
-          <Metodos_Pagos />
-          {currentUser === null ? <div className="border border-red-300 rounded-md p-2 italic text-sm bg-red-400">Debes Iniciar Session</div> : <Link className="Link" href={"PaymentCarrito"}>
-            Hacer Pedido...
-          </Link> }
+          <div className="grid grid-cols-3">
+            <div className="col-span-2">
+              <span>Total Carrito </span>
+            </div>
+            <div>
+              <b className="text-red-500">$ {PrecioCarrito(itemsCarrito)}</b>
+            </div>
+            <div className="col-span-3">
+              <span className="text-sm text-blue-700 italic">No Incluye Costos de Envios</span>
+            </div>
+          </div>
+          <FormCarrito itemsCarrito={itemsCarrito} currentUser={currentUser} />
         </div>
       )}
     </div>

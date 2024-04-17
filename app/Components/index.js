@@ -6,8 +6,6 @@ export * from "./CardProductoCarrito";
 export * from "./CarritoPrecio";
 export * from "./ItemsCarrito";
 export * from "./SinItemsCarrito";
-export * from "./Metodos_Pagos";
-export * from "./Metodos_Envios";
 
 /*Usuarios*/
 export * from "./User_Login";
@@ -28,6 +26,7 @@ export * from "./Comanda/CardComanda";
 export * from "./Comanda/UserComanda";
 
 /* Formularios */
+
 /* Categorias */
 export * from "./Forms/CategoriasForms/FomrEditCategoria";
 export * from "./Forms/CategoriasForms/FormAddCategoria";
@@ -35,8 +34,6 @@ export * from "./Forms/CategoriasForms/FormPrecioCategoria";
 /* Delivery */
 export * from "./Forms/DeliverysForms/FormAddDelivery";
 export * from "./Forms/DeliverysForms/FormEditDelivery";
-/* Pedidos */
-export * from "./Forms/EncargarPedido/FormEncargarPedido";
 /* Footer */
 export * from "./Forms/FooterForms/FormContacto";
 /* Login */
@@ -46,6 +43,8 @@ export * from "./Forms/ProductosForms/FormAddProducto";
 export * from "./Forms/ProductosForms/FormEditProducto";
 /* Usuarios */
 export * from "./Forms/UsuariosForms/FormAddUser";
+/* Carrito */
+export * from "./Forms/Carrito/FormCarrito";
 
 /* Skeletons */
 export * from "./Skeletons/CardComandaSkeleton";
