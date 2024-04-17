@@ -1,5 +1,5 @@
 import React from "react";
-import { Brand } from ".";
+import { Brand } from "@/app/ui";
 
 export function Header() {
   return (

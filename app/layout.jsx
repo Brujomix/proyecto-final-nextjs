@@ -9,9 +9,7 @@ import {
 } from "./ui";
 import Footer from "@/app/ui/Footer";
 import { ProviderRedux } from "@/Redux/Provider";
-import { NavbarSkeleton } from "@/app/Components/Skeletons";
-import { FormContacto } from "@/app/Components/Forms";
-import { Modal_User } from "./Components";
+import { NavbarSkeleton, FormContacto,Modal_User } from "@/app/Components";
 
 export const metadata = {
   title: "Home - E-Commerce Next",

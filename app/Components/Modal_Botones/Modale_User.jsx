@@ -7,16 +7,16 @@ import { loginUser } from "@/Redux/Slices/UsuarioSlice";
 import { FaUserCheck, FaUserAltSlash } from "react-icons/fa";
 
 export function Modal_User({ footer }) {
-  const currentUserStorage = localStorage.getItem("currentUser");
- const isLogin = useSelector(state=> state.Usuario.isLogin)
+  const isLogin = useSelector(state=> state.Usuario.isLogin)
   const [show, setShow] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const dispatch = useDispatch();
-
+  
   const modalShow = styles.modalshow;
   const modalHidden = styles.modalhidden;
-
+  
   useEffect(() => {
+    const currentUserStorage = localStorage.getItem("currentUser");
     function checkUser() {
       if (currentUserStorage !== null) {
         const parseUser = JSON.parse(currentUserStorage);

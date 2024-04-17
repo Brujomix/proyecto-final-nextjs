@@ -1,5 +1,5 @@
 import React from 'react'
-import { FormLogin } from "@/app/Components/Forms";
+import { FormLogin } from "@/app/Components";
 
 function Usuarios() {
   return (

@@ -1,8 +1,10 @@
 import React, { Suspense } from "react";
 import { getProductosbyPuntos } from "@/app/Api/ProductosApi/route";
-import { CardProductoSkeleton } from "@/app/Components/Skeletons";
-import { CardProducto } from "@/app/Components";
-import BotonesCarrito from "./Components/Modal_Botones/BotonesCarrito";
+import {
+  CardProducto,
+  CardProductoSkeleton,
+  BotonesCarrito,
+} from "@/app/Components";
 
 export default async function Home() {
   const listaProductosRanking = await getProductosbyPuntos();

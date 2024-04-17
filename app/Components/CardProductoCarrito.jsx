@@ -2,9 +2,8 @@ import React from 'react'
 import { useDispatch } from "react-redux";
 import { removeItemCarrito } from "@/Redux/Slices/CarritoSlice";
 import Image from "next/image";
-import { BotonDinamico } from ".";
+import { BotonDinamico, RankingProductos } from "@/app/Components";
 import { CiTrash } from "react-icons/ci";
-import { RankingProductos } from ".";
 
 export function CardProductoCarrito({productoCarrito}) {
     const dispatch = useDispatch()

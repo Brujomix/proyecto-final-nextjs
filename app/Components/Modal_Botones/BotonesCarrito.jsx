@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItemCarrito, removeItemCarrito } from "@/Redux/Slices/CarritoSlice";
 import { BsCartDash, BsCartPlus } from "react-icons/bs";
 
-export default function BotonesCarrito({ currentProducto }) {
+export function BotonesCarrito({ currentProducto }) {
   const dispatch = useDispatch();
   const currentEstado = useSelector((state) => state.EstadoApp.Estado);
   return (

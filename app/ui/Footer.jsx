@@ -1,5 +1,5 @@
 import React from "react";
-import { FormContacto } from "@/app/Components/Forms";
+import { FormContacto } from "@/app/Components";
 
 export default function Footer({formContacto}) {
   return (

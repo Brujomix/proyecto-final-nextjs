@@ -21,7 +21,7 @@ export default function CarritoPage() {
           <ItemsCarrito itemsCarrito={itemsCarrito} />
           <Metodos_Envios />
           <Metodos_Pagos />
-          {currentUser === null ? <Link className="Link" href={"/Usuarios"}>Iniciar Session</Link> : <Link className="Link" href={"PaymentCarrito"}>
+          {currentUser === null ? <div className="border border-red-300 rounded-md p-2 italic text-sm bg-red-400">Debes Iniciar Session</div> : <Link className="Link" href={"PaymentCarrito"}>
             Hacer Pedido...
           </Link> }
           

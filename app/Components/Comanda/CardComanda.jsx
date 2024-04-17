@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import { BotonDinamico } from "..";
+import { BotonDinamico } from "@/app/Components";
 import { imprimirComanda, avisarEnvio } from "@/app/Utilidades/Util_Comandas";
-import { UserComanda } from ".";
+
 
 export function CardComanda({ comanda }) {
   const cambiaBackground = () => {

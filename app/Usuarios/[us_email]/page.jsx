@@ -1,7 +1,6 @@
-import { getUsuarioFilter } from "@/app/Api/UsuariosApi/route";
-import { FormEditUserSkeleton } from "@/app/Components/Skeletons";
-import { FormEditUser } from "@/app/Components/Forms";
 import React, { Suspense } from "react";
+import { getUsuarioFilter } from "@/app/Api/UsuariosApi/route";
+import { FormEditUserSkeleton, FormEditUser } from "@/app/Components";
 
 async function usuarioFilter({ params }) {
   const currentUser = await getUsuarioFilter(params.us_email);

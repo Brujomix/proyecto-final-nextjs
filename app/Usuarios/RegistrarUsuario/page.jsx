@@ -1,4 +1,4 @@
-import { FormAddUser } from "@/app/Components/Forms";
+import { FormAddUser } from "@/app/Components";
 import React from "react";
 
 function AgregarUsuario() {
