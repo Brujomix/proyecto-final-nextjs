@@ -5,16 +5,13 @@ import {
   Header,
   NavBar,
   NavBarAdmin,
-  Usuario_Icon,
-  EstadoApp,
-  Usuario,
+  EstadoApp
 } from "./ui";
 import Footer from "@/app/ui/Footer";
 import { ProviderRedux } from "@/Redux/Provider";
 import { NavbarSkeleton } from "@/app/Components/Skeletons";
 import { FormContacto } from "@/app/Components/Forms";
-import { ModalDinamico } from "./Components";
-import { FaUserCheck } from "react-icons/fa";
+import { Modal_User } from "./Components";
 
 export const metadata = {
   title: "Home - E-Commerce Next",
@@ -28,11 +25,7 @@ export default function RootLayout({ children }) {
         <ProviderRedux>
           <EstadoApp />
           <div className="flex flex-row justify-start items-center bg-neutral-300 fixed top-9 w-full p-2">
-            <ModalDinamico
-              title="Usuarios"
-              children={<FaUserCheck color="#666" size={25} />}
-              body={<Usuario />}
-            />
+            <Modal_User/>
             <CarritoIcon />
           </div>
           <Header />
