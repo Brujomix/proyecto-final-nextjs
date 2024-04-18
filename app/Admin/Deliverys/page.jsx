@@ -1,6 +1,5 @@
 import React, { Suspense } from "react";
-import { TablaDeliverys } from "@/app/Components/Tablas";
-import { TablaGenericaSkeleton } from "@/app/Components/Skeletons";
+import { TablaDeliverys, TablaGenericaSkeleton } from "@/app/Components/Tablas";
 import { getDeliverys } from "@/app/Api/DeliverysApi/route";
 
 async function Deliverys() {

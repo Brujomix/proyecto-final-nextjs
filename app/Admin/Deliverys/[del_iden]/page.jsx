@@ -1,4 +1,4 @@
-import { FormEditDelivery } from '@/app/Components/Forms'
+import { FormEditDelivery } from '@/app/Components'
 import React from 'react'
 
 function EditarDelivery({params}) {

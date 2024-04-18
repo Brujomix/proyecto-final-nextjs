@@ -11,7 +11,7 @@ export function ModalDinamico({ children, title, body, footer }) {
     <div>
       <BotonDinamico onClick={() => setShow(!show)}>{children}</BotonDinamico>
       <div className={`${styles.modal} ${show ? modalShow : modalHidden}`}>
-        <div className={styles.modalcontent}>
+        <div>
           <div className={styles.modalheader}>
             <span>{title}</span>
           </div>

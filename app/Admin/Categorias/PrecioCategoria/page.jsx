@@ -1,4 +1,4 @@
-import { FormPrecioCategoria } from '@/app/Components/Forms'
+import { FormPrecioCategoria } from '@/app/Components'
 import React from 'react'
 
 function PrecioCategoria() {

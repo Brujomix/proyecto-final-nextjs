@@ -1,7 +1,6 @@
 import React, { Suspense } from "react";
 import { getComandas } from "@/app/Api/ComandasApi/route";
-import { CardComanda } from "@/app/Components/Comanda";
-import { CardComandaSkeleton } from "@/app/Components/Skeletons";
+import { CardComanda, CardComandaSkeleton } from "@/app/Components";
 
 async function Comandas() {
   const currentComandas = await getComandas();

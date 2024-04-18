@@ -1,5 +1,5 @@
 import React from "react";
-import SubMenuReportes from "@/app/Components/SubMenus/SubMenuReportes";
+import SubMenuReportes from "@/app/Components/";
 
 function layoutReportes({ children }) {
   return (

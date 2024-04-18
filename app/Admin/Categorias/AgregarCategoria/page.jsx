@@ -1,4 +1,4 @@
-import { FormAddCategoria } from '@/app/Components/Forms'
+import { FormAddCategoria } from '@/app/Components'
 import React from 'react'
 
 function AgregarCategoria() {

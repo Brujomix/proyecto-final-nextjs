@@ -58,3 +58,11 @@ export const pagoIcons = (pago_desc)=>{
       break;
   }
 }
+
+export const checkUser = (currentCarrito)=>{
+  if (currentCarrito === null) {
+    return ""
+  }else{
+    return currentCarrito.us_iden
+  }
+}

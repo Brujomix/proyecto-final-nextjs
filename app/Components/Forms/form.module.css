@@ -4,7 +4,7 @@
 }
 
 .formBody{
-    max-width: max-content;
+    max-width: fit-content;
     background-color: #CCC;
     border: 1px solid black;
     border-radius: 10px;

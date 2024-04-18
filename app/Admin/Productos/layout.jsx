@@ -1,5 +1,5 @@
 import React from "react";
-import { SubMenuProductos } from "@/app/Components/SubMenus";
+import { SubMenuProductos } from "@/app/Components";
 
 function layoutProductos({ children }) {
   return (

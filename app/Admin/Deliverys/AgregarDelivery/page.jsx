@@ -1,4 +1,4 @@
-import { FormAddDelivery } from '@/app/Components/Forms'
+import { FormAddDelivery } from '@/app/Components'
 import React from 'react'
 
 function AgregarDelivery() {

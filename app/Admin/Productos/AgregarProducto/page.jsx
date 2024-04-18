@@ -1,4 +1,4 @@
-import { FormAddProducto } from '@/app/Components/Forms'
+import { FormAddProducto } from '@/app/Components'
 import React from 'react'
 
 function AgregarProducto() {

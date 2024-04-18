@@ -1,6 +1,7 @@
 "use client";
 import {
   ConvierteCarrito,
+  checkUser,
   envioIcons,
   pagoIcons,
 } from "@/app/Utilidades/Utils_Carrito";
@@ -14,19 +15,16 @@ import { getEnvios } from "@/app/Api/MetodosEnvioApi/route";
 export async function FormCarrito({ itemsCarrito, currentUser }) {
   const Pagos = await getPagos();
   const Envios = await getEnvios();
-  const date = new Date();
-  console.log(date);
+  const date = format(new Date(), "dd/mm/yyyy, HH:mm:ss");
   return (
     <Formik
       initialValues={{
-        com_date: "",
-        com_hora: "",
-        com_us_iden: `${currentUser === null ? "" : currentUser.us_iden}`,
+        com_date: date,
+        com_us_iden: checkUser(currentUser),
         com_pago_iden: "",
         com_env_iden: "",
         com_precioEnvio: 0,
         com_carrito: ConvierteCarrito(itemsCarrito),
-        com_entrega: "",
         com_exep: "",
       }}
       validate={(values) => {
@@ -58,7 +56,7 @@ export async function FormCarrito({ itemsCarrito, currentUser }) {
             </span>
           </div>
           <div>
-            <strong>Rtiras en Local o Enviamos tu Pedido?</strong>
+            <strong>Retiras en Local o Enviamos tu Pedido?</strong>
             <div className="flex flex-row gap-7 justify-center">
               {Envios.map((e) => (
                 <div key={e.env_iden}>
@@ -79,6 +77,16 @@ export async function FormCarrito({ itemsCarrito, currentUser }) {
                 </div>
               ))}
             </div>
+          </div>
+          <div className="space-x-4">
+            <span className="italic text-blue-700">Costo del Envio</span>
+            <strong>
+              {values.com_env_iden === 1 ? (
+                <span className="text-red-500">$ {Envios[0].env_precio}</span>
+              ) : (
+                "Sin Costo"
+              )}
+            </strong>
           </div>
           <div>
             <strong>Como Deseas Abonar el Pedido ?</strong>
@@ -102,6 +110,17 @@ export async function FormCarrito({ itemsCarrito, currentUser }) {
             </div>
           </div>
           <div>{errors.com_pago_iden}</div>
+          <div className="grid grid-cols-1 gap-2">
+            <strong>Algun detalle adicional ?</strong>
+            <textarea
+              placeholder="No es Obligatorio"
+              name="com_exep"
+              cols="15"
+              rows="4"
+              onChange={handleChange}
+              className="p-2 text-sm italic resize-none overflow-y-auto"
+            />
+          </div>
           <div>
             {currentUser === null ? (
               <div className="border border-red-300 rounded-md p-2 italic text-sm bg-red-400">
