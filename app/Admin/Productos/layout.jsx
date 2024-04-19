@@ -1,5 +1,5 @@
 import React from "react";
-import { SubMenuProductos } from "@/app/Components";
+import Link from "next/link";
 
 function layoutProductos({ children }) {
   return (
@@ -7,7 +7,7 @@ function layoutProductos({ children }) {
     <span className="text-3xl font-semibold italic tracking-widest">
       Gestión Productos
     </span>
-    <SubMenuProductos />
+    <Link className="Link" href={"/Admin/Productos/AgregarProducto"}>Agregar Producto</Link>
     <div>{children}</div>
   </div>
   );

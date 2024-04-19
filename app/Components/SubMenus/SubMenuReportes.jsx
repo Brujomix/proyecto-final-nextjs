@@ -7,10 +7,10 @@ function SubMenuReportes() {
       <Link className="Link" href={"/Reportes/ComandasDiaria"}>
         Reporte Comandas del Día
       </Link>
-      <Link className="Link" href={"Admin/Reportes/FiltroFecha"}>
+      <Link className="Link" href={"/Reportes/FiltroFecha"}>
         Rango de Fechas
       </Link>
-      <Link className="Link" href={"Admin/Reportes/FiltroComandaIden"}>
+      <Link className="Link" href={"/Reportes/FiltroComandaIden"}>
         Nº Comanda
       </Link>
     </div>

@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
-import { getProductos } from "../Api/ProductosApi/route";
-import { TablaProductos, TablaGenericaSkeleton } from "../Components";
+import { getProductos } from "@/app/Api/ProductosApi/route";
+import { TablaProductos, TablaGenericaSkeleton } from "@/app/Components";
 
 async function ProductosAdmin() {
   const listaProductos = await getProductos();

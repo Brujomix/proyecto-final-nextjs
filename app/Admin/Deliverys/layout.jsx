@@ -1,5 +1,5 @@
+import Link from "next/link";
 import React from "react";
-import { SubMenuDelivery } from "@/app/Components";
 
 function layoutDelivery({ children }) {
   return (
@@ -7,7 +7,7 @@ function layoutDelivery({ children }) {
       <span className="text-3xl font-semibold italic tracking-widest">
         Gestión Deliverys
       </span>
-      <SubMenuDelivery />
+      <Link className="Link" href={"/Admin/Productos/AgregarDelivery"}>Agregar Delivery</Link>
       <div>{children}</div>
     </div>
   );

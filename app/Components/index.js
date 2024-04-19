@@ -2,6 +2,9 @@
 export * from "./CardProducto";
 export * from "./CardProductoCarrito";
 
+/* Productos */
+export * from "./GestionImagenProducto";
+
 /* Carrito */
 export * from "./CarritoPrecio";
 export * from "./ItemsCarrito";

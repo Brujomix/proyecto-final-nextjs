@@ -22,7 +22,7 @@ export function NavBarAdmin () {
       <Link className="Link" href="/Admin/Deliverys">
         Deliverys
       </Link>
-      <Link className="Link" href="/Admin/ProductosAdmin">
+      <Link className="Link" href="/Admin/Productos">
         Productos
       </Link>
       <Link className="Link" href="/Admin/Chat">

@@ -1,12 +1,12 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import style from "@/app/Components/Forms/form.module.css";
 import { Formik, Field } from "formik";
-import { BotonDinamico } from "@/app/Components";
-import Image from "next/image";
+import { BotonDinamico, GestionImagenProducto } from "@/app/Components";
+import { handleInputChange } from "@/app/Utilidades/Util_Productos";
 
-export function FormAddProducto() {
- 
+export function FormAddProducto({Categorias}) {
+  const inputRef = useRef(null)
   return (
     <div>
       <Formik
@@ -35,30 +35,13 @@ export function FormAddProducto() {
       >
         {({ values, errors, handleChange, handleSubmit, setFieldValue }) => (
           <form className={style.formBody} onSubmit={handleSubmit}>
+            <GestionImagenProducto />
             <input
-              className={style.inputData}
+              style={{ display: "none" }}
               type="file"
-              required
+              ref={inputRef}
               onChange={(e) => {
-                const reader = new FileReader();
-                reader.onload = function (event) {
-                  const img = new Image();
-
-                  img.onload = function () {
-                    const canvas = document.createElement("canvas");
-                    canvas.width = img.width;
-                    canvas.height = img.height;
-                    const context = canvas.getContext("2d");
-                    context.drawImage(img, 0, 0, img.width, img.height);
-
-                    const webpDataURL = canvas.toDataURL("image/webp");
-             
-
-                    setFieldValue("pro_imagen", webpDataURL);
-                  };
-                  img.src = event.target.result;
-                };
-                reader.readAsDataURL(e.target.files[0]);
+                handleInputChange(e);
               }}
             />
             <div className={style.errorsForm}>{errors.pro_imagen}</div>
@@ -100,7 +83,7 @@ export function FormAddProducto() {
               required
             >
               <option></option>
-              {[].map((e) => (
+              {Categorias.map((e) => (
                 <option key={e.cat_iden} value={e.cat_iden}>
                   {e.cat_desc}
                 </option>
