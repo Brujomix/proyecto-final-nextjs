@@ -1,23 +1,38 @@
+export const crearUrlImagen = (urlWebP, formatoSalida) => {
+  return new Promise((res) => {
+    const imagen = new Image();
+    imagen.onload = function () {
+      const canvas = document.createElement("canvas");
+      canvas.width = imagen.width;
+      canvas.height = imagen.height;
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(imagen, 0, 0);
+      const dataPng = canvas.toDataURL(formatoSalida);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      res(dataPng);
+    };
+    imagen.src = urlWebP;
+  });
+};
 
 export const handleInputChange = (event) => {
-    try {
-        const file = event.target.files[0];
-        const reader = new FileReader();
-    
-        reader.onprogress = function (event) {
-          if (reader.readyState === FileReader.LOADING) {
-            setIsLoad(true);
-          }
-        };
+
+  return new Promise((res)=>{
+
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      try {
         reader.onload = async function (e) {
-          await crearUrlImagen(e.target.result, "image/webp").then((res) => {
-            return res
-          });
+          const resp = await crearUrlImagen(e.target.result, "image/webp");
+          res(resp)
         };
-    
-        reader.readAsDataURL(file);
-    } catch (error) {
+        
+      } catch (error) {
         console.log(error);
-        return "/imgProducto.png"
-    }
-  };
+        res("/imgProducto.png")
+      }
+  
+      reader.readAsDataURL(file);
+    
+  })
+};

@@ -1,17 +1,19 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import style from "@/app/Components/Forms/form.module.css";
 import { Formik, Field } from "formik";
-import { BotonDinamico, GestionImagenProducto } from "@/app/Components";
+import { BotonDinamico } from "@/app/Components";
 import { handleInputChange } from "@/app/Utilidades/Util_Productos";
+import Image from "next/image";
 
-export function FormAddProducto({Categorias}) {
-  const inputRef = useRef(null)
+export function FormAddProducto({ Categorias }) {
+  const inputRef = useRef(null);
+  const [urlImg, setUrlImg] = useState("");
   return (
     <div>
       <Formik
         initialValues={{
-          pro_imagen: "",
+          pro_imagen: urlImg,
           pro_name: "",
           pro_desc: "",
           pro_precio: "",
@@ -30,18 +32,30 @@ export function FormAddProducto({Categorias}) {
             pro_precio: values.pro_precio,
             pro_cat_iden: parseInt(values.pro_cat_iden),
           };
-          console.log(NewValues);
+          setTimeout(() => {
+            alert(JSON.stringify(NewValues))
+          }, 400);
         }}
       >
         {({ values, errors, handleChange, handleSubmit, setFieldValue }) => (
           <form className={style.formBody} onSubmit={handleSubmit}>
-            <GestionImagenProducto />
+            <BotonDinamico onClick={() => inputRef.current.click()}>
+              {
+                <Image
+                  width={120}
+                  height={120}
+                  alt="Imagen Producto"
+                  src={urlImg}
+                />
+              }
+            </BotonDinamico>
             <input
               style={{ display: "none" }}
               type="file"
               ref={inputRef}
-              onChange={(e) => {
-                handleInputChange(e);
+              onChange={async (e) => {
+                const urlImg = await handleInputChange(e);
+                setUrlImg(urlImg);
               }}
             />
             <div className={style.errorsForm}>{errors.pro_imagen}</div>
