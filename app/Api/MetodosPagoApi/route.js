@@ -9,3 +9,12 @@ export const getPagos = async () => {
     return error;
   }
 };
+
+export const getPago = async (pago_iden) => {
+  try {
+    const res = await axios.get(`${UrlServer_nube}/Api/Pago/${pago_iden}`);
+    return res.data[0];
+  } catch (error) {
+    return error;
+  }
+};

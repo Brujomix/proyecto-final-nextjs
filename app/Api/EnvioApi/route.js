@@ -9,3 +9,12 @@ export const getPrecioEnvio = async () => {
     return error;
   }
 };
+
+export const getEnvio = async (env_iden) => {
+  try {
+    const res = await axios.get(`${UrlServer_nube}/Api/Envio/${env_iden}`);
+    return res.data[0];
+  } catch (error) {
+    return error;
+  }
+};

@@ -13,6 +13,19 @@ router.get("/Api/Pagos", async (req, res) => {
   }
 });
 
+router.get("/Api/Pago/:ID", async (req, res) => {
+  try {
+    const promisePool = pool.promise();
+    const [rows] = await promisePool.query(
+      "SELECT * FROM pago WHERE pago_iden = ?",
+      [req.params.ID]
+    );
+    return res.json(rows);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
 router.put("/Api/Pago/:ID", async (req, res) => {
   try {
     const promisePool = pool.promise();

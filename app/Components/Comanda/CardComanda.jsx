@@ -1,24 +1,16 @@
-"use client";
+"use client"
 import React from "react";
 import { BotonDinamico } from "@/app/Components";
-import { imprimirComanda, avisarEnvio } from "@/app/Utilidades/Util_Comandas";
+import { imprimirComanda, avisarEnvio, cambiaBackgroundComanda, infoComanda } from "@/app/Utilidades/Util_Comandas";
 
-
-export function CardComanda({ comanda }) {
-  const cambiaBackground = () => {
-    switch (comanda.com_escom_iden) {
-      case 2:
-        return "bg-slate-300";
-      case 3:
-        return "bg-green-500";
-      default:
-        return "bg-orange-300";
-    }
-  };
+export async function CardComanda({ comanda }) {
+   
+  const CurrentComanda = await infoComanda(comanda)
+  console.log(CurrentComanda);
 
   return (
     <div
-      className={`${cambiaBackground()} w-[180px] flex flex-col justify-center items-center border gap-3 border-neutral-500 rounded-md p-2`}
+      className={`${cambiaBackgroundComanda(comanda)} w-[190px] flex flex-col justify-center items-center border gap-3 border-neutral-500 rounded-md p-2`}
     >
       <span className="text-2xl">N° {comanda.com_iden}</span>
       <span>Hora: {comanda.com_date}</span>

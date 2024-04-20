@@ -3,13 +3,14 @@ import {
   ConvierteCarrito,
   checkUser,
   envioIcons,
+  getPagoDesc,
   pagoIcons,
 } from "@/app/Utilidades/Utils_Carrito";
 import { Formik } from "formik";
 import React from "react";
 import { BotonDinamico } from "@/app/Components";
 import { format } from "date-fns";
-import { getPagos } from "@/app/Api/MetodosPagoAppi/route";
+import { getPagos } from "@/app/Api/MetodosPagoApi/route";
 import { getEnvios } from "@/app/Api/MetodosEnvioApi/route";
 
 export async function FormCarrito({ itemsCarrito, currentUser }) {
@@ -110,6 +111,12 @@ export async function FormCarrito({ itemsCarrito, currentUser }) {
             </div>
           </div>
           <div>{errors.com_pago_iden}</div>
+          <div className="space-x-4">
+            <span className="italic text-blue-700">Metodo de Pago</span>
+            {values.com_pago_iden && (
+              <strong>{getPagoDesc(values.com_pago_iden)}</strong>
+            )}
+          </div>
           <div className="grid grid-cols-1 gap-2">
             <strong>Algun detalle adicional ?</strong>
             <textarea
