@@ -16,23 +16,19 @@ export const crearUrlImagen = (urlWebP, formatoSalida) => {
 };
 
 export const handleInputChange = (event) => {
+  return new Promise((res) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    try {
+      reader.onload = async function (e) {
+        const resp = await crearUrlImagen(e.target.result, "image/webp");
+        res(resp);
+      };
+    } catch (error) {
+      console.log(error);
+      res("/imgProducto.png");
+    }
 
-  return new Promise((res)=>{
-
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      try {
-        reader.onload = async function (e) {
-          const resp = await crearUrlImagen(e.target.result, "image/webp");
-          res(resp)
-        };
-        
-      } catch (error) {
-        console.log(error);
-        res("/imgProducto.png")
-      }
-  
-      reader.readAsDataURL(file);
-    
-  })
+    reader.readAsDataURL(file);
+  });
 };

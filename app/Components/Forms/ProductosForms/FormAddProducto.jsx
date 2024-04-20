@@ -2,9 +2,10 @@
 import React, { useRef, useState } from "react";
 import style from "@/app/Components/Forms/form.module.css";
 import { Formik, Field } from "formik";
-import { BotonDinamico } from "@/app/Components";
+import { BotonDinamico, Toast_Dinamico } from "@/app/Components";
 import { handleInputChange } from "@/app/Utilidades/Util_Productos";
 import Image from "next/image";
+import { addProducto } from "@/app/Api/ProductosApi/route";
 
 export function FormAddProducto({ Categorias }) {
   const inputRef = useRef(null);
@@ -13,7 +14,6 @@ export function FormAddProducto({ Categorias }) {
     <div>
       <Formik
         initialValues={{
-          pro_imagen: urlImg,
           pro_name: "",
           pro_desc: "",
           pro_precio: "",
@@ -26,19 +26,29 @@ export function FormAddProducto({ Categorias }) {
         }}
         onSubmit={async (values) => {
           const NewValues = {
-            pro_imagen: values.pro_imagen,
+            pro_imagen: urlImg,
             pro_name: values.pro_name,
             pro_desc: values.pro_desc,
             pro_precio: values.pro_precio,
             pro_cat_iden: parseInt(values.pro_cat_iden),
           };
-          setTimeout(() => {
-            alert(JSON.stringify(NewValues))
-          }, 400);
+          try {
+            await addProducto(NewValues).then((res) => {
+              if (res.status === 200) {
+                Toast_Dinamico("success", "Producto Agregado");
+              }
+            });
+          } catch (error) {
+            console.log(error);
+            Toast_Dinamico("error", "Intenta Más Tarde");
+          }
         }}
       >
         {({ values, errors, handleChange, handleSubmit, setFieldValue }) => (
           <form className={style.formBody} onSubmit={handleSubmit}>
+            <span className="text-sm italic">
+              Selecciona la Imagen del Producto
+            </span>
             <BotonDinamico onClick={() => inputRef.current.click()}>
               {
                 <Image

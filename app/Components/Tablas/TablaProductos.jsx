@@ -1,8 +1,9 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import { BotonDinamico } from "..";
+import { BotonDinamico, Toast_Dinamico } from "@/app/Components";
 import { CiTrash, CiEdit } from "react-icons/ci";
+import { deleteProducto } from "@/app/Api/ProductosApi/route";
 
 export function TablaProductos({ Productos }) {
   return (
@@ -23,13 +24,21 @@ export function TablaProductos({ Productos }) {
             <td>{e.pro_name}</td>
             <td>$ {e.pro_precio}</td>
             <td>
-              <Link href={`/Productos/${e.pro_iden}`}>
+              <Link href={`/Admin/Productos/${e.pro_iden}`}>
                 <CiEdit size={20} />
               </Link>
             </td>
             <td>
               <BotonDinamico
-                onClick={() => console.log(`Eliminando Producto ${e.pro_iden}`)}
+                onClick={async () => {
+                    await deleteProducto(e.pro_iden).then(res=>{
+                      if (res.status === 200) {
+                        Toast_Dinamico("success", "Producto Eliminado")
+                      }else{
+                        Toast_Dinamico("error", "Intenta Más Tarde")
+                      }
+                    })
+                }}
               >
                 <CiTrash size={20} />
               </BotonDinamico>

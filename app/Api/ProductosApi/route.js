@@ -33,35 +33,35 @@ export const getProductosbyPuntos = async () => {
 export const getProductobyId = async (pro_iden) => {
     try {
         const res = await axios.get(`${UrlServer_nube}/Api/Producto/${pro_iden}`)
-        return res.data[0].pro_precio
+        return res.data[0]
         
     } catch (error) {
         return error
     }
 }
 
-export const addProducto = async ({objProducto}) => {
+export const addProducto = async (objProducto) => {
   try {
     const res = await axios.post(`${UrlServer_nube}/Api/Producto/`, objProducto);
-    return res.status;
+    return res;
   } catch (error) {
     return error;
   }
 };
 
-export const editProducto = async ({objProducto}) => {
+export const editProducto = async (pro_iden, objProducto) => {
   try {
-    const res = await axios.put(`${UrlServer_nube}/Api/Producto`, objProducto);
-    return res.status;
+    const res = await axios.put(`${UrlServer_nube}/Api/Producto/${pro_iden}`, objProducto);
+    return res;
   } catch (error) {
     return error;
   }
 };
 
-export const deleteProducto = async ({objProducto}) => {
+export const deleteProducto = async (pro_iden) => {
   try {
-    const res = await axios.delete(`${UrlServer_nube}/Api/Producto/${objProducto.pro_iden}`, objProducto);
-    return res.status;
+    const res = await axios.delete(`${UrlServer_nube}/Api/Producto/${pro_iden}`);
+    return res;
   } catch (error) {
     return error;
   }

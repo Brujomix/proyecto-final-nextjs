@@ -1,3 +1,6 @@
+/* Toas */
+export * from "./Toast_Dinamico";
+
 /* Cards */
 export * from "./CardProducto";
 export * from "./CardProductoCarrito";
