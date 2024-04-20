@@ -7,7 +7,7 @@ import { deleteProducto } from "@/app/Api/ProductosApi/route";
 
 export function TablaProductos({ Productos }) {
   return (
-    <table className="w-[320px]">
+    <table>
       <thead className="bg-neutral-200">
         <tr className="font-semibold italic tracking-wider">
           <td className="p-2">Iden</td>
