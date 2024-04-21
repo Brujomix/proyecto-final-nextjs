@@ -1,6 +1,6 @@
 import { getEnvio } from "../Api/EnvioApi/route";
 import { getPago } from "../Api/MetodosPagoApi/route";
-import { getProductobyId } from "../Api/ProductosApi/route";
+import { getProductobyId, getProductos } from "../Api/ProductosApi/route";
 import { getUsuario } from "../Api/UsuariosApi/route";
 
 /* Funcion para Imprimir Comanda */
@@ -25,17 +25,20 @@ export const cambiaBackgroundComanda = (comanda) => {
 
 export const infoComanda = async (comanda) => {
   const Usuario = await getUsuario(comanda.us_iden);
-  const Productos = comanda.com_carrito;
   const pago = await getPago(comanda.com_pago_iden);
   const Envio = await getEnvio(comanda.com_env_iden);
   return [
     { user: Usuario },
-    { productos: Productos },
     { metodoPago: pago.pago_desc },
     { metodoEnvio: Envio.env_desc },
   ];
 };
 
-export const infoProductoCarrito = (com_carrito) => {
-  return "Hola";
+export const infoProductosCarrito = (com_carrito, productos) => {
+  const productosEncontrados = []
+  com_carrito.forEach(e => {
+    const p = productos.filter(p => p.pro_iden === e.pro_iden)
+    productosEncontrados.push({infoProducto: p[0], ...e})
+  });
+  return productosEncontrados;
 };

@@ -1,28 +1,34 @@
 "use client"
 import React from "react";
 import { BotonDinamico } from "@/app/Components";
-import { imprimirComanda, avisarEnvio, cambiaBackgroundComanda, infoComanda } from "@/app/Utilidades/Util_Comandas";
+import { imprimirComanda, avisarEnvio, cambiaBackgroundComanda, infoComanda, infoProductosCarrito } from "@/app/Utilidades/Util_Comandas";
 
-export async function CardComanda({ comanda }) {
-   
+export async function CardComanda({ comanda, prodcutos }) {
+  
   const CurrentComanda = await infoComanda(comanda)
-  console.log(CurrentComanda);
-
+  const CurrentProductosInfo = infoProductosCarrito(comanda.com_carrito, prodcutos)
+  
   return (
     <div
-      className={`${cambiaBackgroundComanda(comanda)} w-[190px] flex flex-col justify-center items-center border gap-3 border-neutral-500 rounded-md p-2`}
+      className={`${cambiaBackgroundComanda(
+        comanda
+      )} w-[190px] flex flex-col justify-center items-center border gap-3 border-neutral-500 rounded-md p-2`}
     >
       <span className="text-2xl">N° {comanda.com_iden}</span>
-      <span>Hora: {comanda.com_date}</span>
+      <span>Fecha: {comanda.com_date}</span>
+      <span>Hora: {comanda.com_hora}</span>
       <div className="flex flex-col justify-center items-center g-2">
         <span>Datos del Cliente:</span>
         {/* <UserComanda id_user={comanda.com_us_iden} /> */}
       </div>
       <div>
-        {comanda.com_carrito.map((e) => (
-          <div key={e.pro_iden}>
-            <span>{e.pro_iden}</span>
-            <span>{e.Cantidad}</span>
+        <span>Productos:</span>
+        {CurrentProductosInfo.map((e) => (
+          <div className="grid grid-cols-2 italic text-sm text-center gap-2" key={e}>
+            <span>Nombre</span>
+            <span>Cantidad</span>
+            <span className="text-semibold">{e.infoProducto.pro_name}</span>
+            <span className="text-semibold">{e.Cantidad}</span>
           </div>
         ))}
       </div>

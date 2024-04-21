@@ -2,10 +2,12 @@ import React, { Suspense } from "react";
 import { getComandasFech } from "@/app/Api/ComandasApi/route";
 import { CardComanda, CardComandaSkeleton } from "@/app/Components";
 import { format } from "date-fns";
+import { getProductos } from "@/app/Api/ProductosApi/route";
 
 async function Comandas() {
   const now = format(new Date(), "dd-MM-yyyy");
   const currentComandas = await getComandasFech(now);
+  const Productos = await getProductos()
   return (
     <div className="flex flex-col justify-center items-center gap-4">
       <span className="text-3xl font-semibold italic tracking-widest">
@@ -30,7 +32,7 @@ async function Comandas() {
           <>
             {currentComandas.map((e) => (
               <Suspense key={e.com_iden} fallback={<CardComandaSkeleton />}>
-                <CardComanda comanda={e} />
+                <CardComanda comanda={e} prodcutos={Productos} />
               </Suspense>
             ))}
           </>
