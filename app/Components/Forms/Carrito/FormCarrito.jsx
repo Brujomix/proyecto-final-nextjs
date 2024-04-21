@@ -8,19 +8,23 @@ import {
 } from "@/app/Utilidades/Utils_Carrito";
 import { Formik } from "formik";
 import React from "react";
-import { BotonDinamico } from "@/app/Components";
+import { BotonDinamico, Toast_Dinamico } from "@/app/Components";
 import { format } from "date-fns";
 import { getPagos } from "@/app/Api/MetodosPagoApi/route";
 import { getEnvios } from "@/app/Api/MetodosEnvioApi/route";
+import { addComanda } from "@/app/Api/ComandasApi/route";
+import Swal from "sweetalert2";
 
 export async function FormCarrito({ itemsCarrito, currentUser }) {
   const Pagos = await getPagos();
   const Envios = await getEnvios();
-  const date = format(new Date(), "dd/mm/yyyy, HH:mm:ss");
+  const date = format(new Date(), "dd-MM-yyyy");
+  const hora = format(new Date(), "HH:mm:ss")
   return (
     <Formik
       initialValues={{
         com_date: date,
+        com_hora: hora,
         com_us_iden: checkUser(currentUser),
         com_pago_iden: "",
         com_env_iden: "",
@@ -33,11 +37,20 @@ export async function FormCarrito({ itemsCarrito, currentUser }) {
 
         return errors;
       }}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
+      onSubmit={ async (values, { setSubmitting }) => {
+        const res = await addComanda(values);
+        if (res.status === 200) {
+          Swal.fire({
+            icon:"success",
+            titleText:"Prepararemos Tu Pedido",
+            text: "El tiempo promedio de entrega es de 20 minutos",
+            allowOutsideClick:false,
+            allowEscapeKey:false
+          })
+          setSubmitting(false)
+        }else{
+          Toast_Dinamico("error", "No Pudimos Agregar el Pedido")
+        }
       }}
     >
       {({
