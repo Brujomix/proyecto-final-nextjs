@@ -1,7 +1,7 @@
 import { getEnvio } from "../Api/EnvioApi/route";
 import { getPago } from "../Api/MetodosPagoApi/route";
-import { getProductobyId, getProductos } from "../Api/ProductosApi/route";
 import { getUsuario } from "../Api/UsuariosApi/route";
+import { findUserById } from "./Util_Database";
 
 /* Funcion para Imprimir Comanda */
 export const imprimirComanda = (com_iden) => {
@@ -24,21 +24,29 @@ export const cambiaBackgroundComanda = (comanda) => {
 };
 
 export const infoComanda = async (comanda) => {
-  const Usuario = await getUsuario(comanda.us_iden);
   const pago = await getPago(comanda.com_pago_iden);
   const Envio = await getEnvio(comanda.com_env_iden);
-  return [
-    { user: Usuario },
-    { metodoPago: pago.pago_desc },
-    { metodoEnvio: Envio.env_desc },
-  ];
+  return {
+    metodoPago: pago.pago_desc,
+    metodoEnvio: Envio.env_desc,
+    totalComanda: 0,
+  };
 };
 
 export const infoProductosCarrito = (com_carrito, productos) => {
-  const productosEncontrados = []
-  com_carrito.forEach(e => {
-    const p = productos.filter(p => p.pro_iden === e.pro_iden)
-    productosEncontrados.push({infoProducto: p[0], ...e})
+  const productosEncontrados = [];
+  com_carrito.forEach((e) => {
+    const p = productos.filter((p) => p.pro_iden === e.pro_iden);
+    productosEncontrados.push({ infoProducto: p[0], ...e });
   });
   return productosEncontrados;
+};
+
+export const getUserComanda = async (us_iden) => {
+  const res = await findUserById(us_iden);
+  return {
+    us_name: res.us_name,
+    us_dire: res.us_dire,
+    us_tel: res.us_tel,
+  };
 };

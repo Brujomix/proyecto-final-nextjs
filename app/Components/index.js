@@ -6,7 +6,6 @@ export * from "./CardProducto";
 export * from "./CardProductoCarrito";
 
 /* Carrito */
-export * from "./CarritoPrecio";
 export * from "./ItemsCarrito";
 export * from "./SinItemsCarrito";
 
@@ -25,8 +24,7 @@ export * from "./Modal_Botones/ModalDinamico";
 export * from "./Modal_Botones/Modale_User";
 
 /* Comanda */
-export * from "./Comanda/CardComanda";
-export * from "./Comanda/UserComanda";
+export * from "./CardComanda";
 
 /* Formularios */
 
