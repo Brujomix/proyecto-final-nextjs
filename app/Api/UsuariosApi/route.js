@@ -10,6 +10,15 @@ export const getUsuarioFilter = async (us_email) => {
   }
 };
 
+export const getUsuarios = async () => {
+  try {
+    const res = await axios.get(`${UrlServer_nube}/Api/Usuarios`);
+    return res.data;
+  } catch (error) {
+    return error;
+  }
+};
+
 export const getUsuario = async (us_iden) => {
   try {
     const res = await axios.get(`${UrlServer_nube}/Api/Usuario/${us_iden}`);

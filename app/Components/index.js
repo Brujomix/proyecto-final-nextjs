@@ -44,6 +44,7 @@ export * from "./Forms/ProductosForms/FormAddProducto";
 export * from "./Forms/ProductosForms/FormEditProducto";
 /* Usuarios */
 export * from "./Forms/UsuariosForms/FormAddUser";
+export * from "./Forms/UsuariosForms/FormAddUserRol";
 /* Carrito */
 export * from "./Forms/Carrito/FormCarrito";
 
@@ -63,3 +64,4 @@ export * from "./SubMenus/SubMenuReportes";
 export * from "./Tablas/TablaCategorias";
 export * from "./Tablas/TablaDeliverys";
 export * from "./Tablas/TablaProductos";
+export * from "./Tablas/TablaUsuarios";
