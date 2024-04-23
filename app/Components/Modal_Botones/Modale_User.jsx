@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "@/Redux/Slices/UsuarioSlice";
 import { FaUserCheck, FaUserAltSlash } from "react-icons/fa";
 
-export function Modal_User({ footer }) {
+export function Modal_User() {
   const isLogin = useSelector(state=> state.Usuario.isLogin)
   const [show, setShow] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
@@ -62,7 +62,6 @@ export function Modal_User({ footer }) {
               </div>
             )}
           </div>
-          <div className={styles.modalfooter}>{footer}</div>
           <div className={styles.modalclose}>
             <BotonDinamico
               className="font-semibold"

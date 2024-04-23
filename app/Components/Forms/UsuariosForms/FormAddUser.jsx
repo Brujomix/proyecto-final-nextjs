@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Formik } from "formik";
-import { BotonDinamico } from "@/app/Components";
+import { BotonDinamico, Toast_Dinamico } from "@/app/Components";
 import style from "@/app/Components/Forms/form.module.css";
 import { addUsuario } from "@/app/Api/UsuariosApi/route";
 import Swal from "sweetalert2";
@@ -12,12 +12,12 @@ export function FormAddUser() {
       <Formik
         initialValues={{
           us_email: "",
-          us_pass: "",
-          confirmPass: "",
           us_name: "",
           us_ro_iden: 1,
           us_dire: "",
           us_tel: "",
+          us_pass: "",
+          confirmPass: "",
         }}
         validate={(values) => {
           const errors = {};
@@ -45,19 +45,17 @@ export function FormAddUser() {
           Swal.fire({
             icon:"question",
             text:"Deseas Registrarte?",
-            showConfirmButton:true
+            showConfirmButton:true,
+            showCancelButton: true,
+            confirmButtonText: "Si",
+            cancelButtonText:"No"
           }).then(async res => {
             if (res.isConfirmed) {
               await addUsuario(newUser).then(response=>{
-                if (response.statusText === "OK") {
-                  Swal.fire({
-                    icon:"success",
-                    text:"Usuario Registrado",
-                    toast:true,
-                    position:"top-end",
-                    timer:1800,
-                    showConfirmButton:false
-                  })
+                if (response.status === 200) {
+                  Toast_Dinamico("success", "Registro Completo")
+                }else{
+                  Toast_Dinamico("error", "No Pudimos Registrarte")
                 }
               })
             }
