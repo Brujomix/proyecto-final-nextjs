@@ -12,10 +12,7 @@ export const getComandas = async () => {
 
 export const getComandasFech = async (com_fech) => {
   try {
-    const res = await axios.get(`${UrlServer_nube}/Api/Comandas/${com_fech}`, {
-      cache: "no-store",
-      next: { revalidate: 15 },
-    });
+    const res = await axios.get(`${UrlServer_nube}/Api/Comandas/${com_fech}`);
     return res.data;
   } catch (error) {
     return error;
