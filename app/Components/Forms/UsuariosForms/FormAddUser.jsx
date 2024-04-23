@@ -53,6 +53,7 @@ export function FormAddUser() {
             if (res.isConfirmed) {
               await addUsuario(newUser).then(response=>{
                 if (response.status === 200) {
+                  console.log(response);
                   Toast_Dinamico("success", "Registro Completo")
                 }else{
                   Toast_Dinamico("error", "No Pudimos Registrarte")
@@ -122,7 +123,7 @@ export function FormAddUser() {
               <input
                 className={style.inputData}
                 type="password"
-                placeholder="Repite Contraseña"
+                placeholder="Confirmar Contraseña"
                 name="confirmPass"
                 onChange={handleChange}
                 onBlur={handleBlur}
