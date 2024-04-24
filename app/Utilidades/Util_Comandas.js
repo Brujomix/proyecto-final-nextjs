@@ -1,6 +1,6 @@
 import { getEnvio } from "../Api/EnvioApi/route";
 import { getPago } from "../Api/MetodosPagoApi/route";
-import { findUserById } from "./Util_Database";
+import { getUsuario } from "../Api/UsuariosApi/route";
 
 /* Funcion para Imprimir Comanda */
 export const imprimirComanda = (com_iden) => {
@@ -42,7 +42,7 @@ export const infoProductosCarrito = (com_carrito, productos) => {
 };
 
 export const getUserComanda = async (us_iden) => {
-  const res = await findUserById(us_iden);
+  const res = await getUsuario(us_iden);
   return {
     us_name: res.us_name,
     us_dire: res.us_dire,
