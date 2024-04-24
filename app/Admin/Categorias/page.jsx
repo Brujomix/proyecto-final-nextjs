@@ -5,11 +5,11 @@ import { getCategorias } from "@/app/Api/CategoriasApi/route";
 async function categorias() {
   const listaCategorias = await getCategorias();
   return (
-    <div className="flex flex-col justify-center items-center">
+    <main className="flex justify-center">
       <Suspense fallback={<TablaGenericaSkeleton />}>
         <TablaCategorias categorias={listaCategorias} />
       </Suspense>
-    </div>
+    </main>
   );
 }
 

@@ -1,15 +1,17 @@
 import React from "react";
 import Link from "next/link";
+import { HeaderDinamico } from "@/app/Components";
 
 function layoutProductos({ children }) {
   return (
-    <div className="flex flex-col justify-center items-center gap-7">
-    <span className="text-3xl font-semibold italic tracking-widest">
-      Gestión Productos
-    </span>
-    <Link className="Link" href={"/Admin/Productos/AgregarProducto"}>Agregar Producto</Link>
-    <div>{children}</div>
-  </div>
+    <div className="grid grid-cols-1 gap-7">
+      <HeaderDinamico title={"Gestión Productos"}>
+        <Link className="Link" href={"/Admin/Productos/AgregarProducto"}>
+          Agregar Producto
+        </Link>
+      </HeaderDinamico>
+      <div>{children}</div>
+    </div>
   );
 }
 

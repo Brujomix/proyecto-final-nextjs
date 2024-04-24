@@ -16,12 +16,17 @@ export * from "./User_NoLogin";
 /* Home */
 export * from "./RankingProductos";
 
+/* Header Dinamico */
+export * from "./HeaderDinamico";
+
 /* Modal - Botones */
 export * from "./Modal_Botones/BotonEncender";
 export * from "./Modal_Botones/BotonDinamico";
 export * from "./Modal_Botones/BotonesCarrito";
 export * from "./Modal_Botones/ModalDinamico";
 export * from "./Modal_Botones/Modale_User";
+export * from "./Modal_Botones/BotonVolver";
+
 
 /* Comanda */
 export * from "./CardComanda";

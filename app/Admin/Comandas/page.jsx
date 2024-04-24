@@ -1,15 +1,24 @@
 import React, { Suspense } from "react";
 import { getComandasFech } from "@/app/Api/ComandasApi/route";
 import { CardComanda, CardComandaSkeleton } from "@/app/Components";
-import { format } from "date-fns";
+import { format, set } from "date-fns";
 import { getProductos } from "@/app/Api/ProductosApi/route";
 
-async function Comandas() {
+export const timeGetComandas = ()=>{
   const now = format(new Date(), "dd-MM-yyyy");
-  const currentComandas = await getComandasFech(now);
+  let comandas = []
+  setTimeout(async () => {
+    const currentComandas = await getComandasFech(now);
+    comandas = [...currentComandas]
+  }, 3600);
+  return comandas
+}
+
+async function Comandas() {
+  const currentComandas = timeGetComandas();
   const Productos = await getProductos()
   return (
-    <div className="flex flex-col justify-center items-center gap-4">
+    <main className="flex flex-col justify-center items-center gap-4">
       <span className="text-3xl font-semibold italic tracking-widest">
         Comandas
       </span>
@@ -38,7 +47,7 @@ async function Comandas() {
           </>
         )}
       </div>
-    </div>
+    </main>
   );
 }
 

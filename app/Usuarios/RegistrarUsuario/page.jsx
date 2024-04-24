@@ -1,15 +1,15 @@
-import { FormAddUser } from "@/app/Components";
+import { FormAddUser, HeaderDinamico } from "@/app/Components";
 import React from "react";
 
-function AgregarUsuario() {
+function RegistrarUsuario() {
   return (
-    <div className="flex flex-col justify-center items-center gap-4">
-      <span className="text-2xl font-semibold italic tracking-widest">
-        Registrarme
-      </span>
-      <FormAddUser />
-    </div>
+    <main className="grid grid-cols-1 gap-7">
+      <HeaderDinamico title={"Registrarme"}></HeaderDinamico>
+      <div className="flex justify-center">
+        <FormAddUser />
+      </div>
+    </main>
   );
 }
 
-export default AgregarUsuario;
+export default RegistrarUsuario;

@@ -5,11 +5,11 @@ import { getDeliverys } from "@/app/Api/DeliverysApi/route";
 async function Deliverys() {
   const listaDeliverys = await getDeliverys();
   return (
-    <div className="flex flex-col justify-center items-center">
+    <main className="flex justify-center">
       <Suspense fallback={<TablaGenericaSkeleton />}>
         <TablaDeliverys deliverys={listaDeliverys} />
       </Suspense>
-    </div>
+    </main>
   );
 }
 

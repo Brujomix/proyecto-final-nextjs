@@ -3,9 +3,9 @@ import React from 'react'
 
 function AgregarCategoria() {
   return (
-    <div>
+    <main className='flex justify-center'>
       <FormAddCategoria/>
-    </div>
+    </main>
   )
 }
 

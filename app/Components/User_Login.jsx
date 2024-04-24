@@ -29,7 +29,7 @@ export function User_Login({ objUser }) {
       >
         Cerrar Session
       </BotonDinamico>
-      <Link className="Link" href={`Usuarios/${objUser.us_email}`}>
+      <Link className="Link" href={`/Usuarios/${objUser.us_iden}`}>
         Editar Usuario
       </Link>
       <BotonDinamico

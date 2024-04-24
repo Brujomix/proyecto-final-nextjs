@@ -3,9 +3,9 @@ import React from 'react'
 
 function EditarCategoria({params}) {
   return (
-    <div>
+    <main className='flex justify-center'>
        <FormEditCategoria cat_iden={params.cat_iden}/>
-    </div>
+    </main>
   )
 }
 

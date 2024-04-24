@@ -1,15 +1,15 @@
 import React from "react";
-import SubMenuReportes from "@/app/Components/";
+import SubMenuReportes, { HeaderDinamico } from "@/app/Components/";
+
 
 function layoutReportes({ children }) {
   return (
-    <div className="flex flex-col justify-center items-center gap-7">
-      <span className="text-3xl font-semibold italic tracking-widest">
-        Reportes
-      </span>
-      <SubMenuReportes />
-      <div>{children}</div>
-    </div>
+    <div className="grid grid-cols-1 gap-7">
+    <HeaderDinamico title={"Reportes"}>
+     header reportes
+    </HeaderDinamico>
+    <div>{children}</div>
+  </div>
   );
 }
 

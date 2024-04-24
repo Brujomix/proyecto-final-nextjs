@@ -7,9 +7,11 @@ async function Editar_Producto({ params }) {
   const currentProducto = await getProductobyId(params.pro_iden);
   const Categorias = await getCategorias();
   return (
+    <main className="flex justify-center">
     <Suspense fallback={"Getting Data..."}>
       <FormEditProducto ObjProducto={currentProducto} Categorias={Categorias} />
     </Suspense>
+    </main>
   );
 }
 

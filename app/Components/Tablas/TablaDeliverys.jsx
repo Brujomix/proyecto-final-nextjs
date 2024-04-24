@@ -6,7 +6,6 @@ import { CiTrash, CiEdit } from "react-icons/ci";
 
 export function TablaDeliverys({ deliverys }) {
   return (
-
       <table >
         <thead className="bg-neutral-200">
           <tr className="font-semibold italic tracking-wider">

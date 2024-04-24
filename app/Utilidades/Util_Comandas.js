@@ -1,6 +1,5 @@
 import { getEnvio } from "../Api/EnvioApi/route";
 import { getPago } from "../Api/MetodosPagoApi/route";
-import { getUsuario } from "../Api/UsuariosApi/route";
 import { findUserById } from "./Util_Database";
 
 /* Funcion para Imprimir Comanda */

@@ -2,9 +2,9 @@ import React from 'react'
 
 function Chat() {
   return (
-    <div>
+    <main className='flex justify-center'>
       Chat
-    </div>
+    </main>
   )
 }
 

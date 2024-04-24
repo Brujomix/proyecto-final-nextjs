@@ -5,7 +5,7 @@ import React, { Suspense } from "react";
 async function AgregarProducto() {
   const Categorias = await getCategorias();
   return (
-    <main>
+    <main className="flex justify-center">
       <Suspense fallback={"Loading..."}>
         <FormAddProducto Categorias={Categorias} />
       </Suspense>

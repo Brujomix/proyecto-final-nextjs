@@ -3,9 +3,9 @@ import React from 'react'
 
 function PrecioCategoria() {
   return (
-    <div>
+    <main className='flex justify-center'>
       <FormPrecioCategoria/>
-    </div>
+    </main>
   )
 }
 

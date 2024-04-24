@@ -2,9 +2,9 @@ import React from 'react'
 
 function Reportes() {
   return (
-    <div>
+    <main className='flex justify-center'>
       Reportes
-    </div>
+    </main>
   )
 }
 

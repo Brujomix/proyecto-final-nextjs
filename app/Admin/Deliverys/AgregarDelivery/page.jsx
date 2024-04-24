@@ -3,9 +3,9 @@ import React from 'react'
 
 function AgregarDelivery() {
   return (
-    <div>
+    <main className='flex justify-center'>
       <FormAddDelivery/>
-    </div>
+    </main>
   )
 }
 
