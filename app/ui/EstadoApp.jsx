@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getEstadoApp, putEstado } from "@/app/Api/EstadoAppApi/route";
-import { BotonEncender } from "@/app/Components";
+import { BotonEncender, RealTime } from "@/app/Components";
 import { socket } from "@/app/Utilidades/Util_Socket";
 import { setEstado } from "@/Redux/Slices/EstadoAppSlice";
 import { cambiaValorEstado, verificaUserRol } from "../Utilidades/Util_Estado";
@@ -39,6 +39,7 @@ export function EstadoApp() {
           );
         }}
       />
+      <RealTime/>
       <span className="mr-5 italic font-sm">
         {currentEstado ? "Comercio En Línea" : "Comercio Fuera de Línea"}
       </span>

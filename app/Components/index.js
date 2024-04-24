@@ -70,3 +70,6 @@ export * from "./Tablas/TablaCategorias";
 export * from "./Tablas/TablaDeliverys";
 export * from "./Tablas/TablaProductos";
 export * from "./Tablas/TablaUsuarios";
+
+/* Real Time */
+export * from "./RealTime";

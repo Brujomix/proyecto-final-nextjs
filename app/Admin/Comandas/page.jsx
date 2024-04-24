@@ -1,10 +1,11 @@
 import React, { Suspense } from "react";
 import { getComandasFech } from "@/app/Api/ComandasApi/route";
-import { CardComanda, CardComandaSkeleton } from "@/app/Components";
-import { format, set } from "date-fns";
+import { CardComanda, CardComandaSkeleton, HeaderDinamico } from "@/app/Components";
+import { format } from "date-fns";
 import { getProductos } from "@/app/Api/ProductosApi/route";
 
 export const timeGetComandas = ()=>{
+  
   const now = format(new Date(), "dd-MM-yyyy");
   let comandas = []
   setTimeout(async () => {
@@ -18,10 +19,10 @@ async function Comandas() {
   const currentComandas = timeGetComandas();
   const Productos = await getProductos()
   return (
-    <main className="flex flex-col justify-center items-center gap-4">
-      <span className="text-3xl font-semibold italic tracking-widest">
-        Comandas
-      </span>
+    <main className="grid grid-cols-1 gap-4">
+      <HeaderDinamico title={"Comandas"}>
+          
+      </HeaderDinamico>
       <div className="w-full flex flex-row justify-around items-center">
         <span className="text-xl italic border p-2 rounded-full bg-blue-300">
           Pendiente
