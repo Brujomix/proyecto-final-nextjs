@@ -7,7 +7,7 @@ export function RealTime() {
 
   useEffect(() => {
     setTimeout(() => {
-      setNow(format(new Date(), "dd-MM-yyyy HH:mm:ss"));
+      setNow(format(new Date(), "dd-MM-yyyy, HH:mm:ss"));
     }, 1000);
   }, [now]);
 

@@ -30,6 +30,7 @@ export * from "./Modal_Botones/BotonVolver";
 
 /* Comanda */
 export * from "./CardComanda";
+export * from "./ReferenciaComandas";
 
 /* Formularios */
 
