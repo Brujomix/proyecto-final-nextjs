@@ -10,13 +10,13 @@ import {
   getUserComanda,
 } from "@/app/Utilidades/Util_Comandas";
 
-export async function CardComanda({ comanda }) {
+export async function CardComanda({ comanda, productos }) {
   const CurrentComanda = await infoComanda(comanda);
   const userComanda = await getUserComanda(comanda.com_us_iden);
-  /* const CurrentProductosInfo = infoProductosCarrito(
+  const CurrentProductosInfo = infoProductosCarrito(
     comanda.com_carrito,
-    prodcutos
-  ); */
+    productos
+  );
   return (
     <div
       className={`${cambiaBackgroundComanda(
@@ -34,7 +34,7 @@ export async function CardComanda({ comanda }) {
         <span>{userComanda.us_dire}</span>
         <span>{userComanda.us_tel}</span>
       </div>
-      {/* <div>
+      <div>
         <span>Productos:</span>
         {CurrentProductosInfo.map((e) => (
           <div
@@ -47,7 +47,7 @@ export async function CardComanda({ comanda }) {
             <span className="text-semibold">{e.Cantidad}</span>
           </div>
         ))}
-      </div> */}
+      </div>
       <span>{comanda.com_entrega}</span>
       <div className="grid grid-cols-2 gap-1 text-center italic">
         <span>{CurrentComanda.metodoEnvio}</span>
