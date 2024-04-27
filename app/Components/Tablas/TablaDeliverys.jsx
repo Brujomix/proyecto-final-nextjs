@@ -1,8 +1,9 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import { BotonDinamico } from "@/app/Components";
+import { BotonDinamico, Toast_Dinamico } from "@/app/Components";
 import { CiTrash } from "react-icons/ci";
+import { deleteDelivery } from "@/app/CRUD/delete";
 
 export function TablaDeliverys({ deliverys }) {
   return (
@@ -23,8 +24,14 @@ export function TablaDeliverys({ deliverys }) {
             </td>
             <td className="py-2">
               <BotonDinamico
-                onClick={() =>
-                  console.log(`Eliminando Categoria ${e.del_iden}`)
+                onClick={async () =>
+                  await deleteDelivery({del_iden: e.del_iden}).then((res) => {
+                    if (res.status === 200) {
+                      Toast_Dinamico("success", "Producto Eliminado");
+                    } else {
+                      Toast_Dinamico("error", "Intenta Más Tarde");
+                    }
+                  })
                 }
               >
                 <CiTrash size={20} />

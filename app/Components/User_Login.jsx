@@ -3,9 +3,9 @@ import React from "react";
 import Link from "next/link";
 import { BotonDinamico, Toast_Dinamico } from "@/app/Components";
 import Swal from "sweetalert2";
-import { deleteUsuario } from "../Api/UsuariosApi/route";
 import { useDispatch } from "react-redux";
 import { logOutUser } from "@/Redux/Slices/UsuarioSlice";
+import { deleteUsuario } from "../CRUD/delete";
 
 export function User_Login({ objUser }) {
   const dispatch = useDispatch();

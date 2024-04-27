@@ -24,7 +24,7 @@ export function FormAddProducto({ Categorias }) {
 
           return errors;
         }}
-        onSubmit={async (values) => {
+        onSubmit={async (values, { setSubmitting, resetForm }) => {
           const NewValues = {
             pro_imagen: urlImg,
             pro_name: values.pro_name,
@@ -36,6 +36,8 @@ export function FormAddProducto({ Categorias }) {
             await addProducto(NewValues).then((res) => {
               if (res.status === 200) {
                 Toast_Dinamico("success", "Producto Agregado");
+                setSubmitting(false);
+                resetForm();
               }
             });
           } catch (error) {
@@ -44,7 +46,15 @@ export function FormAddProducto({ Categorias }) {
           }
         }}
       >
-        {({ values, errors, handleChange, handleSubmit, setFieldValue }) => (
+        {({
+          values,
+          errors,
+          handleChange,
+          handleSubmit,
+          setFieldValue,
+          isSubmitting,
+          resetForm,
+        }) => (
           <form className={style.formBody} onSubmit={handleSubmit}>
             <span className="text-sm italic">
               Selecciona la Imagen del Producto
@@ -115,8 +125,12 @@ export function FormAddProducto({ Categorias }) {
             </Field>
 
             <div className={style.containerBotones}>
-              <BotonDinamico type="submit">Agregar</BotonDinamico>
-              <BotonDinamico type="reset">Reset Form</BotonDinamico>
+              <BotonDinamico disabled={isSubmitting} type="submit">
+                Agregar
+              </BotonDinamico>
+              <BotonDinamico onClick={resetForm} type="reset">
+                Reset Form
+              </BotonDinamico>
             </div>
           </form>
         )}

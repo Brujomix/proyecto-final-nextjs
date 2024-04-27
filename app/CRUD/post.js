@@ -17,6 +17,23 @@ export const addProducto = async (objProducto) => {
   return res
 };
 
+/* Categoria */
+export const addCategoria = async (objCategoria) => {
+  const res = await fetch(`${UrlServer_nube}/Api/Categoria`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(objCategoria),
+  });
+
+  if (!res.ok) {
+    const errorMessage = await res.text();
+    throw new Error(`Error del Servidor: ${errorMessage}`);
+  }
+  return res;
+};
+
 /* Comandas */
 export const addComanda = async (objComanda) => {
   const res = await fetch(`${UrlServer_nube}/Api/Comanda`, {

@@ -1,5 +1,5 @@
+import { getEstadoApp } from "@/app/CRUD/gets";
 import { createSlice } from "@reduxjs/toolkit";
-import { getEstadoApp } from "@/app/Api/EstadoAppApi/route";
 
 export const EstadoAppSlice = createSlice({
   name: "Estado",
@@ -15,7 +15,7 @@ export const EstadoAppSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getEstadoApp.fulfilled, (state, action) => {
-        switch (action.payload) {
+        switch (action.payload.enc_desc) {
           case 1:
              state.Estado = true
             break;

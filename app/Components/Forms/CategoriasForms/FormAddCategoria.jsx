@@ -2,7 +2,8 @@
 import React from 'react'
 import style from "@/app/Components/Forms/form.module.css";
 import { Formik } from "formik";
-import { BotonDinamico } from "@/app/Components";
+import { BotonDinamico, Toast_Dinamico } from "@/app/Components";
+import { addCategoria } from '@/app/CRUD/post';
 
 export function FormAddCategoria() {
   return (
@@ -16,14 +17,25 @@ export function FormAddCategoria() {
 
           return errors;
         }}
-        onSubmit={(values) => {
-          console.log(values);
+        onSubmit={async (values, {setSubmitting, resetForm}) => {
+          try {
+            await addCategoria(values).then((res) => {
+              if (res.status === 200) {
+                Toast_Dinamico("success", "Categoria Agregada");
+                setSubmitting(false);
+                resetForm();
+              }
+            });
+          } catch (error) {
+            console.log(error);
+            Toast_Dinamico("error", "Error del Servidor");
+          }
         }}
       >
         {({
-          values,
           errors,
-          touched,
+          isSubmitting,
+          resetForm,
           handleChange,
           handleBlur,
           handleSubmit,
@@ -41,8 +53,8 @@ export function FormAddCategoria() {
             <div className={style.errosForm}>{errors.cat_desc}</div>
 
             <div className={style.containerBotones}>
-              <BotonDinamico type="submit">Agregar</BotonDinamico>
-              <BotonDinamico type="reset">Reset Form</BotonDinamico>
+              <BotonDinamico disabled={isSubmitting} type="submit">Agregar</BotonDinamico>
+              <BotonDinamico onClick={resetForm} type="reset">Reset Form</BotonDinamico>
             </div>
           </form>
         )}

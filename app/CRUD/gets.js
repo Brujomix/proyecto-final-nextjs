@@ -9,7 +9,7 @@ export const getEstadoApp = createAsyncThunk("EstadoApp", async () => {
   if (!res.ok) {
     throw new Error("Fallo en la Obtencion de Datos");
   }
-  return res.json();
+  return await res.json();
 });
 
 /* Categorias */

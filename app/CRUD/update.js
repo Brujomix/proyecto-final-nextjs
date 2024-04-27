@@ -9,7 +9,6 @@ export const putEstado = async (objEstado) => {
     },
     body: JSON.stringify(objEstado),
   });
-
   if (!res.ok) {
     const errorMessage = await res.text();
     throw new Error(`Error del Servidor: ${errorMessage}`);

@@ -29,7 +29,7 @@ export function TablaProductos({ Productos }) {
             <td className="py-2">
               <BotonDinamico
                 onClick={async () => {
-                  await deleteProducto(e.pro_iden).then((res) => {
+                  await deleteProducto({pro_iden: e.pro_iden}).then((res) => {
                     if (res.status === 200) {
                       Toast_Dinamico("success", "Producto Eliminado");
                     } else {
