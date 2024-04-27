@@ -11,8 +11,8 @@ import React from "react";
 import { BotonDinamico, Toast_Dinamico } from "@/app/Components";
 import { format } from "date-fns";
 import Swal from "sweetalert2";
-import { addComanda } from "@/app/Api/ComandasApi/route";
 import { getEnvios, getPagos } from "@/app/CRUD/gets";
+import { addComanda } from "@/app/CRUD/post";
 
 export async function FormCarrito({ itemsCarrito, currentUser }) {
   const Pagos = await getPagos();

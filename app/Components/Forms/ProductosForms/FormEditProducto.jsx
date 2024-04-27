@@ -3,9 +3,9 @@ import React, {useRef, useState} from 'react'
 import style from "@/app/Components/Forms/form.module.css";
 import { Formik, Field } from "formik";
 import { BotonDinamico, Toast_Dinamico } from "@/app/Components";
-import { editProducto } from '@/app/Api/ProductosApi/route';
 import { handleInputChange } from "@/app/Utilidades/Util_Productos";
 import Image from "next/image";
+import { editProducto } from '@/app/CRUD/update';
 
 export function FormEditProducto({ObjProducto, Categorias}) {
   const inputRef = useRef(null);

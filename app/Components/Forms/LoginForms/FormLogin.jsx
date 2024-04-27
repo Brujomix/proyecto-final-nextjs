@@ -3,10 +3,10 @@ import React from "react";
 import { Formik } from "formik";
 import { BotonDinamico } from "@/app/Components";
 import style from "@/app/Components/Forms/form.module.css";
-import { validarUsuario } from "@/app/Api/UsuariosApi/route";
 import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
 import { loginUser } from "@/Redux/Slices/UsuarioSlice";
+import { validarUsuario } from "@/app/CRUD/post";
 
 export function FormLogin() {
   const dispatch = useDispatch();

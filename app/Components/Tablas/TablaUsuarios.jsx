@@ -2,8 +2,8 @@
 import React from "react";
 import { BotonDinamico, Toast_Dinamico } from "@/app/Components";
 import { CiTrash } from "react-icons/ci";
-import { deleteUsuario } from "@/app/Api/UsuariosApi/route";
 import { findName } from "@/app/Utilidades/Util_Database";
+import { deleteUsuario } from "@/app/CRUD/delete";
 
 export function TablaUsuarios({ Usuarios, Roles }) {
 

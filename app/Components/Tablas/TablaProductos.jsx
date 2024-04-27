@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { BotonDinamico, Toast_Dinamico } from "@/app/Components";
 import { CiTrash } from "react-icons/ci";
-import { deleteProducto } from "@/app/Api/ProductosApi/route";
+import { deleteProducto } from "@/app/CRUD/delete";
 
 export function TablaProductos({ Productos }) {
   return (

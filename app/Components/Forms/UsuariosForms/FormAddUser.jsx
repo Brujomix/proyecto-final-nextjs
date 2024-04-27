@@ -3,8 +3,8 @@ import React from "react";
 import { Formik } from "formik";
 import { BotonDinamico, Toast_Dinamico } from "@/app/Components";
 import style from "@/app/Components/Forms/form.module.css";
-import { addUsuario } from "@/app/Api/UsuariosApi/route";
 import Swal from "sweetalert2";
+import { addUsuario } from "@/app/CRUD/post";
 
 export function FormAddUser() {
   return (

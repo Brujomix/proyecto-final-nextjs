@@ -1,4 +1,16 @@
 import { UrlServer_nube } from "@/app/Utilidades/UrlServer";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+
+/* Estado APP */
+export const getEstadoApp = createAsyncThunk("EstadoApp", async () => {
+  const res = await fetch(`${UrlServer_nube}/Api/Encender`, {
+    cache: "no-store",
+  });
+  if (!res.ok) {
+    throw new Error("Fallo en la Obtencion de Datos");
+  }
+  return res.json();
+});
 
 /* Categorias */
 export const getCategorias = async () => {
