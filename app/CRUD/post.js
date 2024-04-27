@@ -99,7 +99,7 @@ export const validarUsuario = async (objUsuario) => {
     const errorMessage = await res.text();
     throw new Error(`Error del Servidor: ${errorMessage}`);
   }
-  return res;
+  return await res.json();
 };
 
 export const validarUserLs = async (objUsuario) => {

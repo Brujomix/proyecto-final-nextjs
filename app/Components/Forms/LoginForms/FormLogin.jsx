@@ -1,10 +1,9 @@
 "use client";
 import React from "react";
 import { Formik } from "formik";
-import { BotonDinamico } from "@/app/Components";
+import { BotonDinamico, Toast_Dinamico } from "@/app/Components";
 import style from "@/app/Components/Forms/form.module.css";
 import { useDispatch } from "react-redux";
-import Swal from "sweetalert2";
 import { loginUser } from "@/Redux/Slices/UsuarioSlice";
 import { validarUsuario } from "@/app/CRUD/post";
 
@@ -33,67 +32,34 @@ export function FormLogin() {
           }
           return errors;
         }}
-        onSubmit={async (values) => {
+        onSubmit={async (values, { resetForm }) => {
           const newUser = {
             us_email: values.us_email,
             us_pass: values.us_pass,
           };
           try {
             await validarUsuario(newUser).then((res) => {
-              if (res.status === 200) {
-                Swal.fire({
-                  icon: "success",
-                  text: "Validacion Correcta",
-                  toast: true,
-                  timer: 1800,
-                  position: "top-end",
-                  showConfirmButton: false,
-                });
-                dispatch(loginUser(res.data[0]));
-                localStorage.setItem(
-                  "currentUser",
-                  JSON.stringify(res.data[0])
-                );
-              } else {
-                switch (res.response.status) {
-                  case 401:
-                    Swal.fire({
-                      icon: "warning",
-                      titleText:"No Pudimos Validarte",
-                      text: "Revisa Las Credenciales",
-                      toast: true,
-                      timer: 1800,
-                      position: "top-end",
-                      showConfirmButton: false,
-                    });
-                    break;
-                  case 500:
-                    Swal.fire({
-                      icon: "warning",
-                      text: "Usuario Inexistente",
-                      toast: true,
-                      timer: 1800,
-                      position: "top-end",
-                      showConfirmButton: false,
-                    });
-                    break;
-                  default:
-                    break;
-                }
+              if (res) {
+                Toast_Dinamico("success", "Verificado");
+                dispatch(loginUser(res[0]));
+                localStorage.setItem("currentUser", JSON.stringify(res[0]));
+                resetForm();
               }
             });
           } catch (error) {
             console.log(error);
+            Toast_Dinamico("info", "Revisa Credenciales");
+            resetForm();
           }
         }}
       >
         {({
           values,
           errors,
-          touched,
           handleChange,
           handleBlur,
           handleSubmit,
+          resetForm,
         }) => (
           <form className={style.formBody} onSubmit={handleSubmit}>
             <input
@@ -127,7 +93,9 @@ export function FormLogin() {
 
             <div className={style.containerBotones}>
               <BotonDinamico type="submit">Iniciar</BotonDinamico>
-              <BotonDinamico type="reset">Reset Form</BotonDinamico>
+              <BotonDinamico onClick={resetForm} type="reset">
+                Reset Form
+              </BotonDinamico>
             </div>
           </form>
         )}
