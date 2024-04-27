@@ -1,5 +1,4 @@
 import React, { Suspense } from "react";
-import { getProductosbyCategoria } from "@/app/Api/ProductosApi/route";
 import {
   CardProductoSkeleton,
   BotonesCarrito,
@@ -7,7 +6,7 @@ import {
   HeaderDinamico,
 } from "@/app/Components";
 import { findName } from "@/app/Utilidades/Util_Database";
-import { getCategorias } from "@/app/Api/CategoriasApi/route";
+import { getProductosbyCategoria, getCategorias } from "@/app/CRUD/gets";
 async function filterProductos({ params }) {
   const listaProductosFilter = await getProductosbyCategoria(params.cat_iden);
   const Categorias = await getCategorias();
@@ -23,14 +22,12 @@ async function filterProductos({ params }) {
       >
         <div className="flex justify-center items-center flex-wrap gap-4">
           {listaProductosFilter.map((e) => (
-          
-              <Suspense key={e.pro_iden} fallback={<CardProductoSkeleton />}>
-                <CardProducto
-                  producto={e}
-                  BtnsCarrito={<BotonesCarrito currentProducto={e} />}
-                />
-              </Suspense>
-          
+            <Suspense key={e.pro_iden} fallback={<CardProductoSkeleton />}>
+              <CardProducto
+                producto={e}
+                BtnsCarrito={<BotonesCarrito currentProducto={e} />}
+              />
+            </Suspense>
           ))}
         </div>
       </HeaderDinamico>

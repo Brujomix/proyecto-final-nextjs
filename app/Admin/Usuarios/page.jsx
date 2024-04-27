@@ -1,5 +1,4 @@
-import { getRoles } from "@/app/Api/RolesApi/route";
-import { getUsuarios } from "@/app/Api/UsuariosApi/route";
+import { getRoles, getUsuarios } from "@/app/CRUD/gets";
 import { TablaGenericaSkeleton, TablaUsuarios } from "@/app/Components";
 import React, { Suspense } from "react";
 

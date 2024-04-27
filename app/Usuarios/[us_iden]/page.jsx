@@ -1,10 +1,10 @@
 import React, { Suspense } from "react";
-import { getUsuario } from "@/app/Api/UsuariosApi/route";
 import {
   FormEditUserSkeleton,
   FormEditUser,
   HeaderDinamico,
 } from "@/app/Components";
+import { getUsuario } from "@/app/CRUD/gets";
 
 async function EditarUsuario({ params }) {
   const currentUser = await getUsuario(params.us_iden);

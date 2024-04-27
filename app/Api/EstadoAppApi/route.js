@@ -3,12 +3,13 @@ import { UrlServer_nube } from "@/app/Utilidades/UrlServer";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const getEstadoApp = createAsyncThunk("EstadoApp", async () => {
-  try {
-    const res = await axios.get(`${UrlServer_nube}/Api/Encender`);
-    return res.data.enc_desc;
-  } catch (error) {
-    throw new Error("Este Es un Error de API", error);
+  const res = await fetch(`${UrlServer_nube}/Api/Encender`, {
+    cache: "no-store",
+  });
+  if (!res.ok) {
+    throw new Error("Fallo en la Obtencion de Datos");
   }
+  return res.json();
 });
 
 export const putEstado = async (enc_desc) => {

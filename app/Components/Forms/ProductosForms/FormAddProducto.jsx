@@ -5,7 +5,7 @@ import { Formik, Field } from "formik";
 import { BotonDinamico, Toast_Dinamico } from "@/app/Components";
 import { handleInputChange } from "@/app/Utilidades/Util_Productos";
 import Image from "next/image";
-import { addProducto } from "@/app/Api/ProductosApi/route";
+import { addProducto } from "@/app/CRUD/post";
 
 export function FormAddProducto({ Categorias }) {
   const inputRef = useRef(null);

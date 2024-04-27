@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { TablaDeliverys, TablaGenericaSkeleton } from "@/app/Components";
-import { getDeliverys } from "@/app/Api/DeliverysApi/route";
+import { getDeliverys } from "@/app/CRUD/gets";
 
 async function Deliverys() {
   const listaDeliverys = await getDeliverys();

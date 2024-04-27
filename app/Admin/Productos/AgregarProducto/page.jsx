@@ -1,4 +1,4 @@
-import { getCategorias } from "@/app/Api/CategoriasApi/route";
+import { getCategorias } from "@/app/CRUD/gets";
 import { FormAddProducto } from "@/app/Components";
 import React, { Suspense } from "react";
 

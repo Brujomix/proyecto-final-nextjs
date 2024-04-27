@@ -1,6 +1,6 @@
-import { getRoles } from '@/app/Api/RolesApi/route'
-import { FormAddUserRol } from '@/app/Components'
 import React from 'react'
+import { getRoles } from '@/app/CRUD/gets';
+import { FormAddUserRol } from '@/app/Components'
 
 async function AgregarUsuario() {
   const Roles = await getRoles();

@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { TablaCategorias, TablaGenericaSkeleton } from "@/app/Components";
-import { getCategorias } from "@/app/Api/CategoriasApi/route";
+import { getCategorias } from "@/app/CRUD/gets";
 
 async function categorias() {
   const listaCategorias = await getCategorias();

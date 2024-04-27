@@ -1,4 +1,3 @@
-import { getProductobyId } from "../Api/ProductosApi/route";
 
 import { IoHomeOutline } from "react-icons/io5";
 import { MdOutlineDeliveryDining } from "react-icons/md";
@@ -6,6 +5,7 @@ import { MdOutlineDeliveryDining } from "react-icons/md";
 import { SiMercadopago } from "react-icons/si";
 import { BsCashCoin } from "react-icons/bs";
 import { CiBank } from "react-icons/ci";
+import { getProductobyId } from "../CRUD/gets";
 
 export const SumaItemsCarrito = (itemsCarrito) => {
   let sumaCantidad = 0;

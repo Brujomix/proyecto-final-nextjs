@@ -1,6 +1,4 @@
-import { getEnvio } from "../Api/EnvioApi/route";
-import { getPago } from "../Api/MetodosPagoApi/route";
-import { getUsuario } from "../Api/UsuariosApi/route";
+import { getPago, getUsuario, getEnvio } from "../CRUD/gets";
 
 /* Funcion para Imprimir Comanda */
 export const imprimirComanda = (com_iden) => {

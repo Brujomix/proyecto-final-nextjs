@@ -10,10 +10,9 @@ import { Formik } from "formik";
 import React from "react";
 import { BotonDinamico, Toast_Dinamico } from "@/app/Components";
 import { format } from "date-fns";
-import { getPagos } from "@/app/Api/MetodosPagoApi/route";
-import { getEnvios } from "@/app/Api/MetodosEnvioApi/route";
-import { addComanda } from "@/app/Api/ComandasApi/route";
 import Swal from "sweetalert2";
+import { addComanda } from "@/app/Api/ComandasApi/route";
+import { getEnvios, getPagos } from "@/app/CRUD/gets";
 
 export async function FormCarrito({ itemsCarrito, currentUser }) {
   const Pagos = await getPagos();

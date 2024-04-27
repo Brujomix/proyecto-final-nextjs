@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { getCategorias } from "@/app/Api/CategoriasApi/route";
+import { getCategorias } from "../CRUD/gets";
 
 export async function NavBar() {
   const listaCategorias = await getCategorias();

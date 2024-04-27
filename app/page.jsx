@@ -1,11 +1,11 @@
 import React, { Suspense } from "react";
-import { getProductosbyPuntos } from "@/app/Api/ProductosApi/route";
 import {
   CardProducto,
   CardProductoSkeleton,
   BotonesCarrito,
   HeaderDinamico,
 } from "@/app/Components";
+import { getProductosbyPuntos } from "./CRUD/gets";
 
 export default async function Home() {
   const listaProductosRanking = await getProductosbyPuntos();

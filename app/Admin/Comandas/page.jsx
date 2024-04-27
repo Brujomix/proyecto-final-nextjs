@@ -6,9 +6,8 @@ import {
   HeaderDinamico,
   ReferenciaComandas,
 } from "@/app/Components";
-import { getProductos } from "@/app/Api/ProductosApi/route";
-import { getComandasFech } from "@/app/Api/ComandasApi/route";
 import { format } from "date-fns";
+import { getComandasFech, getProductos } from "@/app/CRUD/gets";
 
 function Comandas() {
   const [comandas, setComandas] = useState([]);

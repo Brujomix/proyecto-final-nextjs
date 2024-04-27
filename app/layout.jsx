@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import "./globals.css";
-import { CarritoIcon, Header, NavBar, NavBarAdmin, EstadoApp } from "./ui";
+import { CarritoIcon, Header, NavBar, NavBarAdmin, EstadoApp } from "@/app/ui";
 import Footer from "@/app/ui/Footer";
 import { ProviderRedux } from "@/Redux/Provider";
 import { NavbarSkeleton, FormContacto, Modal_User } from "@/app/Components";
