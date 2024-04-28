@@ -1,23 +1,14 @@
-"use client";
 import React from "react";
 import { BotonDinamico } from "@/app/Components";
-import {
-  imprimirComanda,
-  avisarEnvio,
-  cambiaBackgroundComanda,
-  infoComanda,
-  infoProductosCarrito,
-  getUserComanda,
-} from "@/app/Utilidades/Util_Comandas";
 
-export async function CardComanda({ comanda, productos }) {
-  const CurrentComanda = await infoComanda(comanda);
-  const userComanda = await getUserComanda(comanda.com_us_iden);
-  const CurrentProductosInfo = infoProductosCarrito(
-    comanda.com_carrito,
-    productos
-  );
+export async function CardComanda({ comanda }) {
+
   return (
+    <div>REnder</div>
+  );
+}
+
+/* 
     <div
       className={`${cambiaBackgroundComanda(
         comanda
@@ -67,5 +58,5 @@ export async function CardComanda({ comanda, productos }) {
         </BotonDinamico>
       </div>
     </div>
-  );
-}
+
+ */

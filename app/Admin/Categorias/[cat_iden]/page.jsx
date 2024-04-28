@@ -1,12 +1,16 @@
-import { FormEditCategoria } from '@/app/Components'
-import React from 'react'
+import { getCategoria } from "@/app/CRUD/gets";
+import { FormEditCategoria } from "@/app/Components";
+import React, { Suspense } from "react";
 
-function EditarCategoria({params}) {
+async function EditarCategoria({ params }) {
+  const currentCategoria = await getCategoria(params.cat_iden);
   return (
-    <main className='flex justify-center'>
-       <FormEditCategoria cat_iden={params.cat_iden}/>
+    <main className="flex justify-center">
+      <Suspense fallback={"Getting Data..."}>
+        <FormEditCategoria objCategoria={currentCategoria} />
+      </Suspense>
     </main>
-  )
+  );
 }
 
-export default EditarCategoria
+export default EditarCategoria;

@@ -27,7 +27,7 @@ export function TablaDeliverys({ deliverys }) {
                 onClick={async () =>
                   await deleteDelivery({del_iden: e.del_iden}).then((res) => {
                     if (res.status === 200) {
-                      Toast_Dinamico("success", "Producto Eliminado");
+                      Toast_Dinamico("success", "Delivery Eliminado");
                     } else {
                       Toast_Dinamico("error", "Intenta Más Tarde");
                     }

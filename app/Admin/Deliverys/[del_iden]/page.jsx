@@ -1,12 +1,16 @@
-import { FormEditDelivery } from '@/app/Components'
-import React from 'react'
+import { getDelivery } from "@/app/CRUD/gets";
+import { FormEditDelivery } from "@/app/Components";
+import React, { Suspense } from "react";
 
-function EditarDelivery({params}) {
+async function EditarDelivery({ params }) {
+  const currentDelivery = await getDelivery(params.del_iden);
   return (
-    <main className='flex justify-center'>
-      <FormEditDelivery del_iden={params.del_iden}/>
+    <main className="flex justify-center">
+      <Suspense fallback={"Getting Data..."}>
+        <FormEditDelivery objDelivery={currentDelivery} />
+      </Suspense>
     </main>
-  )
+  );
 }
 
-export default EditarDelivery
+export default EditarDelivery;

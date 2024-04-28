@@ -46,7 +46,7 @@ export function User_Login({ objUser }) {
             if (res.isConfirmed) {
               await deleteUsuario(objUser.us_iden).then((response) => {
                 if (response.status === 200) {
-                  Toast_Dinamico("success", "UsuarioEliminado");
+                  Toast_Dinamico("success", "Usuario Eliminado");
                   dispatch(logOutUser());
                 } else {
                   Toast_Dinamico("error", "No pudimos eliminar esta cuenta");

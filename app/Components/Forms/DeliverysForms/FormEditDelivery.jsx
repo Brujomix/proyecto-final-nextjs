@@ -2,38 +2,54 @@
 import React from 'react'
 import style from "@/app/Components/Forms/form.module.css";
 import { Formik } from "formik";
-import { BotonDinamico } from "@/app/Components";
+import { BotonDinamico, Toast_Dinamico } from "@/app/Components";
+import { editDelivery } from '@/app/CRUD/update';
 
-export function FormEditDelivery({del_iden}) {
+export function FormEditDelivery({objDelivery}) {
+
   return (
     <div>
     <Formik
       initialValues={{
-        del_desc: ""
+        del_iden : objDelivery.del_iden,
+        del_desc: objDelivery.del_desc
       }}
       validate={(values) => {
         const errors = {};
 
         return errors;
       }}
-      onSubmit={(values) => {
-        console.log(values);
+      onSubmit={async (values, {setSubmitting, resetForm}) => {
+
+        try {
+          await editDelivery(values).then((res) => {
+            if (res.status === 200) {
+              Toast_Dinamico("success", "Delivery Editado");
+              setSubmitting(false);
+              resetForm();
+            }
+          });
+        } catch (error) {
+          console.log(error);
+          Toast_Dinamico("error", "Intenta Más Tarde");
+          resetForm();
+        }
       }}
     >
       {({
-        values,
         errors,
-        touched,
         handleChange,
         handleBlur,
         handleSubmit,
+        isSubmitting,
+        resetForm
       }) => (
         <form className={style.formBody} onSubmit={handleSubmit}>
           <label>Editar Delivery</label>
           <input
             className={style.inputData}
             type="text"
-            placeholder="Ingresa Nombre"
+            placeholder={objDelivery.del_desc}
             name="del_desc"
             onChange={handleChange}
             onBlur={handleBlur}
@@ -41,8 +57,8 @@ export function FormEditDelivery({del_iden}) {
           <div className={style.errorsForm}>{errors.del_desc}</div>
 
           <div className={style.containerBotones}>
-            <BotonDinamico type="submit">Editar</BotonDinamico>
-            <BotonDinamico type="reset">Reset Form</BotonDinamico>
+            <BotonDinamico disabled={isSubmitting} type="submit">Editar</BotonDinamico>
+            <BotonDinamico onClick={resetForm} type="reset">Reset Form</BotonDinamico>
           </div>
         </form>
       )}

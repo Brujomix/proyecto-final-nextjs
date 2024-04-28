@@ -1,8 +1,9 @@
-"use client"
+"use client";
 import React from "react";
 import { Formik } from "formik";
-import { BotonDinamico } from "@/app/Components";
+import { BotonDinamico, Toast_Dinamico } from "@/app/Components";
 import style from "@/app/Components/Forms/form.module.css";
+import { editUsuario } from "@/app/CRUD/update";
 
 export function FormEditUser({ ObjUser }) {
   return (
@@ -27,18 +28,21 @@ export function FormEditUser({ ObjUser }) {
           }
           return errors;
         }}
-        onSubmit={(values) => {
-          console.log(values);
+        onSubmit={async (values, { setSubmitting }) => {
+          try {
+            await editUsuario(values).then((res) => {
+              if (res.status === 200) {
+                Toast_Dinamico("success", "Producto Editado");
+                setSubmitting(false);
+              }
+            });
+          } catch (error) {
+            console.log(error);
+            Toast_Dinamico("error", "Intenta Más Tarde");
+          }
         }}
       >
-        {({
-          values,
-          errors,
-          touched,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-        }) => (
+        {({ errors, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
           <form className={style.formBody} onSubmit={handleSubmit}>
             <label>Editar Usuario</label>
             <input
@@ -100,7 +104,9 @@ export function FormEditUser({ ObjUser }) {
             <div className={style.errosForm}>{errors.confimPass}</div>
 
             <div className={style.containerBotones}>
-              <BotonDinamico type="submit">Editar Usuario</BotonDinamico>
+              <BotonDinamico disabled={isSubmitting} type="submit">
+                Editar Usuario
+              </BotonDinamico>
               <BotonDinamico type="reset">Reset Form</BotonDinamico>
             </div>
           </form>

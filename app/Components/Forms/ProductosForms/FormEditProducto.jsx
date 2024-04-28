@@ -1,18 +1,19 @@
 "use client";
-import React, {useRef, useState} from 'react'
+import React, { useEffect, useRef, useState } from "react";
 import style from "@/app/Components/Forms/form.module.css";
 import { Formik, Field } from "formik";
 import { BotonDinamico, Toast_Dinamico } from "@/app/Components";
 import { handleInputChange } from "@/app/Utilidades/Util_Productos";
 import Image from "next/image";
-import { editProducto } from '@/app/CRUD/update';
+import { editProducto } from "@/app/CRUD/update";
 
-export function FormEditProducto({ObjProducto, Categorias}) {
+export function FormEditProducto({ ObjProducto, Categorias }) {
   const inputRef = useRef(null);
   const [urlImg, setUrlImg] = useState(ObjProducto.pro_imagen);
+
   return (
     <div>
-        <Formik
+      <Formik
         initialValues={{
           pro_name: ObjProducto.pro_name,
           pro_desc: ObjProducto.pro_desc,
@@ -24,19 +25,21 @@ export function FormEditProducto({ObjProducto, Categorias}) {
 
           return errors;
         }}
-        onSubmit={async (values) => {
+        onSubmit={async (values, { setSubmitting }) => {
           const NewValues = {
+            pro_iden: ObjProducto.pro_iden,
             pro_imagen: urlImg,
             pro_name: values.pro_name,
             pro_desc: values.pro_desc,
             pro_precio: values.pro_precio,
-            pro_cat_iden: parseInt(values.pro_cat_iden)
+            pro_cat_iden: parseInt(values.pro_cat_iden),
           };
-          console.log(NewValues);
+
           try {
-            await editProducto(ObjProducto.pro_iden, NewValues).then((res) => {
+            await editProducto(NewValues).then((res) => {
               if (res.status === 200) {
                 Toast_Dinamico("success", "Producto Editado");
+                setSubmitting(false);
               }
             });
           } catch (error) {
@@ -45,7 +48,14 @@ export function FormEditProducto({ObjProducto, Categorias}) {
           }
         }}
       >
-        {({ values, errors, handleChange, handleSubmit, setFieldValue }) => (
+        {({
+          values,
+          errors,
+          handleChange,
+          handleSubmit,
+          setFieldValue,
+          isSubmitting,
+        }) => (
           <form className={style.formBody} onSubmit={handleSubmit}>
             <span className="text-sm italic">
               Selecciona la Imagen del Producto
@@ -74,18 +84,16 @@ export function FormEditProducto({ObjProducto, Categorias}) {
               className={style.inputData}
               type="string"
               name="pro_name"
-              placeholder="Nombre Producto"
+              placeholder={ObjProducto.pro_name}
               onChange={handleChange}
-              value={values.pro_name}
               required
             />
             <div className={style.errorsForm}>{errors.pro_name}</div>
             <textarea
               className={style.areaTexto}
-              placeholder={"Descripcion Del Producto"}
+              placeholder={ObjProducto.pro_desc}
               name="pro_desc"
               required
-              defaultValue={values.pro_desc}
               onChange={handleChange}
             />
             <div className={style.errorsForm}>{errors.pro_desc}</div>
@@ -93,7 +101,7 @@ export function FormEditProducto({ObjProducto, Categorias}) {
               className={style.inputData}
               type="number"
               name="pro_precio"
-              placeholder="Precio Producto"
+              placeholder={ObjProducto.pro_precio}
               onChange={handleChange}
               value={values.pro_precio}
               required
@@ -116,12 +124,14 @@ export function FormEditProducto({ObjProducto, Categorias}) {
             </Field>
 
             <div className={style.containerBotones}>
-              <BotonDinamico type="submit">Editar</BotonDinamico>
+              <BotonDinamico disabled={isSubmitting} type="submit">
+                Editar
+              </BotonDinamico>
               <BotonDinamico type="reset">Reset Form</BotonDinamico>
             </div>
           </form>
         )}
       </Formik>
-  </div>
-  )
+    </div>
+  );
 }

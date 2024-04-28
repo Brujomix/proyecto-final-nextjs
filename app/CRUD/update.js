@@ -66,3 +66,20 @@ export const editDelivery = async (objDelivery) => {
   }
   return res;
 };
+
+/* Categoria */
+export const editCategoria = async (objCategoria) => {
+  const res = await fetch(`${UrlServer_nube}/Api/Categoria`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(objCategoria),
+  });
+
+  if (!res.ok) {
+    const errorMessage = await res.text();
+    throw new Error(`Error del Servidor: ${errorMessage}`);
+  }
+  return res;
+};

@@ -19,7 +19,7 @@ export function TablaCategorias({ categorias }) {
           <tr>
             <td className="py-2">
               <BotonDinamico>
-                <Link href={`/Categorias/${e.cat_iden}`}>{e.cat_desc}</Link>
+                <Link href={`/Admin/Categorias/${e.cat_iden}`}>{e.cat_desc}</Link>
               </BotonDinamico>
             </td>
             <td className="py-2">

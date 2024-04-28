@@ -23,8 +23,17 @@ export const getCategorias = async () => {
   return res.json();
 };
 
-/* Comandas */
+export const getCategoria = async (cat_iden) => {
+  const res = await fetch(`${UrlServer_nube}/Api/Categoria/${cat_iden}`, {
+    cache: "no-store",
+  });
+  if (!res.ok) {
+    throw new Error("Error del Servidor");
+  }
+  return res.json();
+};
 
+/* Comandas */
 export const getComandas = async () => {
   const res = await fetch(`${UrlServer_nube}/Api/Comandas`, {
     cache: "no-store",
@@ -36,7 +45,7 @@ export const getComandas = async () => {
 };
 
 export const getComandasFech = async (com_fech) => {
-  const res = await fetch(`${UrlServer_nube}/Api/Categorias/${com_fech}`, {
+  const res = await fetch(`${UrlServer_nube}/Api/Comandas/${com_fech}`, {
     cache: "no-store",
   });
   if (!res.ok) {
@@ -56,7 +65,6 @@ export const getEstadosComanda = async () => {
 };
 
 /* Deliverys */
-
 export const getDeliverys = async () => {
   const res = await fetch(`${UrlServer_nube}/Api/Deliverys`, {
     cache: "no-store",
@@ -67,8 +75,17 @@ export const getDeliverys = async () => {
   return res.json();
 };
 
-/* Envios */
+export const getDelivery = async (del_iden) => {
+  const res = await fetch(`${UrlServer_nube}/Api/Delivery/${del_iden}`, {
+    cache: "no-store",
+  });
+  if (!res.ok) {
+    throw new Error("Error del Servidor");
+  }
+  return res.json();
+};
 
+/* Envios */
 export const getEnvios = async () => {
   const res = await fetch(`${UrlServer_nube}/Api/Envios`, {
     cache: "no-store",
@@ -100,7 +117,6 @@ export const getPrecioEnvio = async () => {
 };
 
 /* Pagos */
-
 export const getPagos = async () => {
   const res = await fetch(`${UrlServer_nube}/Api/Pagos`, {
     cache: "no-store",
@@ -122,7 +138,6 @@ export const getPago = async (pago_iden) => {
 };
 
 /* Productos */
-
 export const getProductos = async () => {
   const res = await fetch(`${UrlServer_nube}/Api/Productos`, {
     cache: "no-store",
@@ -163,7 +178,6 @@ export const getProductobyId = async (pro_iden) => {
 };
 
 /* Roles */
-
 export const getRoles = async () => {
   const res = await fetch(`${UrlServer_nube}/Api/Roles`, {
     cache: "no-store",
@@ -175,7 +189,6 @@ export const getRoles = async () => {
 };
 
 /* Usuarios */
-
 export const getUsuarios = async () => {
   const res = await fetch(`${UrlServer_nube}/Api/Usuarios`, {
     cache: "no-store",
