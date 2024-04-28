@@ -1,14 +1,10 @@
 import React from "react";
 import { BotonDinamico } from "@/app/Components";
+import { avisarEnvio, cambiaBackgroundComanda, imprimirComanda } from "../Utilidades/Util_Comandas";
 
 export async function CardComanda({ comanda }) {
 
   return (
-    <div>REnder</div>
-  );
-}
-
-/* 
     <div
       className={`${cambiaBackgroundComanda(
         comanda
@@ -21,13 +17,13 @@ export async function CardComanda({ comanda }) {
       </div>
       <div className="grid grid-cols-1 gap-2 text-sm italic text-center">
         <span>Datos del Cliente:</span>
-        <span>{userComanda.us_name}</span>
+        {/* <span>{userComanda.us_name}</span>
         <span>{userComanda.us_dire}</span>
-        <span>{userComanda.us_tel}</span>
+        <span>{userComanda.us_tel}</span> */}
       </div>
       <div>
         <span>Productos:</span>
-        {CurrentProductosInfo.map((e) => (
+        {/* {CurrentProductosInfo.map((e) => (
           <div
             className="grid grid-cols-2 italic text-sm text-center gap-2"
             key={e}
@@ -37,15 +33,15 @@ export async function CardComanda({ comanda }) {
             <span className="text-semibold">{e.infoProducto.pro_name}</span>
             <span className="text-semibold">{e.Cantidad}</span>
           </div>
-        ))}
+        ))} */}
       </div>
       <span>{comanda.com_entrega}</span>
       <div className="grid grid-cols-2 gap-1 text-center italic">
-        <span>{CurrentComanda.metodoEnvio}</span>
-        <span>{CurrentComanda.metodoPago}</span>
+        {/* <span>{CurrentComanda.metodoEnvio}</span>
+        <span>{CurrentComanda.metodoPago}</span> */}
         <div className="flex justify-around col-span-2">
           <span>Total</span>
-          <span className="text-red-700">$ {CurrentComanda.totalComanda}</span>
+          {/* <span className="text-red-700">$ {CurrentComanda.totalComanda}</span> */}
         </div>
       </div>
 
@@ -58,5 +54,5 @@ export async function CardComanda({ comanda }) {
         </BotonDinamico>
       </div>
     </div>
-
- */
+  );
+}
