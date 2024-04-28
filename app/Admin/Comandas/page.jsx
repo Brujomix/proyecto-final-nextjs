@@ -1,34 +1,16 @@
 "use client";
-import React, { Suspense, useState, useEffect } from "react";
+import React, {Suspense} from "react";
 import {
   CardComanda,
   CardComandaSkeleton,
   HeaderDinamico,
   ReferenciaComandas,
 } from "@/app/Components";
-import { format } from "date-fns";
-import { getComandasFech } from "@/app/CRUD/gets";
+import { useSelector } from "react-redux";
 
 function Comandas() {
-  const [comandas, setComandas] = useState([]);
-  const now = format(new Date(), "dd-MM-yyyy");
 
-  useEffect(() => {
-    const interval = setInterval(async () => {
-      const res = await getComandasFech(now)
-      setComandas(res)
-    }, 60000);
-    
-    return () => clearInterval(interval);
-  }, []);
-  
-  useEffect(()=>{
-    const fetchdata = async ()=>{
-      const res = await getComandasFech(now)
-      setComandas(res)
-    }
-    fetchdata()
-  },[])
+  const comandas = useSelector(state => state.Comandas.itemsComandas)
 
   return (
     <main className="grid grid-cols-1 gap-4">

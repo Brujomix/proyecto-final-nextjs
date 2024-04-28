@@ -1,5 +1,6 @@
 import { UrlServer_nube } from "@/app/Utilidades/UrlServer";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { format } from "date-fns";
 
 /* Estado APP */
 export const getEstadoApp = createAsyncThunk("EstadoApp", async () => {
@@ -44,15 +45,19 @@ export const getComandas = async () => {
   return res.json();
 };
 
-export const getComandasFech = async (com_fech) => {
-  const res = await fetch(`${UrlServer_nube}/Api/Comandas/${com_fech}`, {
-    cache: "no-store",
-  });
-  if (!res.ok) {
-    throw new Error("Error del Servidor");
+export const getComandasFech = createAsyncThunk(
+  "Comandas",
+  async () => {
+    const now = format(new Date(), "dd-MM-yyyy")
+    const res = await fetch(`${UrlServer_nube}/Api/Comandas/${now}`, {
+      cache: "no-store",
+    });
+    if (!res.ok) {
+      throw new Error("Error del Servidor");
+    }
+    return res.json();
   }
-  return res.json();
-};
+);
 
 export const getEstadosComanda = async () => {
   const res = await fetch(`${UrlServer_nube}/Api/EstadoComandas`, {
