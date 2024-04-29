@@ -3,7 +3,7 @@ import React from "react";
 export function BotonDinamico({
   children,
   className = "",
-  disabled= "",
+  disabled= false,
   ...args
 
 }) {

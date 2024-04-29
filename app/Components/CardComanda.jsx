@@ -1,9 +1,8 @@
 import React from "react";
 import { BotonDinamico } from "@/app/Components";
-import { avisarEnvio, cambiaBackgroundComanda, imprimirComanda } from "../Utilidades/Util_Comandas";
+import { avisarEnvio, cambiaBackgroundComanda, imprimirComanda, infoComanda } from "../Utilidades/Util_Comandas";
 
 export async function CardComanda({ comanda }) {
-
   return (
     <div
       className={`${cambiaBackgroundComanda(
@@ -37,19 +36,19 @@ export async function CardComanda({ comanda }) {
       </div>
       <span>{comanda.com_entrega}</span>
       <div className="grid grid-cols-2 gap-1 text-center italic">
-        {/* <span>{CurrentComanda.metodoEnvio}</span>
-        <span>{CurrentComanda.metodoPago}</span> */}
+        <span>{infoComanda.metodoEnvio}</span>
+        <span>{infoComanda.metodoPago}</span>
         <div className="flex justify-around col-span-2">
           <span>Total</span>
-          {/* <span className="text-red-700">$ {CurrentComanda.totalComanda}</span> */}
+          <span className="text-red-700">$ {infoComanda.totalComanda}</span>
         </div>
       </div>
 
       <div className="grid grid-cols-2 gap-1 text-sm">
-        <BotonDinamico onClick={() => avisarEnvio(comanda.com_us_iden)}>
+        <BotonDinamico onClick={()=>avisarEnvio(comanda.com_us_iden)}>
           Avisar Envio
         </BotonDinamico>
-        <BotonDinamico onClick={() => imprimirComanda(comanda.com_iden)}>
+        <BotonDinamico onClick={()=>imprimirComanda(comanda.com_iden)}>
           Imprimir
         </BotonDinamico>
       </div>

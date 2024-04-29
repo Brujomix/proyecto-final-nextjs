@@ -8,7 +8,8 @@ export const getEstadoApp = createAsyncThunk("EstadoApp", async () => {
     cache: "no-store",
   });
   if (!res.ok) {
-    throw new Error("Fallo en la Obtencion de Datos");
+    const errorMessage = await res.text();
+    throw new Error(`Error del Servidor: ${errorMessage}`);
   }
   return await res.json();
 });
@@ -19,7 +20,8 @@ export const getCategorias = async () => {
     cache: "no-store",
   });
   if (!res.ok) {
-    throw new Error("Error del Servidor");
+    const errorMessage = await res.text();
+    throw new Error(`Error del Servidor: ${errorMessage}`);
   }
   return res.json();
 };
@@ -29,7 +31,8 @@ export const getCategoria = async (cat_iden) => {
     cache: "no-store",
   });
   if (!res.ok) {
-    throw new Error("Error del Servidor");
+    const errorMessage = await res.text();
+    throw new Error(`Error del Servidor: ${errorMessage}`);
   }
   return res.json();
 };
@@ -40,31 +43,31 @@ export const getComandas = async () => {
     cache: "no-store",
   });
   if (!res.ok) {
-    throw new Error("Error del Servidor");
+    const errorMessage = await res.text();
+    throw new Error(`Error del Servidor: ${errorMessage}`);
   }
   return res.json();
 };
 
-export const getComandasFech = createAsyncThunk(
-  "Comandas",
-  async () => {
-    const now = format(new Date(), "dd-MM-yyyy")
-    const res = await fetch(`${UrlServer_nube}/Api/Comandas/${now}`, {
-      cache: "no-store",
-    });
-    if (!res.ok) {
-      throw new Error("Error del Servidor");
-    }
-    return res.json();
+export const getComandasFech = async () => {
+  const now = format(new Date(), "dd-MM-yyyy");
+  const res = await fetch(`${UrlServer_nube}/Api/Comandas/${now}`, {
+    cache: "no-store",
+  });
+  if (!res.ok) {
+    const errorMessage = await res.text();
+    throw new Error(`Error del Servidor: ${errorMessage}`);
   }
-);
+  return res.json();
+};
 
 export const getEstadosComanda = async () => {
   const res = await fetch(`${UrlServer_nube}/Api/EstadoComandas`, {
     cache: "no-store",
   });
   if (!res.ok) {
-    throw new Error("Error del Servidor");
+    const errorMessage = await res.text();
+    throw new Error(`Error del Servidor: ${errorMessage}`);
   }
   return res.json();
 };
@@ -75,7 +78,8 @@ export const getDeliverys = async () => {
     cache: "no-store",
   });
   if (!res.ok) {
-    throw new Error("Error del Servidor");
+    const errorMessage = await res.text();
+    throw new Error(`Error del Servidor: ${errorMessage}`);
   }
   return res.json();
 };
@@ -85,7 +89,8 @@ export const getDelivery = async (del_iden) => {
     cache: "no-store",
   });
   if (!res.ok) {
-    throw new Error("Error del Servidor");
+    const errorMessage = await res.text();
+    throw new Error(`Error del Servidor: ${errorMessage}`);
   }
   return res.json();
 };
@@ -96,7 +101,8 @@ export const getEnvios = async () => {
     cache: "no-store",
   });
   if (!res.ok) {
-    throw new Error("Error del Servidor");
+    const errorMessage = await res.text();
+    throw new Error(`Error del Servidor: ${errorMessage}`);
   }
   return res.json();
 };
@@ -106,7 +112,8 @@ export const getEnvio = async (env_iden) => {
     cache: "no-store",
   });
   if (!res.ok) {
-    throw new Error("Error del Servidor");
+    const errorMessage = await res.text();
+    throw new Error(`Error del Servidor: ${errorMessage}`);
   }
   return res.json();
 };
@@ -116,7 +123,8 @@ export const getPrecioEnvio = async () => {
     cache: "no-store",
   });
   if (!res.ok) {
-    throw new Error("Error del Servidor");
+    const errorMessage = await res.text();
+    throw new Error(`Error del Servidor: ${errorMessage}`);
   }
   return res.json();
 };
@@ -127,7 +135,8 @@ export const getPagos = async () => {
     cache: "no-store",
   });
   if (!res.ok) {
-    throw new Error("Error del Servidor");
+    const errorMessage = await res.text();
+    throw new Error(`Error del Servidor: ${errorMessage}`);
   }
   return res.json();
 };
@@ -158,7 +167,8 @@ export const getProductosbyCategoria = async (cat_iden) => {
     cache: "no-store",
   });
   if (!res.ok) {
-    throw new Error("Error del Servidor");
+    const errorMessage = await res.text();
+    throw new Error(`Error del Servidor: ${errorMessage}`);
   }
   return res.json();
 };
@@ -167,7 +177,8 @@ export const getProductosbyPuntos = async () => {
     cache: "no-store",
   });
   if (!res.ok) {
-    throw new Error("Error del Servidor");
+    const errorMessage = await res.text();
+    throw new Error(`Error del Servidor: ${errorMessage}`);
   }
   return res.json();
 };
@@ -177,7 +188,8 @@ export const getProductobyId = async (pro_iden) => {
     cache: "no-store",
   });
   if (!res.ok) {
-    throw new Error("Error del Servidor");
+    const errorMessage = await res.text();
+    throw new Error(`Error del Servidor: ${errorMessage}`);
   }
   return res.json();
 };
@@ -188,7 +200,8 @@ export const getRoles = async () => {
     cache: "no-store",
   });
   if (!res.ok) {
-    throw new Error("Error del Servidor");
+    const errorMessage = await res.text();
+    throw new Error(`Error del Servidor: ${errorMessage}`);
   }
   return res.json();
 };
@@ -199,7 +212,8 @@ export const getUsuarios = async () => {
     cache: "no-store",
   });
   if (!res.ok) {
-    throw new Error("Error del Servidor");
+    const errorMessage = await res.text();
+    throw new Error(`Error del Servidor: ${errorMessage}`);
   }
   return res.json();
 };
@@ -209,7 +223,8 @@ export const getUsuario = async (us_iden) => {
     cache: "no-store",
   });
   if (!res.ok) {
-    throw new Error("Error del Servidor");
+    const errorMessage = await res.text();
+    throw new Error(`Error del Servidor: ${errorMessage}`);
   }
   return res.json();
 };
