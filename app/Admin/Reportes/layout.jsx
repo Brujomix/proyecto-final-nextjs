@@ -1,6 +1,10 @@
 import React from "react";
-import SubMenuReportes, { HeaderDinamico } from "@/app/Components/";
+import { HeaderDinamico } from "@/app/Components/";
 
+export const metadata={
+  title:"Admin Reportes - E_Commerce",
+  description:"Pagina para Gestion de Reportes"
+}
 
 function layoutReportes({ children }) {
   return (

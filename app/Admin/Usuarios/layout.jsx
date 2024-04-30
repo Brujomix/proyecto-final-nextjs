@@ -1,6 +1,11 @@
 import Link from 'next/link'
 import React from 'react'
 
+export const metadata={
+  title:"Admin Usuarios - E_Commerce",
+  description:"Pagina para Gestion de Usuarios"
+}
+
 function layoutUsuariosAdmin({children}) {
   return (
     <div className="flex flex-col justify-center items-center gap-7">

@@ -7,6 +7,12 @@ import {
 } from "@/app/Components";
 import { getProductosbyPuntos } from "./CRUD/gets";
 
+export const metadata= {
+  title: "Ranking Productos - E_Commerce",
+  description: "Lista de productos mas vendidos",
+  keywords: "Sandwiches, Menus, Comida Rapida, Hamburguesas"
+}
+
 export default async function Home() {
   const listaProductosRanking = await getProductosbyPuntos();
   return (
