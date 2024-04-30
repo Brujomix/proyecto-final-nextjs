@@ -1,11 +1,12 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { BotonDinamico, Toast_Dinamico } from "@/app/Components";
 import { CiTrash } from "react-icons/ci";
 import { deleteDelivery } from "@/app/CRUD/delete";
 
 export function TablaDeliverys({ deliverys }) {
+  const [listaDeliverys, setListaDeliverys] = useState(deliverys);
   return (
     <table>
       <thead className="bg-neutral-200">
@@ -15,19 +16,23 @@ export function TablaDeliverys({ deliverys }) {
         </tr>
       </thead>
       <tbody className="text-center">
-        {deliverys.map((e) => (
+        {listaDeliverys.map((e) => (
           <tr>
             <td>
               <Link className="Link" href={`/Admin/Deliverys/${e.del_iden}`}>
-              {e.del_desc}
+                {e.del_desc}
               </Link>
             </td>
             <td className="py-2">
               <BotonDinamico
                 onClick={async () =>
-                  await deleteDelivery({del_iden: e.del_iden}).then((res) => {
+                  await deleteDelivery(e.del_iden).then((res) => {
                     if (res.status === 200) {
                       Toast_Dinamico("success", "Delivery Eliminado");
+                      const newListaDelivarys = listaDeliverys.filter(
+                        (d) => d.del_iden !== e.del_iden
+                      );
+                      setListaDeliverys(newListaDelivarys);
                     } else {
                       Toast_Dinamico("error", "Intenta Más Tarde");
                     }

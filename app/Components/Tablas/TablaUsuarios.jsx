@@ -1,12 +1,12 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { BotonDinamico, Toast_Dinamico } from "@/app/Components";
 import { CiTrash } from "react-icons/ci";
 import { findName } from "@/app/Utilidades/Util_Database";
 import { deleteUsuario } from "@/app/CRUD/delete";
 
 export function TablaUsuarios({ Usuarios, Roles }) {
-
+  const [listaUsuarios, setListaUsuarios] = useState(Usuarios);
   return (
     <table>
       <thead className="bg-neutral-200">
@@ -20,7 +20,7 @@ export function TablaUsuarios({ Usuarios, Roles }) {
         </tr>
       </thead>
       <tbody className="text-center">
-        {Usuarios.map((e) => (
+        {listaUsuarios.map((e) => (
           <tr key={e.us_iden}>
             <td>{e.us_name}</td>
             <td>{findName(Roles, "ro_iden", e.us_ro_iden, "ro_desc")}</td>
@@ -33,6 +33,10 @@ export function TablaUsuarios({ Usuarios, Roles }) {
                   await deleteUsuario(e.us_iden).then((res) => {
                     if (res.status === 200) {
                       Toast_Dinamico("success", "Usuario Eliminado");
+                      const newListUsuarios = listaUsuarios.filter(
+                        (u) => u.us_iden !== e.us_iden
+                      );
+                      setListaUsuarios(newListUsuarios);
                     } else {
                       Toast_Dinamico("error", "Intenta Más Tarde");
                     }

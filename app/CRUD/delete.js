@@ -1,13 +1,12 @@
 import { UrlServer_nube } from "@/app/Utilidades/UrlServer";
 
 /* Usuario */
-export const deleteUsuario = async (objUsuario) => {
-  const res = await fetch(`${UrlServer_nube}/Api/Usuario`, {
+export const deleteUsuario = async (us_iden) => {
+  const res = await fetch(`${UrlServer_nube}/Api/Usuario/${us_iden}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-    },
-    body: JSON.stringify(objUsuario),
+    }
   });
 
   if (!res.ok) {
@@ -18,13 +17,12 @@ export const deleteUsuario = async (objUsuario) => {
 };
 
 /* Producto */
-export const deleteProducto = async (objProducto) => {
-  const res = await fetch(`${UrlServer_nube}/Api/Producto`, {
+export const deleteProducto = async (pro_iden) => {
+  const res = await fetch(`${UrlServer_nube}/Api/Producto/${pro_iden}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-    },
-    body: JSON.stringify(objProducto),
+    }
   });
 
   if (!res.ok) {
@@ -35,13 +33,12 @@ export const deleteProducto = async (objProducto) => {
 };
 
 /* Delivery */
-export const deleteDelivery = async (objDelivery) => {
-  const res = await fetch(`${UrlServer_nube}/Api/Delivery`, {
+export const deleteDelivery = async (del_iden) => {
+  const res = await fetch(`${UrlServer_nube}/Api/Delivery/${del_iden}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-    },
-    body: JSON.stringify(objDelivery),
+    }
   });
 
   if (!res.ok) {
@@ -52,13 +49,12 @@ export const deleteDelivery = async (objDelivery) => {
 };
 
 /* Categoria */
-export const deleteCategoria = async (objCategoria) => {
-  const res = await fetch(`${UrlServer_nube}/Api/Categoria`, {
+export const deleteCategoria = async (cat_iden) => {
+  const res = await fetch(`${UrlServer_nube}/Api/Categoria/${cat_iden}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-    },
-    body: JSON.stringify(objCategoria),
+    }
   });
 
   if (!res.ok) {

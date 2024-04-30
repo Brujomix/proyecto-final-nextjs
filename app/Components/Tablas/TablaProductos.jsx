@@ -1,11 +1,12 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, {useState} from "react";
 import { BotonDinamico, Toast_Dinamico } from "@/app/Components";
 import { CiTrash } from "react-icons/ci";
 import { deleteProducto } from "@/app/CRUD/delete";
 
 export function TablaProductos({ Productos }) {
+  const [listaProductos, setListaProductos] = useState(Productos)
   return (
     <table>
       <thead className="bg-neutral-200">
@@ -16,7 +17,7 @@ export function TablaProductos({ Productos }) {
         </tr>
       </thead>
       <tbody className="text-center">
-        {Productos.map((e) => (
+        {listaProductos.map((e) => (
           <tr key={e.pro_iden}>
             <td className="py-2">
               <BotonDinamico>
@@ -29,9 +30,11 @@ export function TablaProductos({ Productos }) {
             <td className="py-2">
               <BotonDinamico
                 onClick={async () => {
-                  await deleteProducto({pro_iden: e.pro_iden}).then((res) => {
+                  await deleteProducto(e.pro_iden).then((res) => {
                     if (res.status === 200) {
                       Toast_Dinamico("success", "Producto Eliminado");
+                      const newListaProductos = listaProductos.filter(p=>p.pro_iden !== e.pro_iden)
+                      setListaProductos(newListaProductos)
                     } else {
                       Toast_Dinamico("error", "Intenta Más Tarde");
                     }

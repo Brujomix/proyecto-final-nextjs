@@ -20,16 +20,6 @@ export const cambiaBackgroundComanda = (comanda) => {
   }
 };
 
-export const infoComanda = async (comanda) => {
-  const pago = await getPago(comanda.com_pago_iden);
-  const Envio = await getEnvio(comanda.com_env_iden);
-  return {
-    metodoPago: pago.pago_desc,
-    metodoEnvio: Envio.env_desc,
-    totalComanda: 0,
-  };
-};
-
 export const infoProductosCarrito = (com_carrito) => {
   const productosEncontrados = [];
   com_carrito.forEach(async (e) => {
@@ -37,13 +27,4 @@ export const infoProductosCarrito = (com_carrito) => {
     productosEncontrados.push({ infoProducto: p[0], ...e });
   });
   return productosEncontrados;
-};
-
-export const getUserComanda = async (us_iden) => {
-  const res = await getUsuario(us_iden);
-  return {
-    us_name: res.us_name,
-    us_dire: res.us_dire,
-    us_tel: res.us_tel,
-  };
 };

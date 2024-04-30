@@ -15,7 +15,7 @@ function Comandas() {
     const interval = setInterval(async() => {
       const res = await getComandasFech();
       setComandas(res);
-    }, 10000);
+    }, 30000);
     return () => clearInterval(interval);
   }, [comandas]);
 

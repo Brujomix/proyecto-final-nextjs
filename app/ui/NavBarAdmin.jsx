@@ -1,14 +1,16 @@
-"use client"
+"use client";
 import Link from "next/link";
 import React from "react";
 import { verificaUserRol } from "../Utilidades/Util_Estado";
 import { useSelector } from "react-redux";
 
-export function NavBarAdmin () {
-  const currentUser = useSelector(state => state.Usuario.currentUser)
+export function NavBarAdmin() {
+  const currentUser = useSelector((state) => state.Usuario.currentUser);
   return (
     <div
-      className={`${verificaUserRol(currentUser)} w-full flex flex-row flex-wrap justify-center items-center p-4 gap-4`}
+      className={`${verificaUserRol(
+        currentUser
+      )} w-full flex flex-row flex-wrap justify-center items-center p-4 gap-4`}
     >
       <Link className="Link" href="/Admin/Comandas">
         Comandas
@@ -27,9 +29,6 @@ export function NavBarAdmin () {
       </Link>
       <Link className="Link" href="/Admin/Productos">
         Productos
-      </Link>
-      <Link className="Link" href="/Admin/Chat">
-        Chat
       </Link>
     </div>
   );
