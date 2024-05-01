@@ -1,8 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { socket } from "../Utilidades/Util_Socket";
+import { CardComanda } from ".";
 
-export async function CardComanda({ comandas }) {
+export async function RenderComanda({ comandas }) {
   const [listacomandas, setListaComandas] = useState(comandas);
 
   useEffect(() => {

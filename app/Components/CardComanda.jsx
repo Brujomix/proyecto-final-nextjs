@@ -8,7 +8,7 @@ import {
 } from "../Utilidades/Util_Comandas";
 import { getEnvio, getPago, getUsuario } from "@/app/CRUD/gets";
 
-export async function CardComanda({ comanda }) {
+export async function CardComanda ({ comanda }) {
   const pago = await getPago(comanda.com_pago_iden);
   const envio = await getEnvio(comanda.com_env_iden);
   const infoProductos = await infoProductosCarrito(comanda.com_carrito);
@@ -64,4 +64,4 @@ export async function CardComanda({ comanda }) {
       </div>
     </div>
   );
-}
+};

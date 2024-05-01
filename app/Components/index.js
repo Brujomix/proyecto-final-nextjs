@@ -27,14 +27,12 @@ export * from "./Modal_Botones/ModalDinamico";
 export * from "./Modal_Botones/Modale_User";
 export * from "./Modal_Botones/BotonVolver";
 
-
 /* Comanda */
 export * from "./RenderComanda";
 export * from "./ReferenciaComandas";
 export * from "./CardComanda";
 
 /* Formularios */
-
 /* Categorias */
 export * from "./Forms/CategoriasForms/FomrEditCategoria";
 export * from "./Forms/CategoriasForms/FormAddCategoria";

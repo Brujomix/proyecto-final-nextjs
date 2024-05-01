@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { CardComanda, CardComandaSkeleton } from "@/app/Components";
+import { CardComandaSkeleton, RenderComanda } from "@/app/Components";
 import { getComandasFech } from "@/app/CRUD/gets";
 import { format } from "date-fns";
 
@@ -9,8 +9,8 @@ async function Comandas() {
 
   return (
     <main className="grid grid-cols-1 gap-4">
-      <Suspense key={e.com_iden} fallback={<CardComandaSkeleton />}>
-        <CardComanda comandas={currentComandas} />
+      <Suspense fallback={<CardComandaSkeleton/>}>
+        <RenderComanda comandas={currentComandas} />
       </Suspense>
     </main>
   );
