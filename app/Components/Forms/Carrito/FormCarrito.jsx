@@ -12,16 +12,14 @@ import { BotonDinamico, Toast_Dinamico } from "@/app/Components";
 import { format } from "date-fns";
 import Swal from "sweetalert2";
 import { getEnvios, getPagos } from "@/app/CRUD/gets";
-import { addComanda } from "@/app/CRUD/post";
-import { useDispatch } from "react-redux";
 import { resetCarrito } from "@/Redux/Slices/CarritoSlice";
+import { addComanda } from "@/app/CRUD/post";
 
 export async function FormCarrito({ itemsCarrito, currentUser }) {
-  const dispatch = useDispatch()
   const Pagos = await getPagos();
   const Envios = await getEnvios();
   const date = format(new Date(), "dd-MM-yyyy");
-  const hora = format(new Date(), "HH:mm:ss")
+  const hora = format(new Date(), "HH:mm:ss");
   return (
     <Formik
       initialValues={{
@@ -33,6 +31,7 @@ export async function FormCarrito({ itemsCarrito, currentUser }) {
         com_precioEnvio: 0,
         com_carrito: ConvierteCarrito(itemsCarrito),
         com_exep: "",
+        com_escom_iden: 1,
       }}
       validate={(values) => {
         const errors = {};
@@ -43,16 +42,16 @@ export async function FormCarrito({ itemsCarrito, currentUser }) {
         const res = await addComanda(values);
         if (res.status === 200) {
           Swal.fire({
-            icon:"success",
-            titleText:"Prepararemos Tu Pedido",
+            icon: "success",
+            titleText: "Prepararemos Tu Pedido",
             text: "El tiempo promedio de entrega es de 20 minutos",
-            allowOutsideClick:false,
-            allowEscapeKey:false
-          })
-          setSubmitting(false)
-          dispatch(resetCarrito())
-        }else{
-          Toast_Dinamico("error", "No Pudimos Agregar el Pedido")
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+          });
+          setSubmitting(false);
+          dispatch(resetCarrito());
+        } else {
+          Toast_Dinamico("error", "No Pudimos Agregar el Pedido");
         }
       }}
     >

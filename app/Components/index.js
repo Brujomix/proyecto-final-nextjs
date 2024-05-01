@@ -28,7 +28,6 @@ export * from "./Modal_Botones/Modale_User";
 export * from "./Modal_Botones/BotonVolver";
 
 /* Comanda */
-export * from "./RenderComanda";
 export * from "./ReferenciaComandas";
 export * from "./CardComanda";
 

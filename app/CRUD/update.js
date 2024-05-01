@@ -83,3 +83,20 @@ export const editCategoria = async (objCategoria) => {
   }
   return res;
 };
+
+/* Comanda */
+export const editComanda = async (objComanda) => {
+  const res = await fetch(`${UrlServer_nube}/Api/Categoria/${objComanda.com_iden}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(objComanda),
+  });
+
+  if (!res.ok) {
+    const errorMessage = await res.text();
+    throw new Error(`Error del Servidor: ${errorMessage}`);
+  }
+  return res;
+};

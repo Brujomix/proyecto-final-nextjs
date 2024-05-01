@@ -8,7 +8,7 @@ export const metadata = {
 
 function layoutComandas({ children }) {
   return (
-    <div className="grid grid-cols-1 gap-7">
+    <div className="grid grid-cols-1 gap-4">
       <HeaderDinamico title={"Comandas"}></HeaderDinamico>
       <ReferenciaComandas />
       <>{children}</>

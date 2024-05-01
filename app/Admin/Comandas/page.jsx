@@ -1,17 +1,22 @@
+"use client";
 import React, { Suspense } from "react";
-import { CardComandaSkeleton, RenderComanda } from "@/app/Components";
-import { getComandasFech } from "@/app/CRUD/gets";
-import { format } from "date-fns";
+import {
+  CardComanda,
+  CardComandaSkeleton,
+} from "@/app/Components";
+import { useSelector } from "react-redux";
 
 async function Comandas() {
-  const now = format(new Date(), "dd-MM-yyyy");
-  const currentComandas = await getComandasFech(now);
 
+  const listaComandas = useSelector((state) => state.Comandas.currentComandas);
+ 
   return (
     <main className="grid grid-cols-1 gap-4">
-      <Suspense fallback={<CardComandaSkeleton/>}>
-        <RenderComanda comandas={currentComandas} />
-      </Suspense>
+      {listaComandas.map((e) => (
+        <Suspense key={e.com_iden} fallback={<CardComandaSkeleton />}>
+          <CardComanda comanda={e} />
+        </Suspense>
+      ))}
     </main>
   );
 }
