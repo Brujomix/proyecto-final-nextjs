@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import { BotonDinamico } from "@/app/Components";
 import {
