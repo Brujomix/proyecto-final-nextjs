@@ -8,11 +8,11 @@ import { deleteCategoria } from "@/app/CRUD/delete";
 export function TablaCategorias({ categorias }) {
   const [listaCategorias, setListaCategorias] = useState(categorias);
   return (
-    <table>
+    <table className="min-w-[338px] max-w-[600px]">
       <thead className="bg-neutral-200">
         <tr className="font-semibold italic tracking-wider">
-          <td className="p-2">Descripcion</td>
-          <td className="p-2">Borrar</td>
+          <td className="text-center p-2">Descripcion</td>
+          <td className="text-center p-2">Borrar</td>
         </tr>
       </thead>
       <tbody className="text-center">

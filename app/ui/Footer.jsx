@@ -1,5 +1,4 @@
 import React from "react";
-import { FormContacto } from "@/app/Components";
 
 export default function Footer({formContacto}) {
   return (
@@ -15,7 +14,7 @@ export default function Footer({formContacto}) {
       <div>
         {formContacto}
       </div>
-      <div className="col-span-2 text-start mt-4 ">
+      <div className="col-span-2 text-center mt-4 ">
         <span className=" opacity-75 tracking-widest">
           © Copyright - DewebDesarrollos 2024
         </span>

@@ -12,8 +12,8 @@ export function RealTime() {
   }, [now]);
 
   return (
-    <div>
-      <span>{now}</span>
-    </div>
+    
+      <span className="font-md text-center">{now}</span>
+    
   );
 }

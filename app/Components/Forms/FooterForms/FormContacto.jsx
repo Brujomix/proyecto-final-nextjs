@@ -27,7 +27,9 @@ export function FormContacto() {
           return errors;
         }}
         onSubmit={(values) => {
-          console.log(values);
+        setTimeout(() => {
+            alert(JSON.stringify(values))
+        }, 1000);
         }}
       >
         {({

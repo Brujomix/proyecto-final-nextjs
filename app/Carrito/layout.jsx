@@ -11,7 +11,7 @@ export default function layoutCarrito({children}) {
       <span className="text-3xl font-semibold italic tracking-widest">
         Carrito Compras
       </span>
-      <div>{children}</div>
+      <>{children}</>
     </div>
   )
 }

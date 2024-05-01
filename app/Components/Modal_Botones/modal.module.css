@@ -8,13 +8,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    top: 40%;
-    left: 18%;
-    transform: translate(-50%, -50%);
-    background-color: #e2e2e2;
-    padding: 20px;
+    top: 18%;
+    left: 0;
+    background-color: #e1e1e1ee;
+    padding: 15px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
   
   .modalheader {

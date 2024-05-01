@@ -7,14 +7,14 @@ import { loginUser } from "@/Redux/Slices/UsuarioSlice";
 import { FaUserCheck, FaUserAltSlash } from "react-icons/fa";
 
 export function Modal_User() {
-  const isLogin = useSelector(state=> state.Usuario.isLogin)
+  const isLogin = useSelector((state) => state.Usuario.isLogin);
   const [show, setShow] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const dispatch = useDispatch();
-  
+
   const modalShow = styles.modalshow;
   const modalHidden = styles.modalhidden;
-  
+
   useEffect(() => {
     const currentUserStorage = localStorage.getItem("currentUser");
     function checkUser() {
@@ -35,7 +35,6 @@ export function Modal_User() {
         {currentUser === null ? (
           <div className="text-sm flex justify-center items-center gap-2">
             <FaUserAltSlash color="#666" size={25} />
-            <span>Iniciar Session</span>
           </div>
         ) : (
           <div className="text-sm flex justify-center items-center gap-2">
@@ -47,28 +46,24 @@ export function Modal_User() {
       <div className={`${styles.modal} ${show ? modalShow : modalHidden}`}>
         <div className={styles.modalcontent}>
           <div className={styles.modalheader}>
-            <span className="text-xl italic font-semibold">
+            <span className="text-xl italic tracking-widest underline">
               {currentUser === null ? "Login" : "Usuarios"}
             </span>
           </div>
           <div className={styles.modalbody}>
             {currentUser === null ? (
-              <div>
-                <User_NoLogin />
-              </div>
+              <User_NoLogin />
             ) : (
-              <div>
-                <User_Login objUser={currentUser} />
-              </div>
+              <User_Login objUser={currentUser} />
             )}
           </div>
           <div className={styles.modalclose}>
-            <BotonDinamico
+            <button
               className="font-semibold"
               onClick={() => setShow(false)}
             >
               X
-            </BotonDinamico>
+            </button>
           </div>
         </div>
       </div>
