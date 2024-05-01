@@ -15,6 +15,7 @@ import { getEnvios, getPagos } from "@/app/CRUD/gets";
 import { resetCarrito } from "@/Redux/Slices/CarritoSlice";
 import { addComanda } from "@/app/CRUD/post";
 import { useDispatch } from "react-redux";
+import { socket } from "@/app/Utilidades/Util_Socket";
 
 export async function FormCarrito({ itemsCarrito, currentUser }) {
   const dispatch = useDispatch();
@@ -45,7 +46,7 @@ export async function FormCarrito({ itemsCarrito, currentUser }) {
         if (res.status === 200) {
           setSubmitting(false);
           dispatch(resetCarrito());
-          
+          socket.emit("agregarComanda", true)
           Swal.fire({
             icon: "success",
             titleText: "Prepararemos Tu Pedido",

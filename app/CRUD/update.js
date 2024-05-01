@@ -85,13 +85,13 @@ export const editCategoria = async (objCategoria) => {
 };
 
 /* Comanda */
-export const editComanda = async (objComanda) => {
-  const res = await fetch(`${UrlServer_nube}/Api/Categoria/${objComanda.com_iden}`, {
+export const editComanda = async (com_iden) => {
+  const res = await fetch(`${UrlServer_nube}/Api/Comanda/${com_iden}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(objComanda),
+    body: JSON.stringify({com_escom_iden: 3})
   });
 
   if (!res.ok) {

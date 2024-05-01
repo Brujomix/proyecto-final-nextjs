@@ -55,7 +55,7 @@ export async function CardComanda ({ comanda }) {
       </div>
 
       <div className="grid grid-cols-2 gap-1 text-sm">
-        <BotonDinamico onClick={() => avisarEnvio(comanda.com_us_iden)}>
+        <BotonDinamico onClick={() => avisarEnvio(comanda.com_iden)}>
           Avisar Envio
         </BotonDinamico>
         <BotonDinamico onClick={() => imprimirComanda(comanda.com_iden)}>

@@ -49,7 +49,19 @@ export const getComandas = async () => {
   return res.json();
 };
 
-export const getComandasFech =  async () => {
+export const getComandasFechRedux = createAsyncThunk("Comandas", async () => {
+  const now = format(new Date(), "dd-MM-yyyy");
+  const res = await fetch(`${UrlServer_nube}/Api/Comandas/${now}`, {
+    cache: "no-store",
+  });
+  if (!res.ok) {
+    const errorMessage = await res.text();
+    throw new Error(`Error del Servidor: ${errorMessage}`);
+  }
+  return res.json();
+});
+
+export const getComandasFech = async () => {
   const now = format(new Date(), "dd-MM-yyyy");
   const res = await fetch(`${UrlServer_nube}/Api/Comandas/${now}`, {
     cache: "no-store",

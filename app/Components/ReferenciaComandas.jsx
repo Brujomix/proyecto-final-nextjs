@@ -7,9 +7,6 @@ export function ReferenciaComandas() {
           Pendiente
         </span>
         <span className="text-xl italic border p-2 rounded-full bg-slate-300">
-          Preparado
-        </span>
-        <span className="text-xl italic border p-2 rounded-full bg-green-500">
           Enviado
         </span>
       </div>

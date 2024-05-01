@@ -1,24 +1,10 @@
-"use client";
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense } from "react";
 import { CardComanda, CardComandaSkeleton } from "@/app/Components";
 import { getComandasFech } from "@/app/CRUD/gets";
-import { socket } from "@/app/Utilidades/Util_Socket";
 
-function Comandas() {
+async function Comandas() {
 
-  const [listaComandas, setListaComandas] = useState([]);
-
-  useEffect(() => {
-    const fetchdata = async () => {
-      const listaComandas = await getComandasFech();
-      setListaComandas(listaComandas);
-    };
-    fetchdata();
-    socket.on("nuevaComanda", (objComanda) => {
-      fetchdata();
-    });
-  }, []);
-
+  const listaComandas = await getComandasFech();
 
   return (
     <main className="flex flex-row flex-wrap justify-center items-center gap-2 p-2">
