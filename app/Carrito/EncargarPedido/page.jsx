@@ -1,4 +1,3 @@
-import { FormEncargarPedido } from "@/app/Components/Forms";
 import React from "react";
 
 export const metadata={
@@ -7,7 +6,9 @@ export const metadata={
 }
 
 function EncargarPedido() {
-  return <FormEncargarPedido />;
+  return <div>
+      Page pagos
+  </div>;
 }
 
 export default EncargarPedido;
