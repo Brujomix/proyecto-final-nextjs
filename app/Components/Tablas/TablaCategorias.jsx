@@ -17,7 +17,7 @@ export function TablaCategorias({ categorias }) {
       </thead>
       <tbody className="text-center">
         {listaCategorias.map((e) => (
-          <tr>
+          <tr key={e.cat_iden}>
             <td className="py-2">
               <BotonDinamico>
                 <Link href={`/Admin/Categorias/${e.cat_iden}`}>

@@ -6,7 +6,7 @@ export function ItemsCarrito({ itemsCarrito }) {
     <div className="flex flex-row flex-wrap justify-center items-center gap-4">
       <div className="space-y-2">
         {itemsCarrito.map((e) => (
-          <CardProductoCarrito productoCarrito={e} />
+          <CardProductoCarrito key={e} productoCarrito={e} />
         ))}
       </div>
     </div>

@@ -20,7 +20,7 @@ export function TablaUsuarios({ Usuarios, Roles }) {
       </thead>
       <tbody className="text-center">
         {listaUsuarios.map((e) => (
-          <>
+          <div key={e.us_iden}>
             <tr>
               <td className="text-center" colSpan={5}>
                 {e.us_email}
@@ -53,7 +53,7 @@ export function TablaUsuarios({ Usuarios, Roles }) {
                 </BotonDinamico>
               </td>
             </tr>
-          </>
+          </div>
         ))}
       </tbody>
     </table>

@@ -4,7 +4,7 @@ import { BotonDinamico } from "@/app/Components";
 import { BiError } from "react-icons/bi";
 import { TfiReload } from "react-icons/tfi";
 
-function error({ error, reset }) {
+function Error({ error, reset }) {
   useEffect(() => {
     console.error(error);
   }, [error]);
@@ -26,4 +26,4 @@ function error({ error, reset }) {
   );
 }
 
-export default error;
+export default Error;

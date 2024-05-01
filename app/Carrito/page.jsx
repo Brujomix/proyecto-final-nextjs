@@ -13,7 +13,6 @@ export default function CarritoPage() {
         <SinItemsCarrito />
       ) : (
         <div className="space-y-7">
-          
             <ItemsCarrito itemsCarrito={itemsCarrito} />
 
           <div className="grid grid-cols-3">

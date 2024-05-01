@@ -50,6 +50,7 @@ export * from "./Forms/ProductosForms/FormEditProducto";
 /* Usuarios */
 export * from "./Forms/UsuariosForms/FormAddUser";
 export * from "./Forms/UsuariosForms/FormAddUserRol";
+export * from "./Forms/UsuariosForms/FormEditUser";
 /* Carrito */
 export * from "./Forms/Carrito/FormCarrito";
 

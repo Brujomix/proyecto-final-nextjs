@@ -18,7 +18,7 @@ export function TablaDeliverys({ deliverys }) {
       </thead>
       <tbody className="text-center">
         {listaDeliverys.map((e) => (
-          <tr>
+          <tr key={e.del_iden}>
             <td>
               <Link className="Link" href={`/Admin/Deliverys/${e.del_iden}`}>
                 {e.del_desc}
