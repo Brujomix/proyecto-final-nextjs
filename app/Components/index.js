@@ -1,4 +1,4 @@
-/* Toas */
+/* Toast */
 export * from "./Toast_Dinamico";
 
 /* Cards */
@@ -29,6 +29,7 @@ export * from "./Modal_Botones/BotonVolver";
 
 /* Comanda */
 export * from "./ReferenciaComandas";
+export * from "./RenderComanda";
 export * from "./CardComanda";
 
 /* Formularios */

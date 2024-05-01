@@ -14,8 +14,10 @@ import Swal from "sweetalert2";
 import { getEnvios, getPagos } from "@/app/CRUD/gets";
 import { resetCarrito } from "@/Redux/Slices/CarritoSlice";
 import { addComanda } from "@/app/CRUD/post";
+import { useDispatch } from "react-redux";
 
 export async function FormCarrito({ itemsCarrito, currentUser }) {
+  const dispatch = useDispatch();
   const Pagos = await getPagos();
   const Envios = await getEnvios();
   const date = format(new Date(), "dd-MM-yyyy");
@@ -38,9 +40,12 @@ export async function FormCarrito({ itemsCarrito, currentUser }) {
 
         return errors;
       }}
-      onSubmit={ async (values, { setSubmitting }) => {
+      onSubmit={async (values, { setSubmitting }) => { 
         const res = await addComanda(values);
         if (res.status === 200) {
+          setSubmitting(false);
+          dispatch(resetCarrito());
+          
           Swal.fire({
             icon: "success",
             titleText: "Prepararemos Tu Pedido",
@@ -48,8 +53,6 @@ export async function FormCarrito({ itemsCarrito, currentUser }) {
             allowOutsideClick: false,
             allowEscapeKey: false,
           });
-          setSubmitting(false);
-          dispatch(resetCarrito());
         } else {
           Toast_Dinamico("error", "No Pudimos Agregar el Pedido");
         }
