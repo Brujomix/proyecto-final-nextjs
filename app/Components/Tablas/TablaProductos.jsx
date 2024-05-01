@@ -8,7 +8,7 @@ import { deleteProducto } from "@/app/CRUD/delete";
 export function TablaProductos({ Productos }) {
   const [listaProductos, setListaProductos] = useState(Productos)
   return (
-    <table className="min-w-[338px] max-w-[600px]">
+    <table className="w-11/12">
       <thead className="bg-neutral-200">
         <tr className="font-semibold italic tracking-wider">
           <td className="text-center p-2">Producto</td>

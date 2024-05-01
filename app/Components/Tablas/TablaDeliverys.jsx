@@ -4,11 +4,12 @@ import React, { useState } from "react";
 import { BotonDinamico, Toast_Dinamico } from "@/app/Components";
 import { CiTrash } from "react-icons/ci";
 import { deleteDelivery } from "@/app/CRUD/delete";
+import { getDeliverys } from "@/app/CRUD/gets";
 
 export function TablaDeliverys({ deliverys }) {
   const [listaDeliverys, setListaDeliverys] = useState(deliverys);
   return (
-    <table className="min-w-[338px] max-w-[600px]">
+    <table className="w-11/12">
       <thead className="bg-neutral-200">
         <tr className="font-semibold italic tracking-wider">
           <td className="text-center p-2">Nombre</td>

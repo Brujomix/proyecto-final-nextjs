@@ -13,8 +13,11 @@ import { format } from "date-fns";
 import Swal from "sweetalert2";
 import { getEnvios, getPagos } from "@/app/CRUD/gets";
 import { addComanda } from "@/app/CRUD/post";
+import { useDispatch } from "react-redux";
+import { resetCarrito } from "@/Redux/Slices/CarritoSlice";
 
 export async function FormCarrito({ itemsCarrito, currentUser }) {
+  const dispatch = useDispatch()
   const Pagos = await getPagos();
   const Envios = await getEnvios();
   const date = format(new Date(), "dd-MM-yyyy");
@@ -47,6 +50,7 @@ export async function FormCarrito({ itemsCarrito, currentUser }) {
             allowEscapeKey:false
           })
           setSubmitting(false)
+          dispatch(resetCarrito())
         }else{
           Toast_Dinamico("error", "No Pudimos Agregar el Pedido")
         }
@@ -55,9 +59,7 @@ export async function FormCarrito({ itemsCarrito, currentUser }) {
       {({
         values,
         errors,
-        touched,
         handleChange,
-        handleBlur,
         handleSubmit,
         isSubmitting,
         setFieldValue,

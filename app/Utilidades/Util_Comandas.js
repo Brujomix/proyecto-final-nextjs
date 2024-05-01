@@ -1,4 +1,4 @@
-import { getPago, getUsuario, getEnvio, getProductobyId } from "../CRUD/gets";
+import { getProducto } from "../CRUD/gets";
 
 /* Funcion para Imprimir Comanda */
 export const imprimirComanda = (com_iden) => {
@@ -20,11 +20,13 @@ export const cambiaBackgroundComanda = (comanda) => {
   }
 };
 
-export const infoProductosCarrito = (com_carrito) => {
+export const infoProductosCarrito = async (com_carrito) => {
   const productosEncontrados = [];
-  com_carrito.forEach(async (e) => {
-    const p = await getProductobyId(e.pro_iden)
-    productosEncontrados.push({ infoProducto: p[0], ...e });
-  });
+  
+  for (const e of com_carrito) {
+    const p = await getProducto(e.pro_iden);
+    productosEncontrados.push({ infoProducto: p, ...e });
+  }
+  
   return productosEncontrados;
 };

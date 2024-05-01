@@ -1,16 +1,19 @@
-import React from 'react'
+import React from "react";
+import { HeaderDinamico, ReferenciaComandas } from "@/app/Components";
 
-export const metadata={
-    title:"Admin Comandas - E_Commerce",
-    description:"Pagina para Gestion de Comandas"
-  }
+export const metadata = {
+  title: "Admin Comandas - E_Commerce",
+  description: "Pagina para Gestion de Comandas",
+};
 
-function layoutComandas({children}) {
+function layoutComandas({ children }) {
   return (
-    <>
-      {children}
-    </>
-  )
+    <div className="grid grid-cols-1 gap-7">
+      <HeaderDinamico title={"Comandas"}></HeaderDinamico>
+      <ReferenciaComandas />
+      <>{children}</>
+    </div>
+  );
 }
 
-export default layoutComandas
+export default layoutComandas;

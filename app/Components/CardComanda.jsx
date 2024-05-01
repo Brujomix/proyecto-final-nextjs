@@ -1,14 +1,18 @@
 import React from "react";
 import { BotonDinamico } from "@/app/Components";
-import { avisarEnvio, cambiaBackgroundComanda, imprimirComanda, infoProductosCarrito } from "../Utilidades/Util_Comandas";
+import {
+  avisarEnvio,
+  cambiaBackgroundComanda,
+  imprimirComanda,
+  infoProductosCarrito,
+} from "../Utilidades/Util_Comandas";
 import { getEnvio, getPago, getUsuario } from "@/app/CRUD/gets";
 
 export async function CardComanda({ comanda }) {
-      const pago = await getPago(comanda.com_pago_iden)
-      const envio = await getEnvio(comanda.com_env_iden)
-      /* const infoProductos = infoProductosCarrito(comanda.com_carrito)
-      */
-      const usuario = await getUsuario(com_us_iden) 
+  const pago = await getPago(comanda.com_pago_iden);
+  const envio = await getEnvio(comanda.com_env_iden);
+  const infoProductos = await infoProductosCarrito(comanda.com_carrito);
+  const usuario = await getUsuario(comanda.com_us_iden);
   return (
     <div
       className={`${cambiaBackgroundComanda(
@@ -21,13 +25,13 @@ export async function CardComanda({ comanda }) {
         <span>{comanda.com_hora}</span>
       </div>
       <div className="grid grid-cols-1 gap-2 text-sm italic text-center">
-        <span>Datos del Cliente:</span>
+        <span className="underline">Datos del Cliente:</span>
         <span>{usuario.us_name}</span>
         <span>{usuario.us_dire}</span>
         <span>{usuario.us_tel}</span>
       </div>
-      {/* <div>
-        <span>Productos:</span>
+      <div>
+        <span className="underline">Productos:</span>
         {infoProductos.map((e) => (
           <div
             className="grid grid-cols-2 italic text-sm text-center gap-2"
@@ -39,7 +43,7 @@ export async function CardComanda({ comanda }) {
             <span className="text-semibold">{e.Cantidad}</span>
           </div>
         ))}
-      </div> */}
+      </div>
       <span>{comanda.com_entrega}</span>
       <div className="grid grid-cols-2 gap-1 text-center italic">
         <span>{envio.env_desc}</span>
@@ -51,10 +55,10 @@ export async function CardComanda({ comanda }) {
       </div>
 
       <div className="grid grid-cols-2 gap-1 text-sm">
-        <BotonDinamico onClick={()=>avisarEnvio(comanda.com_us_iden)}>
+        <BotonDinamico onClick={() => avisarEnvio(comanda.com_us_iden)}>
           Avisar Envio
         </BotonDinamico>
-        <BotonDinamico onClick={()=>imprimirComanda(comanda.com_iden)}>
+        <BotonDinamico onClick={() => imprimirComanda(comanda.com_iden)}>
           Imprimir
         </BotonDinamico>
       </div>

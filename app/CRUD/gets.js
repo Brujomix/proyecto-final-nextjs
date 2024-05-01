@@ -183,7 +183,7 @@ export const getProductosbyPuntos = async () => {
   return res.json();
 };
 
-export const getProductobyId = async (pro_iden) => {
+export const getProducto = async (pro_iden) => {
   const res = await fetch(`${UrlServer_nube}/Api/Producto/${pro_iden}`, {
     cache: "no-store",
   });

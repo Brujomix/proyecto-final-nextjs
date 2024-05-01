@@ -12,7 +12,7 @@ export function NavBarAdmin() {
     <div
       className={`${verificaUserRol(
         currentUser
-      )} w-full flex flex-row flex-wrap justify-center items-center p-4 gap-4`}
+      )} w-full flex flex-row flex-wrap justify-center items-center p-4 gap-4 border-gray-500 border-b-2`}
     >
       <Link
         className={`Link ${path === "/Admin/Comandas" ? "bg-gray-200" : ""}`}
