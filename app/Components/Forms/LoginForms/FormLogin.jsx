@@ -32,7 +32,7 @@ export function FormLogin() {
           }
           return errors;
         }}
-        onSubmit={async (values, { resetForm }) => {
+        onSubmit={async (values) => {
           const newUser = {
             us_email: values.us_email,
             us_pass: values.us_pass,
@@ -43,13 +43,11 @@ export function FormLogin() {
                 Toast_Dinamico("success", "Verificado");
                 dispatch(loginUser(res[0]));
                 localStorage.setItem("currentUser", JSON.stringify(res[0]));
-                resetForm();
               }
             });
           } catch (error) {
             console.log(error);
-            Toast_Dinamico("info", "Revisa Credenciales");
-            resetForm();
+            Toast_Dinamico("info", "Revisa Credenciales");      
           }
         }}
       >
@@ -59,7 +57,7 @@ export function FormLogin() {
           handleChange,
           handleBlur,
           handleSubmit,
-          resetForm,
+          
         }) => (
           <form className={style.formBody} onSubmit={handleSubmit}>
             <input
@@ -93,7 +91,7 @@ export function FormLogin() {
 
             <div className={style.containerBotones}>
               <BotonDinamico type="submit">Iniciar</BotonDinamico>
-              <BotonDinamico onClick={resetForm} type="reset">
+              <BotonDinamico type="reset">
                 Reset Form
               </BotonDinamico>
             </div>
