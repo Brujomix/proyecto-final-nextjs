@@ -1,4 +1,5 @@
 import React from 'react'
+import { HeaderDinamico } from '../Components'
 
 export const metadata={
   title:"Carrito - E_Commerce",
@@ -8,9 +9,7 @@ export const metadata={
 export default function layoutCarrito({children}) {
   return (
     <div className="flex flex-col justify-center items-center gap-7">
-      <span className="text-3xl font-semibold italic tracking-widest">
-        Carrito Compras
-      </span>
+      <HeaderDinamico title={"Carrito Compras"}></HeaderDinamico>
       <>{children}</>
     </div>
   )

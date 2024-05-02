@@ -1,9 +1,12 @@
+"use client"
 import React from "react";
 import { CardProductoCarrito } from "@/app/Components";
+import { useSelector } from "react-redux";
 
-export function ItemsCarrito({ itemsCarrito }) {
+export function ItemsCarrito() {
+  let itemsCarrito = useSelector((state) => state.Carrito.itemsCarrito);
   return (
-    <div className="flex flex-row flex-wrap justify-center items-center gap-4">
+    <div className="grid grid-cols-1 gap-2">
       <div className="space-y-2">
         {itemsCarrito.map((e) => (
           <CardProductoCarrito key={e} productoCarrito={e} />

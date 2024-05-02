@@ -8,6 +8,7 @@ export * from "./CardProductoCarrito";
 /* Carrito */
 export * from "./ItemsCarrito";
 export * from "./SinItemsCarrito";
+export * from "./CheckItemsCarrito";
 
 /*Usuarios*/
 export * from "./User_Login";
