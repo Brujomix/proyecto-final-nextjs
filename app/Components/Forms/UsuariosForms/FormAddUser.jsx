@@ -33,7 +33,7 @@ export function FormAddUser() {
           }
           return errors;
         }}
-        onSubmit={(values) => {
+        onSubmit={(values, {setSubmitting}) => {
           const newUser = {
             us_email: values.us_email,
             us_pass: values.confirmPass,
@@ -53,8 +53,8 @@ export function FormAddUser() {
             if (res.isConfirmed) {
               await addUsuario(newUser).then(response=>{
                 if (response.status === 200) {
-                  console.log(response);
                   Toast_Dinamico("success", "Registro Completo")
+                  setSubmitting(true)
                 }else{
                   Toast_Dinamico("error", "No Pudimos Registrarte")
                 }
@@ -66,10 +66,10 @@ export function FormAddUser() {
         {({
           values,
           errors,
-          touched,
           handleChange,
           handleBlur,
           handleSubmit,
+          isSubmitting
         }) => (
           <form className={style.formBody} onSubmit={handleSubmit}>
             <input
@@ -132,7 +132,7 @@ export function FormAddUser() {
             <div className={style.errorsForm}>{errors.confirmPass}</div>
 
             <div className={style.containerBotones}>
-              <BotonDinamico type="submit">Agregar Usuario</BotonDinamico>
+              <BotonDinamico disabled={isSubmitting} type="submit">Agregar Usuario</BotonDinamico>
               <BotonDinamico type="reset">Reset Form</BotonDinamico>
             </div>
           </form>

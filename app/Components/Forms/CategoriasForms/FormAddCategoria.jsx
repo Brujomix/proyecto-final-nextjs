@@ -17,7 +17,7 @@ export function FormAddCategoria() {
 
           return errors;
         }}
-        onSubmit={async (values, {setSubmitting, resetForm}) => {
+        onSubmit={async (values, {setSubmitting}) => {
           try {
             await addCategoria(values).then((res) => {
               if (res.status === 200) {
@@ -35,7 +35,6 @@ export function FormAddCategoria() {
         {({
           errors,
           isSubmitting,
-          resetForm,
           handleChange,
           handleBlur,
           handleSubmit,
@@ -54,7 +53,7 @@ export function FormAddCategoria() {
 
             <div className={style.containerBotones}>
               <BotonDinamico disabled={isSubmitting} type="submit">Agregar</BotonDinamico>
-              <BotonDinamico onClick={resetForm} type="reset">Reset Form</BotonDinamico>
+              <BotonDinamico type="reset">Reset Form</BotonDinamico>
             </div>
           </form>
         )}

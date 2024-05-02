@@ -20,7 +20,7 @@ export function FormEditUser({ ObjUser }) {
         validate={(values) => {
           const errors = {};
           if (!values.us_email) {
-            errors.us_email = "Required";
+            errors.us_email = "Campo Requerido";
           } else if (
             !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.us_email)
           ) {
@@ -32,8 +32,8 @@ export function FormEditUser({ ObjUser }) {
           try {
             await editUsuario(values).then((res) => {
               if (res.status === 200) {
-                Toast_Dinamico("success", "Producto Editado");
-                setSubmitting(false);
+                Toast_Dinamico("success", "Usuario Editado");
+                setSubmitting(true);
               }
             });
           } catch (error) {

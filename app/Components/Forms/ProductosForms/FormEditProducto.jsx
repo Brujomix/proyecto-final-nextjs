@@ -27,7 +27,6 @@ export function FormEditProducto({ ObjProducto, Categorias }) {
         }}
         onSubmit={async (values, { setSubmitting }) => {
           const NewValues = {
-            pro_iden: ObjProducto.pro_iden,
             pro_imagen: urlImg,
             pro_name: values.pro_name,
             pro_desc: values.pro_desc,
@@ -36,10 +35,10 @@ export function FormEditProducto({ ObjProducto, Categorias }) {
           };
 
           try {
-            await editProducto(NewValues).then((res) => {
+            await editProducto(ObjProducto.pro_iden, NewValues).then((res) => {
               if (res.status === 200) {
                 Toast_Dinamico("success", "Producto Editado");
-                setSubmitting(false);
+                setSubmitting(true);
               }
             });
           } catch (error) {
@@ -53,7 +52,6 @@ export function FormEditProducto({ ObjProducto, Categorias }) {
           errors,
           handleChange,
           handleSubmit,
-          setFieldValue,
           isSubmitting,
         }) => (
           <form className={style.formBody} onSubmit={handleSubmit}>

@@ -17,19 +17,17 @@ export function FormAddDelivery() {
 
           return errors;
         }}
-        onSubmit={async (values, { setSubmitting, resetForm }) => {
+        onSubmit={async (values, { setSubmitting }) => {
           try {
             await addDelivery(values).then((res) => {
               if (res.status === 200) {
                 Toast_Dinamico("success", "Producto Agregado");
                 setSubmitting(false);
-                resetForm();
               }
             });
           } catch (error) {
             console.log(error);
             Toast_Dinamico("error", "Intenta Más Tarde");
-            resetForm();
           }
         }}
       >
@@ -38,8 +36,7 @@ export function FormAddDelivery() {
           handleChange,
           handleBlur,
           handleSubmit,
-          isSubmitting,
-          resetForm,
+          isSubmitting
         }) => (
           <form className={style.formBody} onSubmit={handleSubmit}>
             <label>Agregar Delivery</label>
@@ -57,7 +54,7 @@ export function FormAddDelivery() {
               <BotonDinamico disabled={isSubmitting} type="submit">
                 Agregar
               </BotonDinamico>
-              <BotonDinamico onClick={resetForm} type="reset">
+              <BotonDinamico type="reset">
                 Reset Form
               </BotonDinamico>
             </div>

@@ -11,28 +11,26 @@ export function FormEditDelivery({objDelivery}) {
     <div>
     <Formik
       initialValues={{
-        del_iden : objDelivery.del_iden,
         del_desc: objDelivery.del_desc
       }}
       validate={(values) => {
         const errors = {};
-
+        if (!values.del_desc) {
+          errors.del_desc = "Campo Obligatorio"
+        }
         return errors;
       }}
-      onSubmit={async (values, {setSubmitting, resetForm}) => {
-
+      onSubmit={async (values, {setSubmitting}) => {
         try {
-          await editDelivery(values).then((res) => {
+          await editDelivery(objDelivery.del_iden, values).then((res) => {
             if (res.status === 200) {
               Toast_Dinamico("success", "Delivery Editado");
-              setSubmitting(false);
-              resetForm();
+              setSubmitting(true);
             }
           });
         } catch (error) {
           console.log(error);
           Toast_Dinamico("error", "Intenta Más Tarde");
-          resetForm();
         }
       }}
     >
@@ -41,8 +39,7 @@ export function FormEditDelivery({objDelivery}) {
         handleChange,
         handleBlur,
         handleSubmit,
-        isSubmitting,
-        resetForm
+        isSubmitting
       }) => (
         <form className={style.formBody} onSubmit={handleSubmit}>
           <label>Editar Delivery</label>
@@ -58,7 +55,7 @@ export function FormEditDelivery({objDelivery}) {
 
           <div className={style.containerBotones}>
             <BotonDinamico disabled={isSubmitting} type="submit">Editar</BotonDinamico>
-            <BotonDinamico onClick={resetForm} type="reset">Reset Form</BotonDinamico>
+            <BotonDinamico type="reset">Reset Form</BotonDinamico>
           </div>
         </form>
       )}

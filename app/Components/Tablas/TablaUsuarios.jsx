@@ -11,6 +11,7 @@ export function TablaUsuarios({ Usuarios, Roles }) {
     <table className="w-11/12">
       <thead className="bg-neutral-200">
         <tr className="font-semibold italic tracking-wider">
+          <td className="text-center p-2">Email</td>
           <td className="text-center p-2">Nombre</td>
           <td className="text-center p-2">Rol</td>
           <td className="text-center p-2">Dire</td>
@@ -20,20 +21,17 @@ export function TablaUsuarios({ Usuarios, Roles }) {
       </thead>
       <tbody className="text-center">
         {listaUsuarios.map((e) => (
-          <div key={e.us_iden}>
-            <tr>
-              <td className="text-center" colSpan={5}>
+            <tr key={e.us_iden}>
+              <td className="text-center">
                 {e.us_email}
               </td>
-            </tr>
-            <tr className="bg-gray-200" key={e.us_iden}>
-              <td className="py-2 text-sm italic">{e.us_name}</td>
-              <td className="py-2 text-sm italic">
+              <td className="py-2 px-2 text-sm italic">{e.us_name}</td>
+              <td className="py-2 px-2 text-sm italic">
                 {findName(Roles, "ro_iden", e.us_ro_iden, "ro_desc")}
               </td>
-              <td className="py-2 text-sm italic">{e.us_dire}</td>
-              <td className="py-2 text-sm italic">{e.us_tel}</td>
-              <td className="py-2 text-sm italic">
+              <td className="py-2 px-2 text-sm italic">{e.us_dire}</td>
+              <td className="py-2 px-2 text-sm italic">{e.us_tel}</td>
+              <td className="py-2 px-2 text-sm italic">
                 <BotonDinamico
                   onClick={async () => {
                     await deleteUsuario(e.us_iden).then((res) => {
@@ -53,7 +51,7 @@ export function TablaUsuarios({ Usuarios, Roles }) {
                 </BotonDinamico>
               </td>
             </tr>
-          </div>
+          
         ))}
       </tbody>
     </table>

@@ -17,8 +17,8 @@ export const putEstado = async (objEstado) => {
 };
 
 /* Usuario */
-export const editUsuario = async (objUsuario) => {
-  const res = await fetch(`${UrlServer_nube}/Api/Usuario`, {
+export const editUsuario = async (us_iden, objUsuario) => {
+  const res = await fetch(`${UrlServer_nube}/Api/Usuario/${us_iden}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -34,8 +34,8 @@ export const editUsuario = async (objUsuario) => {
 };
 
 /* Producto */
-export const editProducto = async (objProducto) => {
-  const res = await fetch(`${UrlServer_nube}/Api/Producto`, {
+export const editProducto = async (pro_iden, objProducto) => {
+  const res = await fetch(`${UrlServer_nube}/Api/Producto/${pro_iden}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -51,8 +51,8 @@ export const editProducto = async (objProducto) => {
 };
 
 /* Delivery */
-export const editDelivery = async (objDelivery) => {
-  const res = await fetch(`${UrlServer_nube}/Api/Delivery`, {
+export const editDelivery = async (del_iden, objDelivery) => {
+  const res = await fetch(`${UrlServer_nube}/Api/Delivery/${del_iden}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -68,8 +68,8 @@ export const editDelivery = async (objDelivery) => {
 };
 
 /* Categoria */
-export const editCategoria = async (objCategoria) => {
-  const res = await fetch(`${UrlServer_nube}/Api/Categoria`, {
+export const editCategoria = async (cat_iden, objCategoria) => {
+  const res = await fetch(`${UrlServer_nube}/Api/Categoria/${cat_iden}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

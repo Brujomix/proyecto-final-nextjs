@@ -20,25 +20,25 @@ export function FormContacto() {
             !values.contacto_nombre ||
             !values.contacto_mensaje
           ) {
-            errors.contacto_email = "Requerido";
-            errors.contacto_nombre = "Requerido";
-            errors.contacto_mensaje = "Requerido";
+            errors.contacto_email = "Campo Obligatorio";
+            errors.contacto_nombre = "Campo Obligatorio";
+            errors.contacto_mensaje = "Campo Obligatorio";
           }
           return errors;
         }}
-        onSubmit={(values) => {
+        onSubmit={(values, { setSubmitting}) => {
         setTimeout(() => {
             alert(JSON.stringify(values))
         }, 1000);
+          setSubmitting(true)
         }}
       >
         {({
-          values,
           errors,
-          touched,
           handleChange,
           handleBlur,
           handleSubmit,
+          isSubmitting
         }) => (
           <form className={style.formBody} onSubmit={handleSubmit}>
             <input
@@ -72,7 +72,7 @@ export function FormContacto() {
             <div className={style.errorsForm}>{errors.contacto_mensaje}</div>
 
             <div className={style.containerBotones}>
-              <BotonDinamico className="text-black text-sm" type="submit">
+              <BotonDinamico disabled={isSubmitting} className="text-black text-sm" type="submit">
                 Enviar Mensaje
               </BotonDinamico>
               <BotonDinamico className="text-black text-sm" type="reset">

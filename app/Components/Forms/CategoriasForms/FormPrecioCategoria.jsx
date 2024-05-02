@@ -21,9 +21,7 @@ export function FormPrecioCategoria({cat_desc}) {
       }}
     >
       {({
-        values,
         errors,
-        touched,
         handleChange,
         handleBlur,
         handleSubmit,
