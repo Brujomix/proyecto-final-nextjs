@@ -42,7 +42,8 @@ export function FormLogin() {
               if (res) {
                 Toast_Dinamico("success", "Verificado");
                 dispatch(loginUser(res[0]));
-                localStorage.setItem("currentUser", JSON.stringify(res[0]));
+              
+                //localStorage.setItem("currentUser", JSON.stringify(res[0]));
               }
             });
           } catch (error) {
