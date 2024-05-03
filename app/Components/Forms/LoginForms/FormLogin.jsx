@@ -5,7 +5,7 @@ import { BotonDinamico, Toast_Dinamico } from "@/app/Components";
 import style from "@/app/Components/Forms/form.module.css";
 import { useDispatch } from "react-redux";
 import { loginUser } from "@/Redux/Slices/UsuarioSlice";
-import { validarUsuario } from "@/app/CRUD/post";
+import { validarUsuario } from "@/app/CRUD/auth";
 
 export function FormLogin() {
   const dispatch = useDispatch();
@@ -41,25 +41,23 @@ export function FormLogin() {
             await validarUsuario(newUser).then((res) => {
               if (res) {
                 Toast_Dinamico("success", "Verificado");
-                dispatch(loginUser(res[0]));
-              
-                //localStorage.setItem("currentUser", JSON.stringify(res[0]));
+                const userSave = {
+                  us_name: res.us_name,
+                  us_rol: res.us_ro_iden,
+                  us_dire: res.us_dire,
+                  us_tel: res.us_tel,
+                };
+                dispatch(loginUser({ userSave }));
+                localStorage.setItem("currentUser", JSON.stringify(userSave));
               }
             });
           } catch (error) {
             console.log(error);
-            Toast_Dinamico("info", "Revisa Credenciales");      
+            Toast_Dinamico("info", "Revisa Credenciales");
           }
         }}
       >
-        {({
-          values,
-          errors,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-          
-        }) => (
+        {({ values, errors, handleChange, handleBlur, handleSubmit }) => (
           <form className={style.formBody} onSubmit={handleSubmit}>
             <input
               className={style.inputData}
@@ -92,9 +90,7 @@ export function FormLogin() {
 
             <div className={style.containerBotones}>
               <BotonDinamico type="submit">Iniciar</BotonDinamico>
-              <BotonDinamico type="reset">
-                Reset Form
-              </BotonDinamico>
+              <BotonDinamico type="reset">Reset Form</BotonDinamico>
             </div>
           </form>
         )}
