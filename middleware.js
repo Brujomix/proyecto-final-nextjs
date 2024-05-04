@@ -1,15 +1,14 @@
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server'
  
-// This function can be marked `async` if using `await` inside
 export function middleware(request) {
   console.log("Visitando", request.nextUrl.pathname);
-  const auth = cookies().getAll();
-   console.log(auth);
-  return NextResponse.redirect(new URL('/', request.url))
+  const cookieAuth = cookies().get("mi_Cookie_Usuario");
+   if(cookieAuth === undefined || cookieAuth.value === "false"){
+     return NextResponse.redirect(new URL('/Login', request.url))
+    }
 }
  
-// See "Matching Paths" below to learn more
 export const config = {
   matcher: '/Admin/:path*',
 }
