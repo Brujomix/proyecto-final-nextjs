@@ -8,6 +8,7 @@ export const validarUsuario = async (objUsuario) => {
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify(objUsuario),
     });
   

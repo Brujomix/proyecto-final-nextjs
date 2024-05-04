@@ -39,16 +39,11 @@ export function FormLogin() {
           };
           try {
             await validarUsuario(newUser).then((res) => {
+              console.log(res);
               if (res) {
                 Toast_Dinamico("success", "Verificado");
-                const userSave = {
-                  us_name: res.us_name,
-                  us_rol: res.us_ro_iden,
-                  us_dire: res.us_dire,
-                  us_tel: res.us_tel,
-                };
-                dispatch(loginUser({ userSave }));
-                localStorage.setItem("currentUser", JSON.stringify(userSave));
+                dispatch(loginUser(res));
+                localStorage.setItem("currentUser", JSON.stringify(res));
               }
             });
           } catch (error) {
