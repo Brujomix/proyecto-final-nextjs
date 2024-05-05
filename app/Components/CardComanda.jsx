@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { BotonDinamico } from "@/app/Components";
 import {
@@ -7,13 +7,9 @@ import {
   imprimirComanda,
   infoProductosCarrito,
 } from "../Utilidades/Util_Comandas";
-import { getEnvio, getPago, getUsuario } from "@/app/CRUD/gets";
 
-export async function CardComanda ({ comanda }) {
-  const pago = await getPago(comanda.com_pago_iden);
-  const envio = await getEnvio(comanda.com_env_iden);
-  const infoProductos = await infoProductosCarrito(comanda.com_carrito);
-  const usuario = await getUsuario(comanda.com_us_iden);
+export async function CardComanda({ comanda }) {
+  console.log(comanda);
   return (
     <div
       className={`${cambiaBackgroundComanda(
@@ -27,16 +23,16 @@ export async function CardComanda ({ comanda }) {
       </div>
       <div className="grid grid-cols-1 gap-2 text-sm italic text-center">
         <span className="underline">Datos del Cliente:</span>
-        <span>{usuario.us_name}</span>
-        <span>{usuario.us_dire}</span>
-        <span>{usuario.us_tel}</span>
+        <span>{comanda.UserName}</span>
+        <span>{comanda.UserDire}</span>
+        <span>{comanda.UserTel}</span>
       </div>
-      <div>
+      {/* <div>
         <span className="underline">Productos:</span>
-        {infoProductos.map((e) => (
+        {comanda.com_carrito.map((e) => (
           <div
-            className="grid grid-cols-2 italic text-sm text-center gap-2"
-            key={e}
+          className="grid grid-cols-2 italic text-sm text-center gap-2"
+          key={e}
           >
             <span>Nombre</span>
             <span>Cantidad</span>
@@ -44,11 +40,12 @@ export async function CardComanda ({ comanda }) {
             <span className="text-semibold">{e.Cantidad}</span>
           </div>
         ))}
-      </div>
+      </div> */}
+
       <span>{comanda.com_entrega}</span>
       <div className="grid grid-cols-2 gap-1 text-center italic">
-        <span>{envio.env_desc}</span>
-        <span>{pago.pago_desc}</span>
+        <span>{comanda.DescEnvio}</span>
+        <span>{comanda.PagoDesc}</span>
         <div className="flex justify-around col-span-2">
           <span>Total</span>
           <span className="text-red-700">$ {3125}</span>
@@ -65,4 +62,4 @@ export async function CardComanda ({ comanda }) {
       </div>
     </div>
   );
-};
+}

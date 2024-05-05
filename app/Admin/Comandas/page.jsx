@@ -5,7 +5,7 @@ import { getComandasFech } from "@/app/CRUD/gets";
 async function Comandas() {
 
   const listaComandas = await getComandasFech();
-
+  console.log(listaComandas);
   return (
     <main className="flex flex-row flex-wrap justify-center items-center gap-2 p-2">
       {listaComandas.map((e) => (

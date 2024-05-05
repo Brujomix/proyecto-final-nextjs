@@ -44,6 +44,7 @@ export async function FormCarrito() {
         return errors;
       }}
       onSubmit={async (values, { setSubmitting }) => {
+        console.log(values);
         const res = await addComanda(values);
         if (res.status === 200) {
           setSubmitting(false);

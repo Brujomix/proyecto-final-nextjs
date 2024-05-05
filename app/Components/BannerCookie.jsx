@@ -2,13 +2,19 @@
 import React, { useEffect, useState } from "react";
 import { BotonDinamico } from "@/app/Components";
 import Image from "next/image";
+import { ObtenerCookie } from "@/app/Utilidades/ObtenerCookie";
 
 export function BannerCookie() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
+    const cookie = ObtenerCookie("cookies");
     setTimeout(() => {
-      setShow(true);
+      if (cookie == null) {
+        setShow(true);
+      } else {
+        setShow(false);
+      }
     }, 5000);
   }, []);
 
@@ -28,7 +34,7 @@ export function BannerCookie() {
         <BotonDinamico
           onClick={() => {
             document.cookie =
-              "cookies=aceptado; path=/; expires=" +
+              "cookies=true; path=/; expires=" +
               new Date(new Date().getTime() + 86400000).toUTCString();
             setShow(false);
           }}
