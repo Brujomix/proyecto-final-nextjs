@@ -75,3 +75,6 @@ export * from "./Tablas/TablaUsuarios";
 
 /* Real Time */
 export * from "./RealTime";
+
+/* Cookie */
+export * from "./BannerCookie";
