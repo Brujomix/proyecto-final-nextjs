@@ -39,7 +39,7 @@ export function FormLogin() {
           };
           try {
             await validarUsuario(newUser).then((res) => {
-              console.log(newUser);
+              console.log(res);
               if (res) {
                 Toast_Dinamico("success", "Verificado");
                 dispatch(loginUser(res));
