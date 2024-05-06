@@ -1,62 +1,61 @@
 "use client";
-import React from "react";
-import { BotonDinamico } from "@/app/Components";
+import React, { Suspense } from "react";
+import { BotonDinamico, InfoProductos_Comanda } from "@/app/Components";
 import {
   avisarEnvio,
   cambiaBackgroundComanda,
   imprimirComanda,
-  infoProductosCarrito,
 } from "../Utilidades/Util_Comandas";
 
 export async function CardComanda({ comanda }) {
-  console.log(comanda);
   return (
     <div
       className={`${cambiaBackgroundComanda(
         comanda
-      )} w-[190px] flex flex-col justify-center items-center border gap-3 border-neutral-500 rounded-md p-1`}
+      )} grid grid-cols-1 gap-2 p-1 rounded-md`}
     >
-      <span className="text-2xl">Comanda N° {comanda.com_iden}</span>
-      <div className="text-sm italic flex justify-around items-center gap-2">
-        <span>{comanda.com_date}</span>
-        <span>{comanda.com_hora}</span>
+      <div className="grid grid-cols-2 gap-1 text-center">
+        <span className="text-1xl font-semibold">
+          Com. N° {comanda.com_iden}
+        </span>
+        <div className="grid drid-cols-1 gap-1 text-center">
+          <span className="text-sm italic">{comanda.com_date}</span>
+          <span className="text-sm italic">{comanda.com_hora}</span>
+        </div>
+        <span className="text-sm italic text-center col-span-2">
+          {"comanda.com_entrega"}
+        </span>
       </div>
-      <div className="grid grid-cols-1 gap-2 text-sm italic text-center">
-        <span className="underline">Datos del Cliente:</span>
-        <span>{comanda.UserName}</span>
-        <span>{comanda.UserDire}</span>
-        <span>{comanda.UserTel}</span>
+      <div className="grid grid-cols-3 gap-1 text-center">
+        <span className="underline text-sm">Cliente: </span>
+        <span className="text-sm italic">{comanda.UserName}</span>
+        <span className="text-sm italic">{comanda.UserTel}</span>
+        <span className="text-sm italic text-center col-span-3">
+          {comanda.UserDire}
+        </span>
       </div>
-      {/* <div>
-        <span className="underline">Productos:</span>
-        {comanda.com_carrito.map((e) => (
-          <div
-          className="grid grid-cols-2 italic text-sm text-center gap-2"
-          key={e}
-          >
-            <span>Nombre</span>
-            <span>Cantidad</span>
-            <span className="text-semibold">{e.infoProducto.pro_name}</span>
-            <span className="text-semibold">{e.Cantidad}</span>
-          </div>
-        ))}
-      </div> */}
-
-      <span>{comanda.com_entrega}</span>
-      <div className="grid grid-cols-2 gap-1 text-center italic">
+      <div>
+        <InfoProductos_Comanda com_carrito={comanda.com_carrito} />
+      </div>
+      <div className="flex flex-row justify-around">
         <span>{comanda.DescEnvio}</span>
         <span>{comanda.PagoDesc}</span>
-        <div className="flex justify-around col-span-2">
-          <span>Total</span>
-          <span className="text-red-700">$ {3125}</span>
-        </div>
       </div>
-
-      <div className="grid grid-cols-2 gap-1 text-sm">
-        <BotonDinamico onClick={() => avisarEnvio(comanda.com_iden)}>
+      <div className="text-right mr-2">
+        <span className="text-sm italic ">Total </span>
+        <span className="text-red-700">$ {3125}</span>
+      </div>
+      <div className="text-sm flex flex-row justify-around p-1 rounded-md">
+        <BotonDinamico
+          className={"bg-neutral-200 "}
+          onClick={() => avisarEnvio(comanda.com_iden)}
+        >
           Avisar Envio
         </BotonDinamico>
-        <BotonDinamico onClick={() => imprimirComanda(comanda.com_iden)}>
+        <BotonDinamico
+          className={"bg-neutral-200 "}
+          onClick={() => imprimirComanda(comanda.com_iden)}
+        >
           Imprimir
         </BotonDinamico>
       </div>

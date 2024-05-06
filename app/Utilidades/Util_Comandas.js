@@ -28,14 +28,3 @@ export const cambiaBackgroundComanda = (comanda) => {
       return "bg-blue-300";
   }
 };
-
-export const infoProductosCarrito = async (com_carrito) => {
-  const productosEncontrados = [];
-
-  for (const e of com_carrito) {
-    const p = await getProducto(e.pro_iden);
-    productosEncontrados.push({ infoProducto: p, ...e });
-  }
-
-  return productosEncontrados;
-};

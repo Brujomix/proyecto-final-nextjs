@@ -10,6 +10,7 @@ export * from "./ItemsCarrito";
 export * from "./SinItemsCarrito";
 export * from "./CheckItemsCarrito";
 
+
 /*Usuarios*/
 export * from "./User_Login";
 export * from "./User_NoLogin";
@@ -32,6 +33,7 @@ export * from "./Modal_Botones/BotonVolver";
 export * from "./ReferenciaComandas";
 export * from "./RenderComanda";
 export * from "./CardComanda";
+export * from "./InfoProductos_Comanda";
 
 /* Formularios */
 /* Categorias */

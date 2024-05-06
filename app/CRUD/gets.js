@@ -4,9 +4,7 @@ import { format } from "date-fns";
 
 /* Estado APP */
 export const getEstadoApp = createAsyncThunk("EstadoApp", async () => {
-  const res = await fetch(`${UrlServer_nube}/Api/Encender`, {
-    cache: "no-store",
-  });
+  const res = await fetch(`${UrlServer_nube}/Api/Encender`);
   if (!res.ok) {
     const errorMessage = await res.text();
     throw new Error(`Error del Servidor: ${errorMessage}`);
@@ -27,9 +25,7 @@ export const getCategorias = async () => {
 };
 
 export const getCategoria = async (cat_iden) => {
-  const res = await fetch(`${UrlServer_nube}/Api/Categoria/${cat_iden}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(`${UrlServer_nube}/Api/Categoria/${cat_iden}`);
   if (!res.ok) {
     const errorMessage = await res.text();
     throw new Error(`Error del Servidor: ${errorMessage}`);
@@ -63,9 +59,7 @@ export const getComandasFechRedux = createAsyncThunk("Comandas", async () => {
 
 export const getComandasFech = async () => {
   const now = format(new Date(), "dd-MM-yyyy");
-  const res = await fetch(`${UrlServer_nube}/Api/Comandas/${now}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(`${UrlServer_nube}/Api/Comandas/${now}`);
   if (!res.ok) {
     const errorMessage = await res.text();
     throw new Error(`Error del Servidor: ${errorMessage}`);
@@ -74,9 +68,7 @@ export const getComandasFech = async () => {
 };
 
 export const getEstadosComanda = async () => {
-  const res = await fetch(`${UrlServer_nube}/Api/EstadoComandas`, {
-    cache: "no-store",
-  });
+  const res = await fetch(`${UrlServer_nube}/Api/EstadoComandas`);
   if (!res.ok) {
     const errorMessage = await res.text();
     throw new Error(`Error del Servidor: ${errorMessage}`);
@@ -97,9 +89,7 @@ export const getDeliverys = async () => {
 };
 
 export const getDelivery = async (del_iden) => {
-  const res = await fetch(`${UrlServer_nube}/Api/Delivery/${del_iden}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(`${UrlServer_nube}/Api/Delivery/${del_iden}`);
   if (!res.ok) {
     const errorMessage = await res.text();
     throw new Error(`Error del Servidor: ${errorMessage}`);
@@ -109,9 +99,7 @@ export const getDelivery = async (del_iden) => {
 
 /* Envios */
 export const getEnvios = async () => {
-  const res = await fetch(`${UrlServer_nube}/Api/Envios`, {
-    cache: "no-store",
-  });
+  const res = await fetch(`${UrlServer_nube}/Api/Envios`);
   if (!res.ok) {
     const errorMessage = await res.text();
     throw new Error(`Error del Servidor: ${errorMessage}`);
@@ -120,9 +108,7 @@ export const getEnvios = async () => {
 };
 
 export const getEnvio = async (env_iden) => {
-  const res = await fetch(`${UrlServer_nube}/Api/Envio/${env_iden}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(`${UrlServer_nube}/Api/Envio/${env_iden}`);
   if (!res.ok) {
     const errorMessage = await res.text();
     throw new Error(`Error del Servidor: ${errorMessage}`);
@@ -143,9 +129,7 @@ export const getPrecioEnvio = async () => {
 
 /* Pagos */
 export const getPagos = async () => {
-  const res = await fetch(`${UrlServer_nube}/Api/Pagos`, {
-    cache: "no-store",
-  });
+  const res = await fetch(`${UrlServer_nube}/Api/Pagos`);
   if (!res.ok) {
     const errorMessage = await res.text();
     throw new Error(`Error del Servidor: ${errorMessage}`);
@@ -154,9 +138,7 @@ export const getPagos = async () => {
 };
 
 export const getPago = async (pago_iden) => {
-  const res = await fetch(`${UrlServer_nube}/Api/Pago/${pago_iden}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(`${UrlServer_nube}/Api/Pago/${pago_iden}`);
   if (!res.ok) {
     throw new Error("Error del Servidor");
   }
@@ -196,9 +178,7 @@ export const getProductosbyPuntos = async () => {
 };
 
 export const getProducto = async (pro_iden) => {
-  const res = await fetch(`${UrlServer_nube}/Api/Producto/${pro_iden}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(`${UrlServer_nube}/Api/Producto/${pro_iden}`);
   if (!res.ok) {
     const errorMessage = await res.text();
     throw new Error(`Error del Servidor: ${errorMessage}`);
@@ -208,9 +188,7 @@ export const getProducto = async (pro_iden) => {
 
 /* Roles */
 export const getRoles = async () => {
-  const res = await fetch(`${UrlServer_nube}/Api/Roles`, {
-    cache: "no-store",
-  });
+  const res = await fetch(`${UrlServer_nube}/Api/Roles`);
   if (!res.ok) {
     const errorMessage = await res.text();
     throw new Error(`Error del Servidor: ${errorMessage}`);
@@ -231,9 +209,7 @@ export const getUsuarios = async () => {
 };
 
 export const getUsuario = async (us_iden) => {
-  const res = await fetch(`${UrlServer_nube}/Api/Usuario/${us_iden}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(`${UrlServer_nube}/Api/Usuario/${us_iden}`);
   if (!res.ok) {
     const errorMessage = await res.text();
     throw new Error(`Error del Servidor: ${errorMessage}`);

@@ -27,10 +27,10 @@ export function BannerCookie() {
       <div>
         <Image src="/cookies.png" width={80} height={80} alt="Imagen Cookie" />
         <span className="text-center tex-xl italic tracking-wide">
-          Este sitio utiliza cookies para mejorar la experiencia del usuario
+          Acepta nuestras cookies para mejorar la experiencia del usuario
         </span>
       </div>
-      <div className="grid grid-cols-1 md:gid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:gid-cols-2 gap-2">
         <BotonDinamico
           onClick={() => {
             document.cookie =

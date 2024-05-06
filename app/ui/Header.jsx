@@ -5,7 +5,7 @@ import { Brand, CarritoIcon, EstadoApp } from "@/app/ui";
 export function Header() {
   return (
     <header className="z-500 grid grid-cols-3 gap-2 p-1 fixed top-0 w-full bg-slate-50">
-      <div className="col-span-3 border-b">
+      <div className="col-span-3">
         <Brand />
       </div>
       <div className="flex justify-center items-center">
