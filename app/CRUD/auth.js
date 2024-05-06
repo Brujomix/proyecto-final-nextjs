@@ -5,6 +5,9 @@ import { UrlServer_nube } from "../Utilidades/UrlServer";
 export const validarUsuario = async (objUsuario) => {
   const res = await fetch(`${UrlServer_nube}/Api/ValidarUsuario`, {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
     credentials: "include",
     body: JSON.stringify(objUsuario),
   });
