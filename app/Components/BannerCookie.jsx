@@ -35,7 +35,8 @@ export function BannerCookie() {
           onClick={() => {
             document.cookie =
               "cookies=true; path=/; expires=" +
-              new Date(new Date().getTime() + 86400000).toUTCString();
+              new Date(new Date().getTime() + 86400000).toUTCString() +
+              "; max-age=3600; secure; HttpOnly";
             setShow(false);
           }}
         >
