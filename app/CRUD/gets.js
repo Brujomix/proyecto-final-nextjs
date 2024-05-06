@@ -15,7 +15,7 @@ export const getEstadoApp = createAsyncThunk("EstadoApp", async () => {
 /* Categorias */
 export const getCategorias = async () => {
   const res = await fetch(`${UrlServer_nube}/Api/Categorias`, {
-    cache: "no-store",
+    cache: "no-store"
   });
   if (!res.ok) {
     const errorMessage = await res.text();
