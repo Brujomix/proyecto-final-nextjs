@@ -33,10 +33,10 @@ export function BannerCookie() {
       <div className="grid grid-cols-1 md:gid-cols-2 gap-2">
         <BotonDinamico
           onClick={() => {
-            document.cookie =
+            /* document.cookie =
               "cookies=true; path=/; expires=" +
               new Date(new Date().getTime() + 86400000).toUTCString() +
-              "; max-age=3600; secure; HttpOnly";
+              "; max-age=3600; secure; HttpOnly"; */
             setShow(false);
           }}
         >
