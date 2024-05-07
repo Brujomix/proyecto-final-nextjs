@@ -7,8 +7,8 @@ import {
   imprimirComanda,
 } from "../Utilidades/Util_Comandas";
 
-export async function CardComanda({ comanda }) {
-  console.log(comanda);
+export function CardComanda({ comanda }) {
+  
   return (
     <div
       className={`${cambiaBackgroundComanda(
