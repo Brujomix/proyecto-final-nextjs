@@ -60,7 +60,7 @@ export const getComandasFechRedux = createAsyncThunk("Comandas", async () => {
 export const getComandasFech = async () => {
   const now = format(new Date(), "dd-MM-yyyy");
   const res = await fetch(`${UrlServer_nube}/Api/Comandas/${now}`, {
-    cache: "no-store",
+    cache: "no-store", credentials: "include"
   });
   if (!res.ok) {
     const errorMessage = await res.text();
