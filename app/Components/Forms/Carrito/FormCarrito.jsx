@@ -17,8 +17,10 @@ import { addComanda } from "@/app/CRUD/post";
 import { useDispatch, useSelector } from "react-redux";
 import { socket } from "@/app/Utilidades/Util_Socket";
 import { navigarHacia } from "@/app/Utilidades/Util_App";
+import { useRouter } from "next/navigation";
 
 export async function FormCarrito() {
+  const router = useRouter()
   const itemsCarrito = useSelector((state) => state.Carrito.itemsCarrito);
   const currentUser = useSelector((state) => state.Usuario.currentUser);
   const dispatch = useDispatch();
@@ -63,7 +65,7 @@ export async function FormCarrito() {
             allowOutsideClick: false,
             allowEscapeKey: false,
           });
-          navigarHacia("/");
+          navigarHacia("/", router);
         } else {
           Toast_Dinamico("error", "No Pudimos Agregar el Pedido");
         }

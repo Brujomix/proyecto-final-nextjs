@@ -5,8 +5,11 @@ import { BotonDinamico, Toast_Dinamico } from "@/app/Components";
 import style from "@/app/Components/Forms/form.module.css";
 import Swal from "sweetalert2";
 import { addUsuario } from "@/app/CRUD/post";
+import { useRouter } from "next/navigation";
+import { navigarHacia } from "@/app/Utilidades/Util_App";
 
 export function FormAddUser() {
+  const router = useRouter()
   return (
     <div>
       <Formik
@@ -55,6 +58,7 @@ export function FormAddUser() {
                 if (response.status === 200) {
                   Toast_Dinamico("success", "Registro Completo")
                   setSubmitting(true)
+                  navigarHacia("/Login", router)
                 }else{
                   Toast_Dinamico("error", "No Pudimos Registrarte")
                 }

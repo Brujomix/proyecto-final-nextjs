@@ -6,8 +6,11 @@ import style from "@/app/Components/Forms/form.module.css";
 import { useDispatch } from "react-redux";
 import { loginUser } from "@/Redux/Slices/UsuarioSlice";
 import { validarUsuario } from "@/app/CRUD/auth";
+import { useRouter } from "next/navigation";
+import { navigarHacia } from "@/app/Utilidades/Util_App";
 
 export function FormLogin() {
+  const router = useRouter()
   const dispatch = useDispatch();
   return (
     <div>
@@ -43,6 +46,7 @@ export function FormLogin() {
                 Toast_Dinamico("success", "Verificado");
                 dispatch(loginUser(res));
                 localStorage.setItem("currentUser", JSON.stringify(res));
+                navigarHacia("/", router)
               }
             });
           } catch (error) {
