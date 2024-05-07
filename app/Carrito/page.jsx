@@ -12,8 +12,9 @@ export default function CarritoPage() {
   const [itemsCarrito, setItemsCarrito] = useState([])
 
   useEffect(()=>{
-    const carritLS = localStorage.getItem("carritoStorage")
-    if (carritLS === null) {
+    const carritoLS = localStorage.getItem("carritoStorage")
+    console.log(carritoLS);
+    if (carritoLS === null) {
       setItemsCarrito(carritoRedux)
     }
   },[])

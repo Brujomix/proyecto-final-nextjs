@@ -25,6 +25,7 @@ export async function FormCarrito() {
   const Envios = await getEnvios();
   const date = format(new Date(), "dd-MM-yyyy");
   const hora = format(new Date(), "HH:mm:ss");
+
   return (
     <Formik
       initialValues={{
@@ -44,7 +45,6 @@ export async function FormCarrito() {
         return errors;
       }}
       onSubmit={async (values, { setSubmitting }) => {
-        console.log(values);
         const res = await addComanda(values);
         if (res.status === 200) {
           setSubmitting(false);
@@ -57,7 +57,7 @@ export async function FormCarrito() {
             allowOutsideClick: false,
             allowEscapeKey: false,
           });
-          localStorage.setItem("carritoStorage", JSON.stringify(values));
+          
         } else {
           Toast_Dinamico("error", "No Pudimos Agregar el Pedido");
         }

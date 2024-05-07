@@ -16,10 +16,10 @@ export const EstadoAppSlice = createSlice({
     builder
       .addCase(getEstadoApp.fulfilled, (state, action) => {
         switch (action.payload.enc_desc) {
-          case 1:
+          case "1":
              state.Estado = true
             break;
-          case 0:
+          case "0":
              state.Estado = false
             break;
         }

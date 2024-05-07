@@ -15,7 +15,7 @@ export const getEstadoApp = createAsyncThunk("EstadoApp", async () => {
 /* Categorias */
 export const getCategorias = async () => {
   const res = await fetch(`${UrlServer_nube}/Api/Categorias`, {
-    cache: "no-store"
+    cache: "no-store",
   });
   if (!res.ok) {
     const errorMessage = await res.text();
@@ -59,7 +59,9 @@ export const getComandasFechRedux = createAsyncThunk("Comandas", async () => {
 
 export const getComandasFech = async () => {
   const now = format(new Date(), "dd-MM-yyyy");
-  const res = await fetch(`${UrlServer_nube}/Api/Comandas/${now}`);
+  const res = await fetch(`${UrlServer_nube}/Api/Comandas/${now}`, {
+    cache: "no-store",
+  });
   if (!res.ok) {
     const errorMessage = await res.text();
     throw new Error(`Error del Servidor: ${errorMessage}`);

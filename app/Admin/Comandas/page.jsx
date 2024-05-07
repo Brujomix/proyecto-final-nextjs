@@ -3,6 +3,7 @@ import { CardComanda, CardComandaSkeleton } from "@/app/Components";
 import { getComandasFech } from "@/app/CRUD/gets";
 
 async function Comandas() {
+
   const listaComandas = await getComandasFech();
 
   return (
@@ -12,7 +13,7 @@ async function Comandas() {
           <span className="font-semibold text-ms italic tracking-widest">No se Han Registrado Comandas</span>
         </div>
       ) : (
-        <div>
+        <div className="flex flex-row flex-wrap gap-2">
           {listaComandas.map((e) => (
             <Suspense key={e.com_iden} fallback={<CardComandaSkeleton />}>
               <CardComanda comanda={e} />

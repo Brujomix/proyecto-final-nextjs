@@ -14,7 +14,7 @@ export function Brand() {
         E-Commerce NextJS
       </figcaption>
       </div>
-      <hr className="w-full h-2 bg-neutral-500 rounded-full"/>
+      <hr className="w-full h-2 bg-neutral-300 rounded-full"/>
     </div>
   );
 }

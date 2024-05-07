@@ -36,6 +36,7 @@ router.get("/Api/Comandas/:Date", async (req, res) => {
   }
 });
 
+
 router.get("/Api/Comandas/:IDUser/:Date", async (req, res) => {
   try {
     const promisePool = pool.promise();

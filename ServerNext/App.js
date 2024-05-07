@@ -32,9 +32,15 @@ App.use(
     allowedHeaders: "Content-Type,Authorization",
   })
 );
-App.use(express.json({limit: "10mb"}));
-App.use(express.urlencoded({extended: true, limit:"10mb"}))
+App.use(express.json({ limit: "10mb" }));
+App.use(express.urlencoded({ extended: true, limit: "10mb" }));
 App.use(cookieParser());
+
+App.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  next();
+});
 
 const server = http.createServer(App);
 const io = new Server(server, {
@@ -47,12 +53,12 @@ const io = new Server(server, {
 io.on("connection", (socket) => {
   console.log("Conected Socket", socket.id);
   socket.on("cambiaEstado", (ObjEstado) => {
-    socket.broadcast.emit("nuevoEstado", ObjEstado)
+    socket.broadcast.emit("nuevoEstado", ObjEstado);
   });
-  socket.on("agregarComanda", (ObjComanda)=>{
-	console.log(ObjComanda)
-    socket.broadcast.emit("nuevaComanda", ObjComanda)
-})
+  socket.on("agregarComanda", (ObjComanda) => {
+    console.log(ObjComanda);
+    socket.broadcast.emit("nuevaComanda", ObjComanda);
+  });
   socket.on("disconnect", () => {
     console.log("Disconect socket", socket.id);
   });
