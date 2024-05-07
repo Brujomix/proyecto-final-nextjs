@@ -23,7 +23,6 @@ export function FormAddCategoria() {
               if (res.status === 200) {
                 Toast_Dinamico("success", "Categoria Agregada");
                 setSubmitting(false);
-                resetForm();
               }
             });
           } catch (error) {
