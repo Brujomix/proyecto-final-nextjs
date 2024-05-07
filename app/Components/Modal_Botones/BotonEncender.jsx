@@ -19,7 +19,7 @@ export function BotonEncender({currentUser}) {
     socket.on("nuevoEstado", (ObjEsatdo) => {
       dispatch(setEstado(ObjEsatdo.estado));
     });
-  }, [currentEstado]);
+  }, [currentEstado, dispatch]);
 
 
   return (

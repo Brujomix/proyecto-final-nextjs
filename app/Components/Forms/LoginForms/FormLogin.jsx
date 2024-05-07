@@ -7,11 +7,13 @@ import { useDispatch } from "react-redux";
 import { loginUser } from "@/Redux/Slices/UsuarioSlice";
 import { validarUsuario } from "@/app/CRUD/auth";
 import { useRouter } from "next/navigation";
-import { navigarHacia } from "@/app/Utilidades/Util_App";
 
 export function FormLogin() {
   const router = useRouter()
   const dispatch = useDispatch();
+  const navegarHacia = (path) => {
+    router.push(path);
+  };
   return (
     <div>
       <Formik
@@ -46,7 +48,7 @@ export function FormLogin() {
                 Toast_Dinamico("success", "Verificado");
                 dispatch(loginUser(res));
                 localStorage.setItem("currentUser", JSON.stringify(res));
-                navigarHacia("/", router)
+                navegarHacia("/")
               }
             });
           } catch (error) {

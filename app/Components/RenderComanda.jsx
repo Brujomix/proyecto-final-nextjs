@@ -11,7 +11,7 @@ export function RenderComanda({comandas}) {
     socket.on("nuevaComanda", (objComanda)=>{
       setUpdate(!update)
     })
-  },[])
+  },[update])
   
   return (
     <div className="flex flex-row flex-wrap justify-center items-center gap-2 p-2">
