@@ -2,14 +2,14 @@ import { UrlServer_nube } from "../Utilidades/UrlServer";
 
 /* Validaciones de Usuario */
 
-export const validarUsuario = async (objUsuario) => {
+export const validarUsuario = async (objUser) => {
   const res = await fetch(`${UrlServer_nube}/Api/ValidarUsuario`, {
     method: "POST",
+    credentials: "include",
     headers: {
       "Content-Type": "application/json",
     },
-    credentials: "include",
-    body: JSON.stringify(objUsuario),
+    body: JSON.stringify(objUser),
   });
 
   if (!res.ok) {

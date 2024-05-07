@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import {
   ConvierteCarrito,
   checkUser,
@@ -16,6 +16,7 @@ import { resetCarrito } from "@/Redux/Slices/CarritoSlice";
 import { addComanda } from "@/app/CRUD/post";
 import { useDispatch, useSelector } from "react-redux";
 import { socket } from "@/app/Utilidades/Util_Socket";
+import { navigarHacia } from "@/app/Utilidades/Util_App";
 
 export async function FormCarrito() {
   const itemsCarrito = useSelector((state) => state.Carrito.itemsCarrito);
@@ -41,7 +42,12 @@ export async function FormCarrito() {
       }}
       validate={(values) => {
         const errors = {};
-
+        if (!values.com_pago_iden) {
+          errors.com_pago_iden = "Campo Obligatorio";
+        }
+        if (!values.com_env_iden) {
+          errors.com_env_iden = "Campo Obligatorio";
+        }
         return errors;
       }}
       onSubmit={async (values, { setSubmitting }) => {
@@ -57,7 +63,7 @@ export async function FormCarrito() {
             allowOutsideClick: false,
             allowEscapeKey: false,
           });
-          
+          navigarHacia("/");
         } else {
           Toast_Dinamico("error", "No Pudimos Agregar el Pedido");
         }
@@ -113,6 +119,9 @@ export async function FormCarrito() {
               </strong>
             </div>
           </div>
+          <div className="text-sm italic text-red-700">
+            {errors.com_env_iden}
+          </div>
 
           <div className="flex flex-col gap-4 justify-center items-center">
             <strong>Como Deseas Abonar el Pedido ?</strong>
@@ -141,7 +150,9 @@ export async function FormCarrito() {
               )}
             </div>
           </div>
-          <div>{errors.com_pago_iden}</div>
+          <div className="text-sm italic text-red-700">
+            {errors.com_pago_iden}
+          </div>
 
           <div className="grid grid-cols-1 gap-2 md:col-span-2">
             <strong>Algun Detalle Adicional ?</strong>

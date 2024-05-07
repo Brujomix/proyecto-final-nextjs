@@ -3,12 +3,12 @@ import Link from "next/link";
 
 export function User_NoLogin() {
   return (
-    <div className="grid grid-cols-1 gap-2">
+    <div className="grid grid-cols-1 gap-4 p-4">
       <Link
-        className="text-sm italic text-blue-700"
+        className="text-2xl itali"
         href={"/Login"}
       >
-        Inicia Session
+        Iniciar Session
       </Link>
       <Link
         className="text-sm italic text-blue-700"
