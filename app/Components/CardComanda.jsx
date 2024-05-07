@@ -1,5 +1,5 @@
 "use client";
-import React, { Suspense } from "react";
+import React from "react";
 import { BotonDinamico, InfoProductos_Comanda } from "@/app/Components";
 import {
   avisarEnvio,
@@ -8,6 +8,7 @@ import {
 } from "../Utilidades/Util_Comandas";
 
 export async function CardComanda({ comanda }) {
+  console.log(comanda);
   return (
     <div
       className={`${cambiaBackgroundComanda(
