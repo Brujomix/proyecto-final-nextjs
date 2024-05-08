@@ -29,7 +29,7 @@ export function CarritoIcon() {
       <Link defaultChecked={false} href={"/Carrito"}>
         <FiShoppingCart size={32} />
       </Link>
-      <span className="text-sm font-semibold rounded-full bg-white">
+      <span className="text-sm font-semibold rounded-full bg-neutral-200">
         {SumaItemsCarrito(itemsCarrito)}
       </span>
     </motion.div>

@@ -8,7 +8,7 @@ export async function NavBar() {
 
   return (
 
-      <div className="hide-scrollbar-buttons overflow-x-auto mb-4 flex flex-row gap-3 ml-5 mr-5 p-2 md:flex md:justify-center">
+      <div className="hide-scrollbar-buttons overflow-x-auto mb-4 mt-4 flex flex-row gap-3 ml-5 mr-5 p-2 md:flex md:justify-center">
         {listaCategorias.map((e) => (
           <Suspense key={e.cat_iden} fallback={<NavbarSkeleton/>}>
             <EnlaceCategoria categoria={e}/>

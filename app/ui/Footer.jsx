@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer({formContacto}) {
   return (
-    <footer className="grid grid-cols-1 md:grid-cols-2 gap-7 p-20 border-t-2 mt-7 bg-white">
+    <footer className="grid grid-cols-1 md:grid-cols-2 gap-7 p-20 border-t-2 mt-7 bg-neutral-300">
       <div className="flex flex-col items-center justify-center gap-4">
         <span className="underline tex-lg font-semibold">Informacion Contacto:</span>
         <ul className="space-y-4">

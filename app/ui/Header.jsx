@@ -1,10 +1,10 @@
-import React, { Suspense } from "react";
+import React from "react";
 import { Modal_User, RealTime } from "@/app/Components";
 import { Brand, CarritoIcon, EstadoApp } from "@/app/ui";
 
 export function Header() {
   return (
-    <header className="z-500 grid grid-cols-3 gap-2 p-1 fixed top-0 w-full bg-slate-50">
+    <header className="z-500 grid grid-cols-3 gap-2 p-1 fixed top-0 w-full bg-neutral-200">
       <div className="col-span-3">
         <Brand />
       </div>

@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-neutral-100 mt-40">
+      <body className="mt-44">
         <BannerCookie/>
         <ProviderRedux>
           <Header />

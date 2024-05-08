@@ -9,7 +9,7 @@ export function BotonesCarrito({ currentProducto }) {
   const dispatch = useDispatch();
   const currentEstado = useSelector((state) => state.EstadoApp.Estado);
   return (
-    <div className={`flex flex-row justify-center items-center gap-1`}>
+    <div className={`flex flex-row justify-around`}>
       <BotonDinamico
         disabled={!currentEstado ? true : false}
         className={currentEstado ? "cursor-pointer" : "cursor-not-allowed"}

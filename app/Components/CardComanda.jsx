@@ -23,9 +23,6 @@ export function CardComanda({ comanda }) {
           <span className="text-sm italic">{comanda.com_date}</span>
           <span className="text-sm italic">{comanda.com_hora}</span>
         </div>
-        <span className="text-sm italic text-center col-span-2">
-          {"comanda.com_entrega"}
-        </span>
       </div>
       <div className="grid grid-cols-3 gap-1 text-center">
         <span className="underline text-sm">Cliente: </span>
